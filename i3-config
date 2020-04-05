@@ -27,7 +27,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-exec --no-startup-id xautolock -corners ---- -time 15 -locker "sh ~/scripts/blur-lock.sh ; systemctl suspend" -detectsleep
+exec --no-startup-id xautolock -corners ---- -time 15 -locker "blur-lock; systemctl suspend" -detectsleep
 #exec --no-startup-id xss-lock -n /usr/share/doc/xss-lock/dim-screen.sh -- i3lock -n
 #biNDSYM XF86MonBrightnessUp exec --no-startup-id light -A 5 
 # Use Mouse+$mod to drag floating windows to their wanted position
