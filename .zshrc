@@ -6,7 +6,6 @@ export ZSH="/home/bravo/.oh-my-zsh"
 ZSH_THEME="af-magic"
 CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
-
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
@@ -26,17 +25,15 @@ HYPHEN_INSENSITIVE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-plugins=(git colored-man-pages) 
+plugins=(git colored-man-pages zsh-syntax-highlighting) 
 
 alias {vim,v}='nvim'; 
 alias :r='source ~/.zshrc '
@@ -49,8 +46,7 @@ alias op='xdg-open'
 alias r='ranger'
 alias dec='sudo light -U 10'
 alias inc='sudo light -A 10'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
+#alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
 
 source $ZSH/oh-my-zsh.sh
-source /home/bravo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
