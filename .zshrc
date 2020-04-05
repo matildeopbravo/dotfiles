@@ -1,8 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # Path to your oh-my-zsh installation.
 
-export ZSH="/home/bravo/.oh-my-zsh"
-
 ZSH_THEME="af-magic"
 CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"

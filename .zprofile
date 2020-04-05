@@ -1,7 +1,9 @@
 neofetch
 
+export PATH=$PATH:$HOME/.local/scripts
+export ZSH="$HOME/.oh-my-zsh"
 export TERMINAL=termite
-export  BROWSER="firefox"
+export BROWSER="firefox"
 
  if [[ -n $SSH_CONNECTION ]]; then
 export EDITOR='vim'
