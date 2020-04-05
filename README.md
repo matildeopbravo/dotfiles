@@ -1,19 +1,22 @@
 # Dotfiles
 
-## Requirements:
+## Packages:
 
  - **Window Manager** : i3, i3-gaps;
- - **Compositor** : picom-tryone-git
  - **Terminal** : termite
- - **Font** : ttf-hack
+ - **Shell** : zsh ; ohmyzsh
  - **Editor** : neovim
- - **Locker** : i3-locker (with blur-lock script) and xautolock
+ - **Compositor** : picom-tryone-git
+ - **Terminal Font** : ttf-hack
+ - **Locker** : i3-locker (with blur-lock script) ; xautolock
  - **Screen Capturing** : scrot
  - **Clipboard Manager** : xclip
  - **Audio tool** : pactl; pacmixer
  - **File Manager** : ranger
  - **Menu** : dmenu-extended
- - **System Info Display** : neofetch
  - **Image Viewer** : feh
  - **Battery Script** : i3-battery-popup
+ - **System Info Display** : neofetch
+ - **Video Player** : mvp
+ - **Document Viewer** : Zathura
  - **Vim Plugin Manager** : vim-plug
