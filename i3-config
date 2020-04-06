@@ -3,8 +3,8 @@ set $mod Mod4
 #
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
-
+#font pango:monospace 8
+font pango:DejaVu Sans Mono 8
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -52,7 +52,7 @@ exec --no-startup-id i3-battery-popup
 #bindsym $mod+d+1 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
+bindsym $mod+j  focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
@@ -169,39 +169,34 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-gaps inner 5
-gaps outer 5
+gaps inner 3 
+gaps outer 6
 smart_borders on
+smart_gaps on
 new_window none
 new_float normal
 hide_edge_borders none
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
-bar {
-       	status_command i3status
+ bar {
+   	status_command i3status
 	i3bar_command i3bar -t
-	#tray_output 
-	#height 18
+    font pango:DejaVu Sans Mono 10
 	colors {
-		#background #20242c
 		background #00000000
-		statusline #009bba
-		separator #009bba
+		statusline #FFFFFF
+		separator #FFFFFF
 
 		focused_workspace  #00000000 #009bba   #ffffff
-	        active_workspace   #00000000 #00000000 #ffffff
-        	inactive_workspace #00000000 #00000000 #888888
-      		urgent_workspace   #00000000 #00000000 #900000
-        	binding_mode       #00000000 #00000000 #900000
+	    active_workspace   #00000000 #00000000 #ffffff
+        inactive_workspace #00000000 #00000000 #888888
+      	urgent_workspace   #00000000 #00000000 #900000
+        binding_mode       #00000000 #00000000 #900000
 	}
     
 }
+
 bindsym $mod+i exec spotify
 bindsym $mod+o exec discord
 bindsym $mod+p exec firefox
