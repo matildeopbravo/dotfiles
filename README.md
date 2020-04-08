@@ -1,5 +1,9 @@
 # Dotfiles
 
+![alt text](https://github.com/matildeopbravo/dotfiles/raw/master/screenshot "Screenshot")
+
+
+
 ## Packages:
 
  - **Window Manager** : i3, i3-gaps;
@@ -13,10 +17,9 @@
  - **Clipboard Manager** : xclip
  - **Audio tool** : pactl; pacmixer
  - **File Manager** : ranger
- - **Menu** : dmenu-extended
  - **Image Viewer** : feh
  - **Battery Script** : i3-battery-popup
  - **System Info Display** : neofetch
  - **Video Player** : mvp
- - **Document Viewer** : Zathura
+ - **Document Viewer** : zathura
  - **Vim Plugin Manager** : vim-plug
