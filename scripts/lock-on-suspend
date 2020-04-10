@@ -1,0 +1,41 @@
+#!/bin/bash
+
+DBUS_NAME="org.freedesktop.login1"
+DBUS_PATH="/org/freedesktop/login1"
+DBUS_INTERFACE="org.freedesktop.login1.Manager"
+DBUS_SIGNAL="PrepareForSleep"
+
+INHIBITOR_PIDS=
+
+install_background_inhibitor() {
+	systemd-inhibit --what sleep --mode delay \
+		--who $0 --why "i3lock before suspend" \
+		tail -f /dev/null &
+
+	# There should be a better way...
+	pid=$!
+	pgid=`ps x -o "%r %p" | grep "$pid$" | cut -d' ' -f2`
+	tail_pid=`ps x -o "%p %r %c" | grep "$pgid.*tail$" | cut -d' ' -f2`
+	INHIBITOR_PIDS="$pid $tail_pid"
+}
+
+kill_background_inhibitor() {
+	kill $INHIBITOR_PIDS
+}
+
+trap kill_background_inhibitor INT TERM
+
+install_background_inhibitor
+
+gdbus monitor --system \
+	      --dest $DBUS_NAME \
+	      --object-path $DBUS_PATH | while read line; do
+	if echo "$line" | grep -q "$DBUS_INTERFACE.$DBUS_SIGNAL"; then
+		if echo "$line" | grep -q true; then
+			blur-lock
+			kill_background_inhibitor
+		else
+			install_background_inhibitor
+		fi
+	fi
+done

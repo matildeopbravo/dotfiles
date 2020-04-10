@@ -39,10 +39,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_extended_run
-
-#exec --no-startup-id compton --config ~/.config/.compton.conf
+# start rofi (a program launcher)
+bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 exec --no-startup-id picom -b --backend glx --experimental-backends
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png
 exec --no-startup-id i3-battery-popup
@@ -169,7 +167,7 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-gaps inner 3 
+gaps inner 6 
 gaps outer 6
 smart_borders on
 smart_gaps on
@@ -199,7 +197,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+i exec spotify
 bindsym $mod+o exec discord
-bindsym $mod+p exec firefox
+bindsym $mod+p exec firefox-developer-edition
 #scrot keybinds
 # Lets me select an area to screenshot, copies to clipboard and saves in /tmp
 bindsym Shift+Print --release exec "scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
