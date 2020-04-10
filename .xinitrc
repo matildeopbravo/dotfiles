@@ -1,4 +1,5 @@
 setxkbmap -layout pt &
-xset dpms 0 300 0 
-lock-on-suspend & disown
+
+my-lock-script
+
 exec i3 

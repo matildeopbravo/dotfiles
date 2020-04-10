@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xset dpms 0 300 0 
+lock-on-suspend & disown 
+xautolock -corners ---- -time 15 -locker "conditional-sleep" & disown
