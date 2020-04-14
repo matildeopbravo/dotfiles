@@ -5,7 +5,9 @@ DBUS_PATH="/org/freedesktop/login1"
 DBUS_INTERFACE="org.freedesktop.login1.Manager"
 DBUS_SIGNAL="PrepareForSleep"
 
+
 INHIBITOR_PIDS=
+
 
 install_background_inhibitor() {
 	systemd-inhibit --what sleep --mode delay \

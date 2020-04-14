@@ -45,7 +45,9 @@ alias r='ranger'
 alias dec='sudo light -U 10'
 alias inc='sudo light -A 10'
 alias vpnuminho="sudo openconnect -q -u a93246@alunos.uminho.pt --protocol=anyconnect https://vpn.uminho.pt & disown"
+
 #alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
+
 
 source $ZSH/oh-my-zsh.sh
 
