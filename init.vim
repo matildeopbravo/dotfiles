@@ -31,8 +31,8 @@ endif
 syntax on
 colorscheme onedark
 
-
 set number
+"set relativenumber
 set noshowmode
 set expandtab
 set shiftwidth=4
@@ -45,3 +45,6 @@ inoremap { {<CR><BS>}<Esc>ko
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
+
+"au VimEnter * :silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+"au VimLeave * :silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'

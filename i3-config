@@ -7,7 +7,6 @@ set $mod Mod4
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
-
 #custom bindings
 bindsym $mod+i exec spotify
 bindsym $mod+o exec discord
@@ -21,6 +20,7 @@ bindsym Print exec "scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selec
 
 # nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec --no-startup-id dunst
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -46,7 +46,7 @@ bindsym $mod+Shift+q kill
 # start rofi (a program launcher)
 bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 exec --no-startup-id picom -b --backend glx --experimental-backends
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper
 exec --no-startup-id i3-battery-popup
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -171,13 +171,27 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
+exec --no-startup-id ~/.local/scripts/alternating_layouts.py
+
 gaps inner 6 
 gaps outer 6
 smart_borders on
 smart_gaps on
-new_window none
-new_float normal
-hide_edge_borders none
+default_border pixel 2
+new_float pixel 
+new_window pixel 2
+#hide_edge_borders none
+# Theme colors
+# class                   border  backgr. text    indic.   child_border
+  client.focused          #ff79c6 #ff79c6 #80FFF9 #FDF6E3
+  client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948
+  client.urgent           #CB4B16 #FDF6E3 #AD69AF #268BD2
+  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+
+  client.background       #2B2C2B
+
+
 
 bindsym $mod+r mode "resize"
 

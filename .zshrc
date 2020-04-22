@@ -1,9 +1,9 @@
-# If you come from bash you might have to change your $PATH.
-# Path to your oh-my-zsh installation.
+# If you come from bash you might have to change your $PATH.  Path to your oh-my-zsh installation.
 
 ZSH_THEME="af-magic"
 CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
+#DISABLE_LS_COLORS="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
@@ -33,6 +33,16 @@ HYPHEN_INSENSITIVE="true"
 
 plugins=(git colored-man-pages zsh-syntax-highlighting) 
 
+
+
+if hash exa &>/dev/null
+then
+    alias ls='exa' 
+    alias tree='exa -T'
+    alias lsnew='exa -lsnew'
+else
+    alias ls='ls --color=auto'
+fi
 alias {vim,v}='nvim'; 
 alias :r='source ~/.zshrc '
 alias rbt='reboot'
@@ -40,14 +50,23 @@ alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias d='cd ~/Desktop'
-alias op='xdg-open' 
+alias mv='mv -i'
+alias rm='rm -i'
+alias kill='kill -9'
 alias r='ranger'
 alias dec='sudo light -U 10'
 alias inc='sudo light -A 10'
+alias calc='clac'
 alias vpnuminho="sudo openconnect -q -u a93246@alunos.uminho.pt --protocol=anyconnect https://vpn.uminho.pt & disown"
+alias minecraft="prime-run java -jar /opt/tlauncher/tlauncher.jar"
 
+
+function op () {
+    xdg-open "$@" & disown 
+    if test -f "$1"; then
+        exit
+    fi
+}
 #alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
 
-
 source $ZSH/oh-my-zsh.sh
-
