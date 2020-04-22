@@ -1,3 +1,5 @@
+follow = mouse
+
 [frame]
     width = 0
     color = "#212121"
@@ -78,7 +80,7 @@
     close_all = ctrl+shift+space
 
     # Recall last message(s) 
-    history = mod1+grave
+    history = ctrl+shift+period
 
     # Context menu
     # context = ctrl+shift+period
