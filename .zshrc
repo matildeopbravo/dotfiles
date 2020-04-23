@@ -43,6 +43,7 @@ then
 else
     alias ls='ls --color=auto'
 fi
+alias cat='bat'
 alias {vim,v}='nvim'; 
 alias :r='source ~/.zshrc '
 alias rbt='reboot'
@@ -57,9 +58,9 @@ alias r='ranger'
 alias dec='sudo light -U 10'
 alias inc='sudo light -A 10'
 alias calc='clac'
-alias vpnuminho="sudo openconnect -q -u a93246@alunos.uminho.pt --protocol=anyconnect https://vpn.uminho.pt & disown"
+alias vpnuminho="sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt "
 alias minecraft="prime-run java -jar /opt/tlauncher/tlauncher.jar"
-alias lightkeys="sudo chown bravo:bravo /sys/class/backlight/intel_backlight/brightness"
+alias lightkeys="sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness"
 alias layout=". ~/.dotfiles/scripts/layout"
     
 function op () {
