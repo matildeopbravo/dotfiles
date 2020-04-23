@@ -59,14 +59,16 @@ alias inc='sudo light -A 10'
 alias calc='clac'
 alias vpnuminho="sudo openconnect -q -u a93246@alunos.uminho.pt --protocol=anyconnect https://vpn.uminho.pt & disown"
 alias minecraft="prime-run java -jar /opt/tlauncher/tlauncher.jar"
-
-
+alias lightkeys="sudo chown bravo:bravo /sys/class/backlight/intel_backlight/brightness"
+alias layout=". ~/.dotfiles/scripts/layout"
+    
 function op () {
     xdg-open "$@" & disown 
     if test -f "$1"; then
         exit
     fi
 }
+
 #alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
 
 source $ZSH/oh-my-zsh.sh
