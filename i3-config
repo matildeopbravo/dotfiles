@@ -21,6 +21,15 @@ bindsym Print exec "scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selec
 # nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym XF86MonBrightnessUp exec echo $(( $(cat /sys/class/backlight/intel_backlight/brightness) + 150 )) > /sys/class/backlight/intel_backlight/brightness
+bindsym XF86MonBrightnessDown exec echo $(( $(cat /sys/class/backlight/intel_backlight/brightness) - 150 )) > /sys/class/backlight/intel_backlight/brightness
+
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPlay exec bash -c "pgrep spotify && spotify & disown" ;exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop; exec killall spotify
+bindsym XF86AudioPrevious exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+#
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 #exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -194,24 +203,22 @@ new_window pixel 2
 
 
 bindsym $mod+r mode "resize"
-
- bar {
-   	status_command i3status
-	i3bar_command i3bar -t
-    font pango:DejaVu Sans Mono 10
-	colors {
-		background #00000000
-		statusline #FFFFFF
-		separator #FFFFFF
-
-		focused_workspace  #00000000 #009bba   #ffffff
-	    active_workspace   #00000000 #00000000 #ffffff
-        inactive_workspace #00000000 #00000000 #888888
-      	urgent_workspace   #00000000 #00000000 #900000
-        binding_mode       #00000000 #00000000 #900000
-	}
-    
-}
+#bar {
+#   	status_command i3status
+#	i3bar_command i3bar -t
+#    font pango:DejaVu Sans Mono 10
+#	colors {
+#		background #00000000
+#		statusline #FFFFFF
+#		separator #FFFFFF
+#
+#		focused_workspace  #00000000 #009bba   #ffffff
+#	    active_workspace   #00000000 #00000000 #ffffff
+#        inactive_workspace #00000000 #00000000 #888888
+#      	urgent_workspace   #00000000 #00000000 #900000
+#        binding_mode       #00000000 #00000000 #900000
+#	}
+#}
 
 bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
 bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
