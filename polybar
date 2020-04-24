@@ -57,15 +57,15 @@ module-margin-right = 2
 ;font-0 = unifont:fontformat=truetype:size=8:antialias=false;3
 font-0 = "Roboto:size=11:weight=bold;2"
 ;font-2 = siji:pixelsize=10;1
-font-1 = FontAwesome5Free:style=Solid:size=10;3
+font-1 = FontAwesome5Free:style=Solid:size=11;3
 font-2 = FontAwesome5Free:style=Regular:size=10;4
-font-3 = FontAwesome5Brands:style=Regular:size=10;4
+font-3 = FontAwesome5Brands:style=Regular:size=10;2
 modules-left = i3 
 modules-center = spotify mpd 
 modules-right = pulseaudio memory cpu battery date 
 
 tray-position = right
-tray-padding = 2
+tray-padding = 5
 ;tray-background = #0063ff
 
 ;wm-restack = i3
@@ -106,33 +106,26 @@ label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
 
 [module/i3]
+
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
+
 wrapping-scroll = false
+
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;
+
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
@@ -142,16 +135,16 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = #009bba 
 label-focused-padding =1 
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = #009bba
 label-visible-padding = ${self.label-focused-padding}
 
@@ -273,7 +266,7 @@ label-volume =   %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = 
-
+click-right = pavucontrol &
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55

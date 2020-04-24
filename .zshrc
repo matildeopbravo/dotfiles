@@ -34,12 +34,16 @@ HYPHEN_INSENSITIVE="true"
 plugins=(git colored-man-pages zsh-syntax-highlighting) 
 
 
+source $ZSH/oh-my-zsh.sh
 
 if hash exa &>/dev/null
 then
     alias ls='exa' 
+    alias l='ls -lsnew'
+    alias ll='ls -la'
     alias tree='exa -T'
     alias lsnew='exa -lsnew'
+
 else
     alias ls='ls --color=auto'
 fi
@@ -52,7 +56,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias d='cd ~/Desktop'
 alias mv='mv -i'
-alias rm='rm -i'
 alias kill='kill -9'
 alias r='ranger'
 alias dec='sudo light -U 10'
@@ -62,6 +65,7 @@ alias vpnuminho="sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn
 alias minecraft="prime-run java -jar /opt/tlauncher/tlauncher.jar"
 alias lightkeys="sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness"
 alias layout=". ~/.dotfiles/scripts/layout"
+alias suspend='systemctl suspend'
     
 function op () {
     xdg-open "$@" & disown 
@@ -72,4 +76,3 @@ function op () {
 
 #alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
 
-source $ZSH/oh-my-zsh.sh

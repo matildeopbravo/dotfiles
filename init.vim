@@ -45,6 +45,8 @@ inoremap { {<CR><BS>}<Esc>ko
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "+y
 vnoremap <C-x> "+d
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 
 "au VimEnter * :silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "au VimLeave * :silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
