@@ -12,6 +12,7 @@
  - **Editor** : neovim
  - **Compositor** : picom-tryone-git
  - **Terminal Font** : ttf-hack
+ - **Status Bar** : polybar
  - **Locker** : i3-locker (with blur-lock script) ; xautolock
  - **Screen Capturing** : scrot
  - **Clipboard Manager** : xclip
@@ -19,7 +20,6 @@
  - **File Manager** : ranger
  - **Image Viewer** : feh
  - **Battery Script** : i3-battery-popup
- - **System Info Display** : neofetch
  - **Video Player** : mvp
  - **Document Viewer** : zathura
- - **Vim Plugin Manager** : vim-plug
+ - **Notification Daemon** : dunst
