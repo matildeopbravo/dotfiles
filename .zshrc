@@ -31,7 +31,7 @@ HYPHEN_INSENSITIVE="true"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-plugins=(git colored-man-pages zsh-syntax-highlighting) 
+plugins=(git colored-man-pages zsh-syntax-highlighting vi-mode) 
 
 
 source $ZSH/oh-my-zsh.sh
@@ -61,18 +61,27 @@ alias r='ranger'
 alias dec='sudo light -U 10'
 alias inc='sudo light -A 10'
 alias calc='clac'
-alias vpnuminho="sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt "
-alias minecraft="prime-run java -jar /opt/tlauncher/tlauncher.jar"
-alias lightkeys="sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness"
-alias layout=". ~/.dotfiles/scripts/layout"
+alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
+alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
+alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
+alias layout='. ~/.dotfiles/scripts/layout'
 alias suspend='systemctl suspend'
-    
+alias t='termite -d $PWD & disown'
+
+
 function op () {
     xdg-open "$@" & disown 
     if test -f "$1"; then
         exit
     fi
 }
-
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+#function mpv () {
+#    mpv --geometry=1200x700 "$1" 
+#    exit
+#}
+#alias mpvn='mpv --no-video'
 #alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
 

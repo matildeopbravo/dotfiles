@@ -17,20 +17,17 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-;background =  #1f221b
-background = #cc021b21
+background = #21b21
 background-alt = #021b21
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #55
-;primary = #ffb52a
 primary = #44b5b1
 secondary = #e60053
 alert = #bd2c40
 
 [bar/main]
 monitor = ${env:MONITOR:}
+enable-ipc = true
 width = 100%
 height = 20
 ;offset-x = 1%
@@ -53,16 +50,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-;font-0 = fixed:pixelsize=10;1
-;font-0 = unifont:fontformat=truetype:size=8:antialias=false;3
 font-0 = "Roboto:size=11:weight=bold;2"
-;font-2 = siji:pixelsize=10;1
 font-1 = FontAwesome5Free:style=Solid:size=11;3
 font-2 = FontAwesome5Free:style=Regular:size=10;4
 font-3 = FontAwesome5Brands:style=Regular:size=10;2
 modules-left = i3 
-modules-center = spotify mpd 
-modules-right = pulseaudio memory cpu battery date 
+modules-center = spotify 
+modules-right = cpu memory date pulseaudio battery 
 
 tray-position = right
 tray-padding = 5
@@ -197,16 +191,16 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format-prefix = " "
-format-prefix-foreground = #009bba 
+;format-prefix-foreground = #009bba 
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = "  "
-format-prefix-foreground = #009bba 
+;format-prefix-foreground = #009bba 
 ;format-underline = #4bffdc
-label =  %percentage_used%%
+label =  %gb_used%
 
 [module/wlan]
 type = internal/network
@@ -245,17 +239,18 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
-date =
-date-alt = " %Y-%m-%d"
+date = "%a, %d %b"
+date-alt = "%d-%m-%y"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix =       
-format-prefix-foreground = #009bba 
-label = %date% %time%
+format-prefix =  "  "      
+;format-prefix-foreground = #009bba 
+label = %date%   %time%
+
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -321,8 +316,8 @@ full-at = 90
 format-charging = <animation-charging>  <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 
-format-full-prefix = " "
-format-full-prefix-foreground = #3FB837
+format-full-prefix = " "
+format-full-prefix-foreground = #D2CB00
 
 ramp-capacity-0 =" "
 ramp-capacity-0-foreground = #FF0000
@@ -330,6 +325,8 @@ ramp-capacity-1 = " "
 ramp-capacity-1-foreground = #f7ca18   
 ramp-capacity-2 = " " 
 ramp-capacity-2-foreground = #3FB837
+ramp-capacity-3 = " "
+ramp-capacity-3-foreground = #3FB837
 
 animation-charging-0 =  
 animation-charging-1 =  
@@ -400,8 +397,8 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0 ; 5
 
 ; vim:ft=dosini
 
@@ -418,6 +415,39 @@ type = custom/script
 interval = 1
 format-prefix =" "
 format = <label>
-exec = python /usr/share/polybar/scripts/spotify_status.py -t 42 -f '  {song} - {artist} - {album}'
+exec = python /usr/share/polybar/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 
+[module/playpause]
+type = custom/ipc
+; Playing
+hook-0 = echo ""
+; Paused
+hook-1 = echo ""
+initial = 1
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+[module/previous]
+type = custom/script
+interval = 86400
+format = "%{T3}<label>"
+format-padding = 5
+; Previous song icon
+exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+[module/next]
+type = custom/script
+interval = 86400
+format = "%{T3}<label>"
+format-padding = 5
+; Next song icon
+exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
 
