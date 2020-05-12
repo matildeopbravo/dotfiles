@@ -1,6 +1,6 @@
 # Dotfiles
 
-![alt text](https://github.com/matildeopbravo/dotfiles/raw/master/screenshot "Screenshot")
+![alt text](https://github.com/matildeopbravo/dotfiles/raw/master/screenshot.png "Screenshot")
 
 
 
