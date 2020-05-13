@@ -20,6 +20,6 @@
  - **File Manager** : ranger
  - **Image Viewer** : feh
  - **Battery Script** : i3-battery-popup
- - **Video Player** : mvp
+ - **Video Player** : mpv
  - **Document Viewer** : zathura
  - **Notification Daemon** : dunst
