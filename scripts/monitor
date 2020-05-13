@@ -4,4 +4,5 @@ xrandr --output HDMI-1 --auto
 xrandr --output HDMI-1 --left-of eDP-1
 feh --bg-fill ~/Pictures/Wallpapers/blue-horizon.jpg
 picom -b --backend glx --experimental-backends & disown
+i3-msg "restart"
 

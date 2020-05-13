@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.  Path to your oh-my-zsh installation.
 
 ZSH_THEME="af-magic"
-CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
 #DISABLE_LS_COLORS="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
@@ -54,7 +54,7 @@ alias rbt='reboot'
 alias c='clear'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias d='cd ~/Desktop'
+alias d='cd ~/.dotfiles'
 alias mv='mv -i'
 alias kill='kill -9'
 alias r='ranger'
@@ -67,7 +67,9 @@ alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/bri
 alias layout='. ~/.dotfiles/scripts/layout'
 alias suspend='systemctl suspend'
 alias t='termite -d $PWD & disown'
-
+alias ka='killall'
+alias :q='exit'
+alias py='python'
 
 function op () {
     xdg-open "$@" & disown 

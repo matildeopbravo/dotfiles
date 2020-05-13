@@ -24,7 +24,7 @@ exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec --no-startup-id ~/.local/scripts/alternating_layouts.py 
+exec --no-startup-id alternating_layouts.py 
 
 # Media Controls
 
@@ -215,7 +215,7 @@ bindsym $mod+r mode "resize"
 
 
 #bar {
-#   	status_command i3status
+#   status_command i3status
 #	i3bar_command i3bar -t
 #    font pango:DejaVu Sans Mono 10
 #	colors {

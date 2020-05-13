@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import i3
 import re
 import subprocess
