@@ -16,27 +16,29 @@ bindsym Shift+Print --release exec "scrot -sf /tmp/screenshot-$(date +%F_%T).png
 bindsym Print exec "scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 #Screenshots a selected area, copies to clipboard and saves in ~/Pictures/screenshots
 bindsym Ctrl+Shift+Print --release exec "scrot -sf ~/Pictures/screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-
+#Runs flameshot and flameshot gui and closes after 5 minutes
 bindsym $mod+Print exec "flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot "
 
 # Start-Up Apps
 exec_always --no-startup-id picom -b --backend glx --experimental-backends
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/blue-horizon.jpg
+exec_always --no-startup-id feh --bg-fill Pictures/Wallpapers/blue-horizon.jpg 
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec --no-startup-id alternating_layouts.py 
+exec_always --no-startup-id alternating_layouts.py 
 
 # Media Controls
 
 # Laptop Keybinds
+    #General
 bindsym Ctrl+Mod1+space exec --no-startup-id playerctl play-pause; exec "pgrep spotify || (spotify & disown ; sleep 5; playerctl play)"
 bindsym Ctrl+Mod1+Right exec --no-startup-id playerctl next
 bindsym Ctrl+Mod1+Left exec --no-startup-id playerctl previous
-bindsym Ctrl+Mod1+Up exec --no-startup-id playerctl volume 0.05+
-bindsym Ctrl+Mod1+Down exec --no-startup-id playerctl volume 0.05-
-
+    #Spotify
+bindsym Ctrl+Shift+space exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym Ctrl+Shift+Right exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym Ctrl+Shift+Left exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 # Media Keys
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause; exec "pgrep spotify || (spotify & disown ; sleep 5; playerctl play)"
 bindsym XF86AudioNext exec --no-startup-id playerctl next

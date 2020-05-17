@@ -7,6 +7,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
+
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
@@ -56,7 +57,7 @@ set cindent smarttab autoindent smartindent
 set tabstop=4
 
 
-inoremap { {<CR><BS>}<Esc>ko
+inoremap { {}<Esc>i
 inoremap ( ()<Esc>i
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "+y

@@ -1,5 +1,18 @@
+source $ZSHDIR/alias.zsh
 source ~/.zplug/init.zsh
-#autoload -U colors && colors 
+
+autoload -U colors && colors 
+autoload -Uz compinit
+
+setopt autocd
+unsetopt nomatch #if there is no match using globs, it is not expanded
+
+zstyle :compinstall filename "~/.zshrc"
+zstyle ':completion:*' menu select # highlights options of completion 
+
+compinit
+
+#Prompt
 setopt PROMPT_SUBST
 export PROMPT='
  %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$reset_color%}'
@@ -12,56 +25,34 @@ setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
 
+
 bindkey "^?" backward-delete-char # fixes problem in vi mode when you  want to delete using backspace after leaving normal mode
+bindkey -v # use vi mode
 
-if hash exa &>/dev/null
-then
-    alias ls='exa' 
-    alias l='ls -lsnew'
-    alias ll='ls -la'
-    alias tree='exa -T'
-    alias lsnew='exa -lsnew'
-
-else
-    alias ls='ls --color=auto'
-fi
-alias cat='bat'
-alias {vim,v}='nvim'; 
-alias :r='source ~/.zshrc '
-alias rbt='reboot'
-alias c='clear'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias d='cd ~/.dotfiles'
-alias mv='mv -i'
-alias kill='kill -9'
-alias r='ranger'
-alias dec='sudo light -U 10'
-alias inc='sudo light -A 10'
-alias calc='clac'
-alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
-alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
-alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
-alias layout='. ~/.dotfiles/scripts/layout'
-alias suspend='systemctl suspend'
-alias t='termite -d $PWD & disown'
-alias ka='killall'
-alias :q='exit'
-alias py='python'
-
-function op () {
-    xdg-open "$@" & disown 
-    if test -f "$1"; then
-        exit
-    fi
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[2 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[6 q'
+  fi
 }
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[6 q"
+}
+zle -N zle-line-init
+echo -ne '\e[6 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
+
+source /home/bravo/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-#function mpv () {
-#    mpv --geometry=1200x700 "$1" 
-#    exit
-#}
-#alias mpvn='mpv --no-video'
-#alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/.git'
-source /home/bravo/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

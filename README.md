@@ -7,14 +7,14 @@
 ## Packages:
 
  - **Window Manager** : i3, i3-gaps;
- - **Terminal** : termite
- - **Shell** : zsh ; ohmyzsh
+ - **Terminal** : alacritty
+ - **Shell** : zsh 
  - **Editor** : neovim
  - **Compositor** : picom-tryone-git
  - **Terminal Font** : ttf-hack
  - **Status Bar** : polybar
  - **Locker** : i3-locker (with blur-lock script) ; xautolock
- - **Screen Capturing** : scrot
+ - **Screen Capturing** : scrot and flameshot
  - **Clipboard Manager** : xclip
  - **Audio tool** : pactl; pacmixer
  - **File Manager** : ranger
