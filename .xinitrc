@@ -1,5 +1,5 @@
-bash ~/.dotfiles/scripts/layout
+layout
 
 my-lock-script
 
-exec i3 
+exec i3

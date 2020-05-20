@@ -31,10 +31,11 @@ alias calc='clac'
 alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
 alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
 alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
-alias suspend='systemctl suspend'
+alias susp='systemctl suspend'
 alias ka='killall'
 alias :q='exit'
 alias py='python'
+alias neofetch='neofetch --ascii_distro Linux'
 
 #git alias
 alias g='git'
@@ -91,7 +92,9 @@ dual() {
     xrandr --output HDMI-1 --auto
     xrandr --output HDMI-1 --left-of eDP-1
     feh --bg-fill ~/Pictures/Wallpapers/blue-horizon.jpg
+    killall picom ; killall polybar
     picom -b --backend glx --experimental-backends & disown
+    bash ~/.config/polybar/launch.sh
     layout
     i3-msg "restart"
 }
