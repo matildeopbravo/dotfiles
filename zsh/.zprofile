@@ -6,7 +6,7 @@ export ZSHDIR=$DOTFILES/zsh
 export TERMINAL=alacritty
 export BROWSER="firefox-developer-edition"
 export PAGER="less"
-export WALLPAPER="Pictures/Wallpapers/blue-horizon.jpg"
+export WALLPAPER="~/Pictures/Wallpapers/blue-horizon.jpg"
 export KEYTIMEOUT=1
 
 export EXA_COLORS="*.mkv=36:*.mp3=36:*.mp4=36:*.aac=36:*.pdf=34:*.png=33:*.jpeg=33:*.jpg=33:*.o=10:*.c=36"

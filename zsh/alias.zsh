@@ -27,7 +27,6 @@ alias zprofile='v $ZSHDIR/.zprofile'
 alias mv='mv -i'
 alias kill='kill -9'
 alias r='ranger'
-alias calc='clac'
 alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
 alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
 alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
@@ -101,7 +100,12 @@ dual() {
 
 single() {
     xrandr --output HDMI-1 --off 
-    feh --bg-fill $WALLPAPER
-
+    feh --bg-fill ~/Pictures/Wallpapers/blue-horizon.jpg
 }
 
+calc() {
+    
+    rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | xclip" & disown
+
+
+}
