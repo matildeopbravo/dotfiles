@@ -13,6 +13,10 @@ fi
 
 alias cat='bat'
 alias {vim,v}='nvim'; 
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rp -iv'
+alias diff="diff --color=auto"
 alias :r='source ~/.zshrc '
 alias rbt='reboot'
 alias c='clear'
@@ -27,6 +31,7 @@ alias zprofile='v $ZSHDIR/.zprofile'
 alias mv='mv -i'
 alias kill='kill -9'
 alias r='ranger'
+alias z='zathura'
 alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
 alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
 alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
@@ -35,6 +40,7 @@ alias ka='killall'
 alias :q='exit'
 alias py='python'
 alias neofetch='neofetch --ascii_distro Linux'
+
 
 #git alias
 alias g='git'

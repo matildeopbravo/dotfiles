@@ -16,13 +16,14 @@ if (empty($TMUX))
 endif
 
 syntax on
-colorscheme onedark
+colorscheme gruvbox 
 set number
 set noshowmode
 set expandtab
 set shiftwidth=4
 set cindent smarttab autoindent smartindent
 set tabstop=4
+set completeopt-=preview "make clang complete not preview and just complete
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
