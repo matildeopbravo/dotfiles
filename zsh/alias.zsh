@@ -2,44 +2,46 @@
 if hash exa &>/dev/null
 then
     alias ls='exa' 
-    alias l='exa -lsnew -la'
+    alias l='exa -lsnew -a'
     alias ll='exa -lsnew'
-    alias la='exa --sort=name -l'
     alias tree='exa -T'
 
 else
     alias ls='ls --color=auto'
 fi
 
-alias cat='bat'
-alias {vim,v}='nvim'; 
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rp -iv'
-alias diff="diff --color=auto"
-alias :r='source ~/.zshrc '
-alias rbt='reboot'
-alias c='clear'
-alias ..='cd ..'
-alias ...='cd ../..'
+#config files
 alias d='$DOTFILES'
 alias ds='$DOTILES/scripts'
 alias 3='v $DOTFILES/i3/config'
 alias zshrc='v $ZSHDIR/.zshrc'
 alias zalias='v $ZSHDIR/alias.zsh'
 alias zprofile='v $ZSHDIR/.zprofile'
-alias mv='mv -i'
+
+alias cat='bat'
+alias {vim,v}='nvim'; 
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -Iv'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias diff="diff --color=auto"
+alias :r='source ~/.zshrc '
+alias c='clear'
+alias :q='exit'
 alias kill='kill -9'
 alias r='ranger'
 alias z='zathura'
+alias py='python'
+alias f="fzf --preview-window=right:60% --preview='bat --color "always" {}' | xclip"
+alias vf='vim `f`'
 alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
 alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
 alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
 alias susp='systemctl suspend'
+alias rbt='reboot'
 alias ka='killall'
-alias :q='exit'
-alias py='python'
-alias neofetch='neofetch --ascii_distro Linux'
+alias weather="curl 'wttr.in/~'${1:-Braga}'+'$2'?'${3:-0}"
 
 
 #git alias
@@ -71,7 +73,7 @@ function op () {
 #}
 
 #alias mpvn='mpv --no-video'
-ex() {
+extract() {
   if [ -f "$1" ] ; then
     case "$1" in
       *.tar.bz2)   tar xjf "$1"   ;;
@@ -113,5 +115,17 @@ calc() {
     
     rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '{result}' | xclip" & disown
 
-
 }
+
+mkcd() {
+  mkdir $@
+  cd $@
+}
+
+send-sms() {
+  curl -X POST https://textbelt.com/text \
+       --data-urlencode phone="$1" \
+       --data-urlencode message="$2" \
+       -d key=textbelt
+}
+
