@@ -6,20 +6,19 @@
 
 ## Packages:
 
- - **Window Manager** : i3, i3-gaps;
+ - **Window Manager** : i3-gaps;
  - **Terminal** : alacritty
  - **Shell** : zsh 
  - **Editor** : neovim
  - **Compositor** : picom-tryone-git
- - **Terminal Font** : ttf-hack
+ - **Terminal Font** : Hack Nerd Font
  - **Status Bar** : polybar
  - **Locker** : i3-locker (with blur-lock script) ; xautolock
- - **Screen Capturing** : scrot and flameshot
+ - **Screen Capturing** : scrot; flameshot
  - **Clipboard Manager** : xclip
  - **Audio tool** : pactl; pacmixer
  - **File Manager** : ranger
  - **Image Viewer** : feh
- - **Battery Script** : i3-battery-popup
  - **Video Player** : mpv
  - **Document Viewer** : zathura
  - **Notification Daemon** : dunst
