@@ -1,20 +1,12 @@
-configuration {
 
-    // The display name of this browser
-    display-ssh:                   "  ";
-    // The display name of this browser
-    display-run:                    "";
-    // The display name of this browser
-    display-drun:                   "";
-    // The display name of this browser
-    display-window:                 "";
-    display-combi:                  "";
+
+configuration {
     show-icons: true;
 }
 * {
-  background-color: #282C33;
-  border-color: #2e343f;
-  text-color: #8ca0aa;
+  background-color: #4e5056;
+  border-color: #4e5056;
+  text-color: #4e5056;
   spacing: 0;
   width: 512px;
 }
@@ -72,7 +64,7 @@ prompt {
 }
 
 textbox {
-      background-color: #2e343f;
+      background-color: #4e5056;
         border: 0 0 1px 0;
                   border-color: #282C33;
                     padding: 8px 16px;

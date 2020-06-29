@@ -1,4 +1,5 @@
 source $DOTFILES/nvim/plugins.vim
+
 source $DOTFILES/nvim/keybindings.vim
 
 augroup auFileTypes
@@ -16,7 +17,7 @@ if (empty($TMUX))
 endif
 
 syntax on
-colorscheme gruvbox 
+colorscheme onedark
 set number
 set noshowmode
 set expandtab
@@ -27,3 +28,4 @@ set completeopt-=preview "make clang complete not preview and just complete
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+set nuw=2 "width of the line number column

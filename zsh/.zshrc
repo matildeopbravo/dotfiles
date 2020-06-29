@@ -1,4 +1,5 @@
 source $ZSHDIR/alias.zsh
+source $ZSHDIR/functions.zsh
 source ~/.zplug/init.zsh
 
 autoload -U colors && colors 
@@ -20,7 +21,7 @@ export PROMPT='
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.zsh_history 
+HISTFILE=~/.local/cached/.zsh_history 
 setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
@@ -50,7 +51,7 @@ zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
-source /home/bravo/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
