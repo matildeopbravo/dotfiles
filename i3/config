@@ -22,7 +22,7 @@ bindsym $mod+Shift+w exec wallpaper
 
 # Start-Up Apps
 exec_always --no-startup-id picom -b --backend glx --experimental-backends
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/alone.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/neon_city.jpg
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
@@ -200,16 +200,15 @@ gaps inner 8
 gaps outer 1
 smart_borders on
 smart_gaps on
-default_border pixel 3
+default_border pixel 2
 new_float pixel 
-new_window pixel 3
+new_window pixel 2
 hide_edge_borders none
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
   client.focused          #ff79c6 #ff79c6 #80FFF9 #ff79c6 
-  client.focused          #00FFFFFF #00FFFFFF #00FFFFFF #00FFFFFF
-#  client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948
+  client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948
   client.urgent           #CB4B16 #FDF6E3 #AD69AF #268BD2
   client.placeholder      #ff79c6 #ff79c6 #ff79c6 #ff79c6 
 
