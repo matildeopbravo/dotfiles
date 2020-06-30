@@ -1,14 +1,20 @@
 #!/bin/bash
 
-if [[ $# -eq 1 ]]; then
-    sed -i "s|feh.*|feh --bg-fill $1|" ~/.config/i3/config
-    i3-msg 'restart'
-else
-    DIR=~/Pictures/Wallpapers 
-    length=`ls $DIR | wc -l`
+i3dir=$DOTFILES/i3/config
+walldir=$HOME/Pictures/Wallpapers
+
+randwall() {
+    length=`ls $walldir | wc -l`
     number=$(($RANDOM%$length))
-    name=`ls $DIR | head -$number | tail -1`
-    echo "$name"
-    sed -i "s|feh.*|feh --bg-fill ~/Pictures/Wallpapers/$name|" ~/.dotfiles/i3/config 
-    i3-msg 'restart'
+    name=`ls $walldir | head -$((number+1)) | tail -1`
+    echo $name
+}
+
+if [[ $# -eq 1 ]]; then
+    file=$1
+else
+    file="$walldir/$(randwall)"
 fi
+
+sed -i "s|feh.*|feh --bg-fill $file|" $i3dir
+i3-msg 'restart' &>/dev/null
