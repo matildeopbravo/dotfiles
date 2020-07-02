@@ -16,13 +16,13 @@ bindsym Print exec "scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selec
 bindsym Ctrl+Shift+Print --release exec "scrot -sf ~/Pictures/screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 #Runs flameshot and flameshot gui and closes after 5 minutes
 bindsym $mod+Print exec "flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot "
-bindsym $mod+c exec calc
+bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '"
 bindsym $mod+Shift+f exec "rofi -show file-browser"
 bindsym $mod+Shift+w exec wallpaper
 
 # Start-Up Apps
 exec_always --no-startup-id picom -b --backend glx --experimental-backends
-exec_always --no-startup-id feh --bg-fill /home/bravo/Pictures/Wallpapers/Magic-Sky.jpg
+exec_always --no-startup-id feh --bg-fill /home/bravo/Pictures/Wallpapers/coffe_shop.jpg
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
@@ -53,8 +53,7 @@ bindsym XF86AudioRaiseVolume exec sh -c 'pactl set-sink-volume @DEFAULT_SINK@ +1
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ true && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-#biNDSYM XF86MonBrightnessUp exec --no-startup-id light -A 5 
+bindsym XF86WebCam exec "systemctl suspend"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

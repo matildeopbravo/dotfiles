@@ -1,6 +1,6 @@
 neofetch
 
-export PATH=$PATH:$HOME/.local/scripts
+export PATH=$PATH:$HOME/.scripts
 export DOTFILES=$HOME/.dotfiles
 export ZSHDIR=$DOTFILES/zsh
 export TERMINAL=alacritty

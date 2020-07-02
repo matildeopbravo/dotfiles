@@ -236,7 +236,7 @@
     history = ctrl+shift+period
 
     # Context menu
-    # context = ctrl+shift+period
+     context = ctrl+shift+period
 
 [urgency_low]
     background = "#000000"

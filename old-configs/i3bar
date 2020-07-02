@@ -1,0 +1,17 @@
+#bar {
+#   status_command i3status
+#	i3bar_command i3bar -t
+#    font pango:DejaVu Sans Mono 10
+#	colors {
+#		background #00000000
+#		statusline #FFFFFF
+#		separator #FFFFFF
+#
+#		focused_workspace  #00000000 #009bba   #ffffff
+#	    active_workspace   #00000000 #00000000 #ffffff
+#        inactive_workspace #00000000 #00000000 #888888
+#      	urgent_workspace   #00000000 #00000000 #900000
+#        binding_mode       #00000000 #00000000 #900000
+#	}
+#}
+

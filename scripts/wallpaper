@@ -5,8 +5,8 @@ walldir=$HOME/Pictures/Wallpapers
 
 randwall() {
     length=`ls $walldir | wc -l`
-    number=$(($RANDOM%$length))
-    name=`ls $walldir | head -$((number+1)) | tail -1`
+    number=$((($RANDOM%$length)+1))
+    name=`ls $walldir | head -$number | tail -1`
     echo $name
 }
 

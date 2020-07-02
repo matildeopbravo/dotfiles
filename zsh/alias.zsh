@@ -19,7 +19,7 @@ alias zprofile='v $ZSHDIR/.zprofile'
 alias cat='bat'
 alias {vim,v}='nvim'; 
 alias cp='cp -iv'
-alias mv='mv -iv'
+alias mv='mv.sh' # my script which creates symlinks
 alias rm='rm -Iv'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -31,7 +31,7 @@ alias kill='kill -9'
 alias r='ranger'
 alias z='zathura'
 alias py='python'
-alias fzf="fzf --preview-window=right:60% --preview='bat --color "always" {}' | xclip"
+alias fzf="fzf --preview-window=right:60% --preview='bat --color "always" {}' | xargs xdg-open"
 alias vf='vim `f`'
 alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
 alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
