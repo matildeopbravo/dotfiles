@@ -15,6 +15,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
+Plug 'mattn/emmet-vim'
+Plug 'alvan/vim-closetag'
+
 "themes
 Plug 'joshdick/onedark.vim' 
 Plug 'arcticicestudio/nord-vim'
@@ -48,4 +51,5 @@ let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 

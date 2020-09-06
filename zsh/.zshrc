@@ -29,6 +29,7 @@ setopt incappendhistory  #Immediately append to the history file, not just when 
 
 bindkey "^?" backward-delete-char # fixes problem in vi mode when you  want to delete using backspace after leaving normal mode
 bindkey -v # use vi mode
+bindkey '^R' history-incremental-search-backward
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {

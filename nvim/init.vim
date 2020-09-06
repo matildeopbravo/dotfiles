@@ -27,5 +27,6 @@ set tabstop=4
 set completeopt-=preview "make clang complete not preview and just complete
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html
 
 set nuw=2 "width of the line number column

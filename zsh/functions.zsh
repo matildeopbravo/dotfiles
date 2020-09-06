@@ -1,9 +1,9 @@
+
 function op () {
     xdg-open "$@" & disown 
-#    if test -f "$1"; then
-#        exit
-#    fi
 }
+
+
 
 #function vid () {
 #    mpv --geometry=1200x700 $1 #& disown 
@@ -38,14 +38,14 @@ extract() {
 monitor() {
 
   if [[ "$1" == "single" ]]; then
+    xrandr --output HDMI-1 --off 
+  else 
     xrandr --output HDMI-1 --auto
     xrandr --output HDMI-1 --left-of eDP-1
     layout 
-  else 
-    xrandr --output HDMI-1 --off 
   fi
 
-  feh --bg-fill ~/Pictures/Wallpapers/blue-horizon.jpg
+  feh --bg-fill --randomize ~/Pictures/Wallpapers/
   killall picom ; killall polybar
   picom -b --backend glx --experimental-backends & disown
   bash ~/.config/polybar/launch.sh

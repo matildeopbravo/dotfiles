@@ -13,7 +13,7 @@
  - **Compositor** : picom-tryone-git
  - **Terminal Font** : Hack Nerd Font
  - **Status Bar** : polybar
- - **Locker** : i3-locker (with blur-lock script) ; xautolock
+ - **Locker** : i3-lock (with blur-lock script) ; xautolock
  - **Screen Capturing** : scrot; flameshot
  - **Clipboard Manager** : xclip
  - **Audio tool** : pactl; pacmixer

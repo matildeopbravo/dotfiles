@@ -19,10 +19,11 @@ bindsym $mod+Print exec "flameshot & disown && flameshot gui ; sleep 5m ; killal
 bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '"
 bindsym $mod+Shift+f exec "rofi -show file-browser"
 bindsym $mod+Shift+w exec wallpaper
+#bindsym $mod+Shift+d exec polyscript
 
 # Start-Up Apps
 exec_always --no-startup-id picom -b --backend glx --experimental-backends
-exec_always --no-startup-id feh --bg-fill /home/bravo/Pictures/Wallpapers/coffe_shop.jpg
+exec_always --no-startup-id feh --bg-fill /home/bravo/Pictures/Wallpapers/blured_city.jpg
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet

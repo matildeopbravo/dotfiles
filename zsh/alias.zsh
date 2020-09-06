@@ -31,8 +31,6 @@ alias kill='kill -9'
 alias r='ranger'
 alias z='zathura'
 alias py='python'
-alias fzf="fzf --preview-window=right:60% --preview='bat --color "always" {}' | xargs xdg-open"
-alias vf='vim `f`'
 alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
 alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
 alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
@@ -40,6 +38,7 @@ alias susp='systemctl suspend'
 alias rbt='reboot'
 alias ka='killall'
 alias weather="curl 'wttr.in/~'${1:-Braga}'+'$2'?'${3:-0}"
+alias esc='setxkbmap -layout pt -option escape:caps &'
 
 
 #git alias
