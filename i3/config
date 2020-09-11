@@ -3,7 +3,7 @@ set $alt Mod1
 font pango:DejaVu Sans Mono 8
 
 #App Keybinds
-bindsym $mod+i exec  discord ; workspace number 9
+bindsym $mod+i exec discord ; workspace number 9
 bindsym $mod+o exec "pgrep spotify || spotify"; workspace number 10
 bindsym $mod+p exec firefox-developer-edition
 
@@ -23,7 +23,7 @@ bindsym $mod+Shift+w exec wallpaper
 
 # Start-Up Apps
 exec_always --no-startup-id picom -b --backend glx --experimental-backends
-exec_always --no-startup-id feh --bg-fill /home/bravo/Pictures/Wallpapers/blured_city.jpg
+exec_always --no-startup-id feh --bg-fill /home/bravo/Pictures/Wallpapers/cesium-azul.png
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
