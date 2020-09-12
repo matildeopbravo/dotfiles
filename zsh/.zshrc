@@ -3,15 +3,15 @@ source $ZSHDIR/functions.zsh
 source ~/.zplug/init.zsh
 
 autoload -U colors && colors 
-autoload -Uz compinit
+#autoload -Uz compinit
 
 setopt autocd
 unsetopt nomatch #if there is no match using globs, it is not expanded
 
-zstyle :compinstall filename "~/.zshrc"
+#zstyle :compinstall filename "~/.zshrc"
 zstyle ':completion:*' menu select # highlights options of completion 
 
-compinit
+#compinit
 
 #Prompt
 setopt PROMPT_SUBST

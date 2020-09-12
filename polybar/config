@@ -361,5 +361,5 @@ type = custom/script
 interval = 1
 format-prefix =" "
 format = <label>
-exec = python /usr/share/polybar/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
+exec = python ~/.scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 
