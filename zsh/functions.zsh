@@ -52,6 +52,10 @@ monitor() {
 
 }
 
+fzf() {
+  xdg-open $(command fzf --preview-window=right:60% --preview='bat --color "always" {}' )
+
+}
 mkcd() {
   mkdir $@
   cd $@

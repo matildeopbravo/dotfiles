@@ -1,6 +1,6 @@
 source $ZSHDIR/alias.zsh
 source $ZSHDIR/functions.zsh
-source ~/.zplug/init.zsh
+source ~/.local/share/zplug/init.zsh
 
 autoload -U colors && colors 
 #autoload -Uz compinit
@@ -52,7 +52,7 @@ zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
-source $HOME/.local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
