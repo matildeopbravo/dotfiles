@@ -40,6 +40,7 @@ alias ka='killall'
 alias weather="curl 'wttr.in/~'${1:-Braga}'+'$2'?'${3:-0}"
 alias esc='setxkbmap -layout pt -option escape:caps &'
 alias torrent='transmission-remote'
+alias fa="FZF_DEFAULT_COMMAND='find .' f"
 
 
 #git alias
