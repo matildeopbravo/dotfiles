@@ -18,7 +18,7 @@
  - **Clipboard Manager** : xclip
  - **Audio tool** : pactl; pacmixer
  - **File Manager** : ranger
- - **Image Viewer** : feh
+ - **Image Viewer** : sxiv ; feh
  - **Video Player** : mpv
  - **Document Viewer** : zathura
  - **Notification Daemon** : dunst
