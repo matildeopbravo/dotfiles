@@ -279,7 +279,6 @@ The tabs container
 #tabbrowser-tabs tab:only-of-type,
 #tabbrowser-tabs tab:only-of-type + #tabs-newtab-button {
   /* 	Hide tab bar if there's only one tab */
-	display: none !important;
 }
 
 .tabbrowser-tab[fadein]:not([pinned]) {
