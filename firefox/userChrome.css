@@ -297,7 +297,7 @@ The tabs container
 
 .tab-background:not[visuallyselected] {
 	background: var(--bf-tab-selected-bg) !important;
-	opacity: 0.5 !important;
+	opacity: 0.4 !important;
 }
 
 .tabbrowser-tab::after,
