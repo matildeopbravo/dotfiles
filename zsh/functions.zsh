@@ -3,16 +3,6 @@ function op () {
     xdg-open "$@" & disown 
 }
 
-
-
-#function vid () {
-#    mpv --geometry=1200x700 $1 #& disown 
-    #if test -f "$1"; then
-    #    exit
-    #fi
-#}
-
-#alias mpvn='mpv --no-video'
 extract() {
   if [ -f "$1" ] ; then
     case "$1" in
@@ -80,4 +70,10 @@ send-sms() {
        -d key=textbelt
 }
 
+torrent(){
+
+  transmission-daemon --download-dir "~/Downloads"
+  transmission-remote "$1" "$2" 2> /dev/null
+
+}
 

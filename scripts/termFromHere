@@ -25,7 +25,6 @@ if [ -n "$CWD" ]; then
   cd "$CWD" || exit 1
   "$TERMINAL" "$@" &
 else
-  notify-send -u low -a termFromHere "Couldn't find cwd"
   "$TERMINAL" "$@" &
 fi
 disown

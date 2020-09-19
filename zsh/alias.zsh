@@ -19,7 +19,7 @@ alias zprofile='v $ZSHDIR/.zprofile'
 alias cat='bat'
 alias {vim,v}='nvim'; 
 alias cp='cp -iv'
-alias mv='mv.sh' # my script which creates symlinks
+alias mv=' bash $DOTFILES/scripts/mv.sh' # my script which creates symlinks
 alias rm='rm -Iv'
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -33,13 +33,12 @@ alias z='zathura'
 alias py='python'
 alias vpnuminho='sudo openconnect -q -u $SMAIL --protocol=anyconnect https://vpn.uminho.pt'
 alias minecraft='prime-run java -jar /opt/tlauncher/tlauncher.jar'
-alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
+#alias lightkeys='sudo chown $USER:$USER /sys/class/backlight/intel_backlight/brightness'
 alias susp='systemctl suspend'
 alias rbt='reboot'
 alias ka='killall'
 alias weather="curl 'wttr.in/~'${1:-Braga}'+'$2'?'${3:-0}"
 alias esc='setxkbmap -layout pt -option escape:caps &'
-alias torrent='transmission-remote'
 alias fa="FZF_DEFAULT_COMMAND='find .' f"
 
 

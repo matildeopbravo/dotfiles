@@ -4,7 +4,7 @@
 	--bf-color: #f2f2f2;
 	--bf-focused-color: #fefefe;
 	
-	--bf-accent-bg: #4C5FF9CC;
+	--bf-accent-bg:#00000066; 
 
 	--bf-icon-color: #f2f2f2;
 	--bf-switch-tab-color: #6498EF;
@@ -221,7 +221,7 @@ toolbarbutton {
 	--backbutton-background: transparent !important;
 	border: none !important;
 }
-
+/*
 #back-button {
 	list-style-image: url("left-arrow.svg") !important;
 }
@@ -230,6 +230,7 @@ toolbarbutton {
 	list-style-image: url("right-arrow.svg") !important;
 }
 
+*/
 #tracking-protection-icon-container {
 /* 	display: none !important; */
 }
@@ -297,7 +298,7 @@ The tabs container
 
 .tab-background:not[visuallyselected] {
 	background: var(--bf-tab-selected-bg) !important;
-	opacity: 0.4 !important;
+	opacity: 0.2 !important;
 }
 
 .tabbrowser-tab::after,
