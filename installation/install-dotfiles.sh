@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles_dir=$(dirname "$0")
+dotfiles_dir=$(dirname "$0" | xargs dirname)
 chrome_dir="$HOME/.mozilla/firefox/*default/chrome"
 
 main() {
@@ -22,10 +22,10 @@ create_symlinks() {
         eval "$line" #dest_dir= directory where symlink will be created
      else
      link_name="$(basename "$line")"
-         rm -r "{$dest_dir:?}/$link_name"
+         rm -r "${dest_dir:?}/$link_name"
          ln -sf "$dotfiles_dir/$line" "$dest_dir/$link_name"
     fi
-    done < symlinks.txt
+    done < ""$dotfiles_dir"/installation/symlinks.txt"
 
 }
 
@@ -56,9 +56,9 @@ install_packages(){
 
    while read -r packageName 
    do
-      pacman -S --needed --noconfirm "$packageName" || pacman -Qi "$packageName" || yay -S "$packageName"
+	sudo pacman -S --needed --noconfirm "$packageName" || pacman -Qi "$packageName" || yay -S "$packageName"
 
-   done < packages.txt
+   done < ""$dotfiles_dir"/installation/packages.txt"
    
    echo "Installed all the packages"
    
@@ -69,3 +69,4 @@ install_packages(){
    
 
 }
+main
