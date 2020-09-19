@@ -23,7 +23,7 @@ bindsym $mod+Shift+w exec wallpaper
 
 # Start-Up Apps
 exec_always --no-startup-id picom -b --backend glx --experimental-backends
-exec_always --no-startup-id feh --bg-fill /home/bravo/Pictures/Wallpapers/vulcano_smoke.jpg
+exec_always --no-startup-id feh --bg-fill $DOTFILES/current_wallpaper
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
