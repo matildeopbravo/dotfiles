@@ -1,6 +1,6 @@
 :root {
-	--bf-bg: #00000066;
-	--bf-hover-bg: #fefefe20;
+	--bf-bg: #11111144;/* color of top bar and drop down search */
+	--bf-hover-bg: #fefefe20; /* hover over tab */
 	--bf-color: #f2f2f2;
 	--bf-focused-color: #fefefe;
 	
@@ -35,8 +35,8 @@
 	--bf-sidebar-bg: transparent;
 	--bf-sidebar-color: var(--bf-color);
 
-	--bf-menupopup-bg: #00000090;
-	--bf-menupopup-color: var(--bf-color);
+    --bf-menupopup-bg: #000000;
+    --bf-menupopup-color: #f2f2f2 ;
 	
 	--bf-splitter-bg: #00000090;
 
@@ -221,16 +221,19 @@ toolbarbutton {
 	--backbutton-background: transparent !important;
 	border: none !important;
 }
-/*
+
 #back-button {
-	list-style-image: url("left-arrow.svg") !important;
+
+	display: none !important;
+
+/*	list-style-image: url("left-arrow.svg") !important; */
 }
 
 #forward-button {
-	list-style-image: url("right-arrow.svg") !important;
+	display: none !important;
+/*	list-style-image: url("right-arrow.svg") !important; */
 }
 
-*/
 #tracking-protection-icon-container {
 /* 	display: none !important; */
 }
@@ -298,7 +301,7 @@ The tabs container
 
 .tab-background:not[visuallyselected] {
 	background: var(--bf-tab-selected-bg) !important;
-	opacity: 0.2 !important;
+	opacity: 0.1 !important;
 }
 
 .tabbrowser-tab::after,

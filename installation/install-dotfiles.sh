@@ -4,6 +4,7 @@ dotfiles_dir="$PWD/$(dirname "$0" | xargs dirname)"
 
 main() {
 
+   mkdir -p ~/.local/cached
    install_packages
    create_chrome_dir
    create_symlinks
@@ -57,7 +58,8 @@ install_packages(){
 
    while read -r packageName 
    do
-	sudo pacman -S --needed --noconfirm "$packageName" || pacman -Qi "$packageName" || yay -S "$packageName"
+
+      sudo pacman -S --noconfirm --needed "$packageName" || pacman -Qi "$packageName" || ((yay -S "$packageName") </dev/tty)
 
    done < "$dotfiles_dir/installation/packages.txt"
    
