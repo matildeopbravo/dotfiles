@@ -19,6 +19,7 @@ zsh/.zprofile
 dest_dir="$profile_dir/chrome"
 firefox/userChrome.css
 firefox/userContent.css
+
 dest_dir="$profile_dir"
 firefox/user.js
 
