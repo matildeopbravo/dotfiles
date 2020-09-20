@@ -16,13 +16,12 @@ scripts
 zsh/.zshrc
 zsh/.zprofile
 
-dest_dir=~/.mozilla/firefox/*default/chrome
+dest_dir="$profile_dir/chrome"
 firefox/userChrome.css
 firefox/userContent.css
+dest_dir="$profile_dir"
+firefox/user.js
 
-dest_dir=/etc/X11/xorg.conf.d
-nobodywantsthis/touchpad/70-synaptics.conf
-nobodywantsthis/touchpad/40-libinput.conf
 
 
 
