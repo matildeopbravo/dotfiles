@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles_dir=$(dirname "$0" | xargs dirname)
+dotfiles_dir="$PWD"/"$(dirname "$0" | xargs dirname)"
 chrome_dir="$HOME/.mozilla/firefox/*default/chrome"
 
 main() {
@@ -21,7 +21,7 @@ create_symlinks() {
      elif [[ "$line" != "" ]] ; then
      	 link_name="$(basename "$line")"
          echo "tryna rm this ${dest_dir:?}/$link_name"
-         echo "tryna link this$dotfiles_dir/$line" "$dest_dir/$link_name" 
+         echo "tryna link this $dotfiles_dir/$line" "$dest_dir/$link_name" 
      fi
      done < ""$dotfiles_dir"/installation/symlinks.txt"
 
