@@ -38,7 +38,9 @@ highlight
 htop
 i3-battery-popup-git
 i3-gaps
+i3blocks
 i3lock
+i3status
 jmtpfs
 jq
 libpillowfight
@@ -71,7 +73,7 @@ os-prober
 pacman
 pacmixer
 patch
-picom-tryone-git
+picom-git
 pkgconf
 playerctl
 polybar
@@ -83,13 +85,13 @@ python-pip
 python2
 ranger
 rofi
+rofi-calc
 rsync
 scrot
 sed
 shellcheck-bin
 smartmontools
 spotify
-steam
 sudo
 sxhkd
 sxiv
@@ -106,7 +108,6 @@ vkd3d
 w3m
 wget
 which
-wine
 xautolock
 xclip
 xf86-input-synaptics
