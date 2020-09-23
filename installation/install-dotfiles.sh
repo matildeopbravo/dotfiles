@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dotfiles_dir="$PWD/$(dirname "$0" | xargs dirname)"
+installation_dir="$dotfiles_dir/installation"
 
 main() {
 
@@ -27,7 +28,7 @@ create_symlinks() {
           ln -sf "$dotfiles_dir/$line" "$dest_dir/$link_name" 
      fi
 
-     done < "$dotfiles_dir/installation/symlinks.txt"
+     done < "$installation_dir/symlinks.txt"
 
 }
 
@@ -62,12 +63,10 @@ install_packages(){
    gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 
    while read -r packageName 
-
    do
+      sudo pacman -S --noconfirm --needed "$packageName" || pacman -Qi "$packageName" || yay -S "$packageName" </dev/tty
 
-      sudo pacman -S --noconfirm --needed "$packageName" || pacman -Qi "$packageName" || ((yay -S "$packageName") </dev/tty)
-
-   done < "$dotfiles_dir/installation/packages.txt"
+   done < "$installation_dir/packages.txt"
    
    echo "Installed all the packages"
    
@@ -75,15 +74,17 @@ install_packages(){
    
    export ZPLUG_HOME=~/.local/share/zplug
    git clone https://github.com/zplug/zplug $ZPLUG_HOME
-   
 
+   ###################install python packages ###############################################################
+
+   pip install -r "$installation_dir/requirements.txt"
 }
 
 rest(){
 
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    ln -sf "$dotfiles_dir"/zsh/gitprompt /usr/local/sbin # add git prompt to path
-   pip3 install --user pynvim # install pynvim module for deoplete plug-in
+   #pip3 install --user pynvim # install pynvim module for deoplete plug-in
 }
 
-main
+#main

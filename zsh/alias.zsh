@@ -15,6 +15,7 @@ alias 3='v $DOTFILES/i3/config'
 alias zshrc='v $ZSHDIR/.zshrc'
 alias zalias='v $ZSHDIR/alias.zsh'
 alias zprofile='v $ZSHDIR/.zprofile'
+alias p='pacman'
 
 alias cat='bat'
 alias {vim,v}='nvim'; 
