@@ -1,21 +1,36 @@
 #!/bin/bash
 
-dotfiles_dir="$PWD/$(dirname "$0" | xargs dirname)"
-installation_dir="$dotfiles_dir/installation"
+path="$0"
+firstchar=${path:0:1}
+
+if [[ "$firstchar" == "/" ]] # check if an absolute path is provided
+then
+   installation_dir=$(dirname "$path")
+else
+   installation_dir=$(dirname "$PWD"/"$path")
+fi
+dotfiles_dir=$(dirname "$installation_dir")
 
 main() {
+   echo "$installation_dir"
+   echo "$dotfiles_dir"
 
-   install_packages
-   create_chrome_dir
-   create_symlinks
-   rest
+   if [[ "$#" -eq 0 ]] 
+   then
+      symlinks ; packages ; rest
+   else
+      for fun in "$@"
+      do
+        eval "$fun" 
+      done
+   fi
+   
 }
 
-
-create_symlinks() {
-
+symlinks() {
 
    local dest_dir
+   browser
 
    while read -r line ; do   
 
@@ -25,16 +40,17 @@ create_symlinks() {
      elif [[ "$line" != "" ]] ; then
      	 link_name="$(basename "$line")"
           rm -rv "${dest_dir:?}/$link_name" 2>/dev/null
-          ln -sf "$dotfiles_dir/$line" "$dest_dir/$link_name" 
+          ln -sfv "$dotfiles_dir/$line" "$dest_dir/$link_name" 
      fi
 
-     done < "$installation_dir/symlinks.txt"
+   done < "$installation_dir/symlinks.txt"
 
-   sudo ln -sf $dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d 
+   sudo ln -sfv $dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d 
+   sudo ln -sfv "$dotfiles_dir"/configs/zsh/gitprompt /usr/local/sbin # add git prompt to path
 
 }
 
-create_chrome_dir() {
+browser() {
 
    firefox-developer-edition 
    profile_name="$(ls ~/.mozilla/firefox/ | grep ".default" | head -1)"
@@ -43,7 +59,7 @@ create_chrome_dir() {
 
 }
 
-install_packages(){
+packages(){
 
    ################### install yay ########################################################################
    
@@ -79,16 +95,15 @@ install_packages(){
 
    ###################install python packages ###############################################################
 
-   pip install -r "$installation_dir/requirements.txt"
+   pip install -r "$installation_dir/python-packages.txt"
    #pynvim package for deoplete and i3 package for alternating layouts
 }
 
 rest(){
 
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
-   ln -sf "$dotfiles_dir"/zsh/gitprompt /usr/local/sbin # add git prompt to path
    sudo echo "blacklist pcspkr" | tee /etc/modprobe.d/nobeep.conf #disable pc speaker
 
 
 }
-create_chrome_dir
+main "$@"

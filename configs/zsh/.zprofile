@@ -1,8 +1,7 @@
 neofetch
-
 export PATH=$PATH:$HOME/scripts:$HOME/scripts/lock:$HOME/.local/bin
 export DOTFILES=$HOME/dotfiles
-export ZSHDIR=$DOTFILES/zsh
+export ZSHDIR=$DOTFILES/configs/zsh
 export TERMINAL=alacritty
 export BROWSER="firefox-developer-edition"
 export KEYTIMEOUT=1

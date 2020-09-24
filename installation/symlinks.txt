@@ -1,27 +1,28 @@
 dest_dir=~/.config
-nvim
-rofi
-dunst
-alacritty
-zathura
-ranger
-polybar
-picom
-i3
+configs/nvim
+configs/rofi
+configs/dunst
+configs/alacritty
+configs/zathura
+configs/ranger
+configs/polybar
+configs/picom
+configs/i3
 nobodywantsthis/mimeapps.list
 
 dest_dir=~
 scripts
 .xinitrc
-zsh/.zshrc
-zsh/.zprofile
+configs/zsh/.zshrc
+configs/zsh/.zprofile
 
 dest_dir="$profile_dir/chrome"
-firefox/userChrome.css
-firefox/userContent.css
+configs/firefox/userChrome.css
+configs/firefox/userContent.css
 
 dest_dir="$profile_dir"
-firefox/user.js
+configs/firefox/user.js
+
 
 
 
