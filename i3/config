@@ -146,6 +146,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
+bindsym $alt+Tab workspace back_and_forth
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3

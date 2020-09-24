@@ -1,9 +1,16 @@
-"inoremap { {}<Esc>i
-"inoremap ( ()<Esc>i
-inoremap <C-v> <ESC>"+pa
-vnoremap <Shift-f> NERDTreeFocus
+
+nmap <M-f> :NERDTreeToggle<CR>
 vnoremap <C-c> "+y
 vnoremap <C-Shift-c> gg"*yG
-vnoremap <C-x> "+d
+vnoremap <C-J> <C-W><C-J>
+
+"navigating split files
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>noremap <C-x> "+d
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"inoremap { {}<Esc>i
+"inoremap ( ()<Esc>i

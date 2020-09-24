@@ -30,6 +30,8 @@ create_symlinks() {
 
      done < "$installation_dir/symlinks.txt"
 
+   sudo ln -sf $dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d 
+
 }
 
 create_chrome_dir() {
@@ -78,13 +80,15 @@ install_packages(){
    ###################install python packages ###############################################################
 
    pip install -r "$installation_dir/requirements.txt"
+   #pynvim package for deoplete and i3 package for alternating layouts
 }
 
 rest(){
 
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    ln -sf "$dotfiles_dir"/zsh/gitprompt /usr/local/sbin # add git prompt to path
-   #pip3 install --user pynvim # install pynvim module for deoplete plug-in
-}
+   sudo echo "blacklist pcspkr" | tee /etc/modprobe.d/nobeep.conf #disable pc speaker
 
-#main
+
+}
+create_chrome_dir
