@@ -38,7 +38,7 @@ Scripts I use on a daily basis.
     - [lock-on-supend](./scripts/lock/lock-on-suspend) -  Locks computer **only before** it's suspended (i3-lock can)
 - [mv.sh](./scripts/mv.sh) - mv on steroids which doesn't cause **dead symlinks**,
     instead it recreates them.
-- [termFromHere](.scripts/termFromHere) - Opens terminal in the **current working directory** (currently not in use because Alacritty supports this by default).
-- [alternating_layouts.py](./scripts/alternating_layouts) - Opens new windows using the opposite **splith/splitv layout** as the parent.
+- [termFromHere](./scripts/termFromHere) - Opens terminal in the **current working directory** (currently not in use because Alacritty supports this by default).
+- [alternating_layouts.py](./scripts/alternating_layouts.py) - Opens new windows using the opposite **splith/splitv layout** as the parent.
 - [lyrics](./scripts/lyrics) - Fetches the **lyrics** for the song which is currently being played on **Spotify**.
 - [spotify_status.py](./scripts/spotify_status.py) - Returns information about the song which is currently being played on **Spotify**
