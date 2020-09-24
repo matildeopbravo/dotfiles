@@ -63,6 +63,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Shift+Return exec "alacritty --title 'floating'"
 #bindsym $mod+Shift+Return exec termFromHere
 
 # kill focused window

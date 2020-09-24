@@ -387,8 +387,9 @@ hbox.tab-content[pinned=true] .tab-text {
 }
 
 .tabbrowser-tab[soundplaying="true"] {
-  /* 	Audio playing background */
-	background-color: var(--bf-tab-soundplaying-bg) !important;
+  /* audio playing background */
+	/* background-color: var(--bf-tab-soundplaying-bg) !important; */
+	border-top: 1px solid #2180de !important;
 }
 
 .tab-icon-sound {
@@ -402,7 +403,6 @@ hbox.tab-content[pinned=true] .tab-text {
 }
 
 .private-browsing-indicator { 
-	display: none;
 	background: var(--bf-bg);
 }
 
