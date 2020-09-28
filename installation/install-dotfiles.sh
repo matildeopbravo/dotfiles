@@ -17,7 +17,7 @@ main() {
 
    if [[ "$#" -eq 0 ]] 
    then
-      symlinks ; packages ; rest
+        packages ; symlinks ; rest
    else
       for fun in "$@"
       do
