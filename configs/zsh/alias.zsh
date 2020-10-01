@@ -11,7 +11,7 @@ fi
 #config files
 alias d='$DOTFILES'
 alias ds='$DOTFILES/scripts'
-alias 3='v $DOTFILES/i3/config'
+alias 3='v $DOTFILES/configs/i3/config'
 alias zshrc='v $ZSHDIR/.zshrc'
 alias zalias='v $ZSHDIR/alias.zsh'
 alias zprofile='v $ZSHDIR/.zprofile'

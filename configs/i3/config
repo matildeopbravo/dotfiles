@@ -15,8 +15,8 @@ bindsym Print exec "scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selec
 #Screenshots a selected area, copies to clipboard and saves in ~/Pictures/screenshots
 bindsym Ctrl+Shift+Print --release exec "scrot -sf ~/Pictures/screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
 #Runs flameshot and flameshot gui and closes after 5 minutes
-bindsym $mod+Print exec "maim -s | xclip -selection clipboard -t image/png"
-#bindsym $mod+Print exec "flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot "
+#bindsym $mod+Print exec "maim -s | xclip -selection clipboard -t image/png"
+bindsym $mod+Print exec "flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot "
 bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '"
 bindsym $mod+Shift+f exec "rofi -show file-browser"
 bindsym $mod+Shift+w exec wallpaper

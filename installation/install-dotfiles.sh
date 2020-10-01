@@ -12,6 +12,7 @@ fi
 dotfiles_dir=$(dirname "$installation_dir")
 
 main() {
+   
    echo "$installation_dir"
    echo "$dotfiles_dir"
 
@@ -52,7 +53,7 @@ symlinks() {
 
 browser() {
 
-   firefox-developer-edition 
+   firefox-developer-edition --headless --first-startup
    profile_name="$(ls ~/.mozilla/firefox/ | grep ".default" | head -1)"
    profile_dir="$HOME/.mozilla/firefox/$profile_name"
    mkdir "$profile_dir"/chrome
@@ -103,7 +104,8 @@ rest(){
 
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    sudo echo "blacklist pcspkr" | tee /etc/modprobe.d/nobeep.conf #disable pc speaker
-
+   sudo chsh
+   source .zprofile
 
 }
 main "$@"
