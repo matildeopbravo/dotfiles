@@ -1,9 +1,8 @@
 #!/bin/bash
 
 path="$0"
-firstchar=${path:0:1}
 
-if [[ "$firstchar" == "/" ]] # check if an absolute path is provided
+if [[ "${path:0:1}" = "/" ]] # check if an absolute path is provided
 then
    installation_dir=$(dirname "$path")
 else
@@ -46,14 +45,16 @@ symlinks() {
 
    done < "$installation_dir/symlinks.txt"
 
-   sudo ln -sfv $dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d 
    sudo ln -sfv "$dotfiles_dir"/configs/zsh/gitprompt /usr/local/sbin # add git prompt to path
+   sudo ln -sfv $dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d 
 
 }
 
 browser() {
 
-   firefox-developer-edition --headless --first-startup
+   firefox-developer-edition --headless --first-startup &
+   sleep 15;
+   # kill -9 $ID
    profile_name="$(ls ~/.mozilla/firefox/ | grep ".default" | head -1)"
    profile_dir="$HOME/.mozilla/firefox/$profile_name"
    mkdir "$profile_dir"/chrome

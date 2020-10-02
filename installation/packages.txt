@@ -41,6 +41,7 @@ i3-gaps
 i3blocks
 i3lock
 i3status
+imagemagick
 jmtpfs
 jq
 libpillowfight
@@ -67,7 +68,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 ntfs-3g
 nvidia-prime
-openssh
 optiprime
 os-prober
 pacman
@@ -91,7 +91,6 @@ scrot
 sed
 shellcheck-bin
 smartmontools
-spotify
 sudo
 sxhkd
 sxiv
@@ -119,5 +118,6 @@ yay
 youtube-dl
 zathura
 zathura-pdf-mupdf
+zoom
 zsh
 zsh-syntax-highlighting

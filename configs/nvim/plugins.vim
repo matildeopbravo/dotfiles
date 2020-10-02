@@ -8,6 +8,8 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'cohama/lexima.vim'
 Plug 'preservim/nerdtree'

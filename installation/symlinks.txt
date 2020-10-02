@@ -22,9 +22,3 @@ configs/firefox/userContent.css
 
 dest_dir="$profile_dir"
 configs/firefox/user.js
-
-
-
-
-
-
