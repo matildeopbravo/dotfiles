@@ -1,0 +1,7 @@
+#!/bin/bash
+
+MAGNET=$(curl --silent https://www.archlinux.org/download/ | grep magnet -m 1 | cut -d '"' -f 2)
+
+transmission-daemon
+transmission-remote -a $MAGNET 
+
