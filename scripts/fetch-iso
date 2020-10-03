@@ -1,7 +1,11 @@
 #!/bin/bash
 
-MAGNET=$(curl --silent https://www.archlinux.org/download/ | grep magnet -m 1 | cut -d '"' -f 2)
 
+MAGNET=$(curl --silent https://www.archlinux.org/download/ | grep magnet -m 1 | cut -d '"' -f 2)
+echo "notify-send 'torrent done' -u critical" > /tmp/iso-fetch 
+chmod +x /tmp/iso-fetch
 transmission-daemon
-transmission-remote -a $MAGNET 
+sleep 5
+
+transmission-remote -a $MAGNET --torrent-done-script /tmp/iso-fetch | head -1
 
