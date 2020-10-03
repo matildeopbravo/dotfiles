@@ -52,9 +52,8 @@ symlinks() {
 
 browser() {
 
-   firefox-developer-edition --headless --first-startup &
+   firefox-developer-edition --headless --first-startup & 
    sleep 15;
-   # kill -9 $ID
    profile_name="$(ls ~/.mozilla/firefox/ | grep ".default" | head -1)"
    profile_dir="$HOME/.mozilla/firefox/$profile_name"
    mkdir "$profile_dir"/chrome
@@ -105,6 +104,7 @@ rest(){
 
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    sudo echo "blacklist pcspkr" | tee /etc/modprobe.d/nobeep.conf #disable pc speaker
+   chmod -R +x scripts
    sudo chsh
    source .zprofile
 
