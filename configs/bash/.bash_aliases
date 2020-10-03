@@ -1,1 +1,1 @@
-/home/pasok/dotfiles/configs/zsh/alias.zsh
+../zsh/alias.zsh
