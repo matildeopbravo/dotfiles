@@ -1,0 +1,12 @@
+#!/bin/bash
+
+dir="$HOME/.ssh"
+awk -v new_ip=$1 '
+func subs () {
+ gsub("192\\.168\\.1\\.[0-9][0-9]?[0-9]?",new_ip,$0) 
+
+}
+
+f {subs(); f=0 ; i = 1}
+/berrygood/ && !i { subs(); f=1} 1' "$dir/config" > "$dir/config1"
+mv "$dir/config1" "$dir/config"
