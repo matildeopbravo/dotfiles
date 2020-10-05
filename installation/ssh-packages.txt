@@ -13,3 +13,4 @@ tmux
 neovim
 wget
 curl
+rsync
