@@ -1,4 +1,3 @@
-git
 exa
 python
 inetutils

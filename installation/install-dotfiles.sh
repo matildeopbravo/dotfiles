@@ -120,6 +120,7 @@ ssh() {
    symlinks
    packages
    chmod -R +x ~/scripts
+   source .bash_profile 
     
 
 }

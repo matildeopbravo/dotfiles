@@ -1,0 +1,23 @@
+$include /etc/inputrc
+set completion-ignore-case On
+set editing-mode vi
+set keymap vi
+$if mode=vi
+
+set show-mode-in-prompt on
+set vi-cmd-mode-string "\1\e[2 q\2"
+set vi-ins-mode-string "\1\e[6 q\2"
+set keyseq-timeout 0
+
+set keymap vi-command
+# these are for vi-command mode
+Control-l: clear-screen
+Control-p: previous-history
+Control-n: next-history
+
+set keymap vi-insert
+# these are for vi-insert mode
+Control-l: clear-screen
+Control-p: previous-history
+Control-n: next-history
+$endif

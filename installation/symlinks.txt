@@ -12,6 +12,7 @@ nobodywantsthis/mimeapps.list
 
 dest_dir=~
 scripts
+configs/.inputrc
 configs/.xinitrc
 configs/zsh/.zshrc
 configs/zsh/.zprofile
