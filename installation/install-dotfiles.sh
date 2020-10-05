@@ -1,6 +1,9 @@
 #!/bin/bash
 
 path="$0"
+symlink_file="symlinks.txt"
+package_file="packages.txt"
+
 
 if [[ "${path:0:1}" = "/" ]] # check if an absolute path is provided
 then
@@ -17,7 +20,7 @@ main() {
 
    if [[ "$#" -eq 0 ]] 
    then
-        packages ; symlinks ; rest
+        packages ; browser ; symlinks ; rest
    else
       for fun in "$@"
       do
@@ -30,7 +33,6 @@ main() {
 symlinks() {
 
    local dest_dir
-   browser
 
    while read -r line ; do   
 
@@ -43,10 +45,10 @@ symlinks() {
           ln -sfv "$dotfiles_dir/$line" "$dest_dir/$link_name" 
      fi
 
-   done < "$installation_dir/symlinks.txt"
+   done < "$installation_dir/$symlink_file"
 
    sudo ln -sfv "$dotfiles_dir"/configs/zsh/gitprompt /usr/local/sbin # add git prompt to path
-   sudo ln -sfv $dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d 
+   sudo ln -sfv "$dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d"
 
 }
 
@@ -85,7 +87,7 @@ packages(){
    do
       sudo pacman -S --noconfirm --needed "$packageName" || pacman -Qi "$packageName" || yay -S "$packageName" </dev/tty
 
-   done < "$installation_dir/packages.txt"
+   done < "$installation_dir/$package_file"
    
    echo "Installed all the packages"
    
@@ -104,9 +106,21 @@ rest(){
 
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    sudo echo "blacklist pcspkr" | tee /etc/modprobe.d/nobeep.conf #disable pc speaker
-   chmod -R +x scripts
+   chmod -R +x ~/scripts
    sudo chsh
-   source .zprofile
+   source ~/.zprofile
+   lxappearance
+
+}
+
+ssh() {
+   
+   symlink_file="ssh-symlinks.txt"
+   package_file="ssh-packages.txt"
+   symlinks
+   packages
+   chmod -R +x ~/scripts
+    
 
 }
 main "$@"

@@ -1,0 +1,16 @@
+git
+exa
+python
+inetutils
+base
+base-devel
+feh
+fzf
+ranger
+htop
+man-db
+neofetch
+tmux
+neovim
+wget
+curl

@@ -1,0 +1,11 @@
+dest_dir=~/.config
+configs/nvim
+configs/ranger
+nobodywantsthis/mimeapps.list
+
+dest_dir=~
+scripts
+configs/bash/.bashrc
+configs/bash/.bash_profile
+configs/bash/.bash_aliases
+
