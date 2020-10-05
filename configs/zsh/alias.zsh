@@ -16,8 +16,8 @@ alias zshrc='v $ZSHDIR/.zshrc'
 alias zalias='v $ZSHDIR/alias.zsh'
 alias zprofile='v $ZSHDIR/.zprofile'
 alias p='pacman'
-
 alias cat='bat'
+
 alias {vim,v}='nvim'; 
 alias cp='cp -iv'
 alias mv=' bash $DOTFILES/scripts/mv.sh' # my script which creates symlinks
