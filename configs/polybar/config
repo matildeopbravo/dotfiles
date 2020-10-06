@@ -367,5 +367,5 @@ exec = python $DOTFILES/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 type = custom/script
 format-prefix = "􏣹"
 format = <label>
-exec = bash ~/dnd.sh
+exec = dnd
 
