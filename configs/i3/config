@@ -6,6 +6,7 @@ font pango:DejaVu Sans Mono 8
 bindsym $mod+i exec discord ; workspace number 9
 bindsym $mod+o exec "pgrep spotify || spotify"; workspace number 10
 bindsym $mod+p exec firefox-developer-edition
+bindsym $mod+y exec dmenu_run
 
 #scrot keybinds
 # Screenshots a selected area, copies to clipboard and saves in /tmp/screenshot

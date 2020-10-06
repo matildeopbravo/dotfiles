@@ -1,4 +1,5 @@
 alacritty
+alsa-utils
 arc-gtk-theme
 arc-icon-theme
 autoconf
@@ -8,8 +9,9 @@ bat
 binutils
 bison
 brightnessctl
-chromium
 discord
+dmenu-git
+docker
 dosfstools
 dunst
 efibootmgr
@@ -26,7 +28,9 @@ flex
 fzf
 gawk
 gcc
+gdb
 gettext
+ghc
 git
 gnu-netcat
 gotop-bin
@@ -63,6 +67,7 @@ neovim
 nerd-fonts-hack
 network-manager-applet
 networkmanager
+nmap
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -82,6 +87,7 @@ pulseaudio-bluetooth
 python-dbus
 python-i3ipc
 python-pip
+python-pyalsa
 python2
 ranger
 rofi
@@ -91,6 +97,8 @@ scrot
 sed
 shellcheck-bin
 smartmontools
+spotify
+stack
 sudo
 sxhkd
 sxiv
@@ -99,6 +107,7 @@ thunar
 tmux
 transmission-cli
 ttf-font-awesome
+ttf-font-awesome-4
 ttf-roboto
 ueberzug
 vi

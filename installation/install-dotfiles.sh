@@ -34,6 +34,11 @@ symlinks() {
 
    local dest_dir
 
+   if [[ ! -d "$HOME/.config" ]]
+   then 
+      mkdir ~/.config
+   fi
+
    while read -r line ; do   
 
      if [[ "$line" = dest_dir* ]] ; then
