@@ -13,7 +13,7 @@ if (empty($TMUX))
 endif
 
 syntax on
-colorscheme onedark
+colorscheme base16-gruvbox-dark-medium
 set number
 set noshowmode
 set expandtab
