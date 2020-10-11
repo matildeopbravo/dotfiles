@@ -5,7 +5,9 @@ nobodywantsthis/mimeapps.list
 
 dest_dir=~
 scripts
+configs/.inputrc
 configs/bash/.bashrc
 configs/bash/.bash_profile
 configs/bash/.bash_aliases
+configs/bash/functions.bash
 
