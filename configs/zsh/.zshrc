@@ -15,8 +15,7 @@ zstyle ':completion:*' menu select # highlights options of completion
 
 #Prompt
 setopt PROMPT_SUBST
-export PROMPT='
- %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$reset_color%}'
+export PROMPT=' %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$reset_color%}'
 
 # History
 HISTSIZE=10000
@@ -30,6 +29,9 @@ setopt incappendhistory  #Immediately append to the history file, not just when 
 bindkey "^?" backward-delete-char # fixes problem in vi mode when you  want to delete using backspace after leaving normal mode
 bindkey -v # use vi mode
 bindkey '^R' history-incremental-search-backward
+clearing () { clear; echo ; zle redisplay}
+zle -N clearing
+bindkey  "^L" clearing
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {

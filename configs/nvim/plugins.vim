@@ -27,6 +27,7 @@ Plug 'ntk148v/vim-horizon'
 Plug 'morhetz/gruvbox'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 

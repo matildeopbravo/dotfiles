@@ -149,6 +149,9 @@ live_config_reload: true
 
 shell:
   program: /bin/zsh
+  args:
+    - -c
+    - echo && exec zsh
 
 key_bindings:
   - { key: Return,   mods: Shift|Super, action: SpawnNewInstance }

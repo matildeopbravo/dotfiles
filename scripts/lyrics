@@ -36,7 +36,7 @@ then
 			-e 's/  */ /g' \
 			-e 's/ /-/g' \
 			-e 's/--*/-/g' \
-			-e 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ/aaaaeeeeiiiioooouuuuuuuu/' \
+			-e 'y/ãāáǎàēẽéěèīíǐìōóõǒòūúǔùǖǘǚǜ/aaaaaeeeeeiiiiooooouuuuuuuu/' \
 			|tr -d '\200-\377')-lyrics 
 		if [[ -e /tmp/lyrics/$NAMECLN ]]
 		then
@@ -59,7 +59,7 @@ then
 					-e 's/    //g' \
 					-e 's/  //g' \
 					-e 's/<a.*{//g' \
-					-e 's/&amp;/\&/g'
+					-e 's/&amp;/\&/g'  &
 			elif [[ $SONG = "" ]]; then
 				echo "It appears Spotify has been closed, exiting..."
 				exit
