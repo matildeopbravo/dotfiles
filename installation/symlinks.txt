@@ -8,6 +8,7 @@ configs/ranger
 configs/polybar
 configs/picom
 configs/i3
+configs/sxhkd
 nobodywantsthis/mimeapps.list
 
 dest_dir=~

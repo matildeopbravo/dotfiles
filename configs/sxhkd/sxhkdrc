@@ -1,0 +1,140 @@
+################################### PROGRAMS ###################################
+
+super + Return
+        $TERMINAL
+
+super + i
+        discord & i3-msg workspace number 9
+
+super p
+        $BROWSER
+
+super + o
+        pgrep spotify 2>/dev/null >/dev/null || spotify ; i3-msg workspace number 10
+
+super + u
+        slack ; i3-msg workspace number 8
+
+super + y
+        dmenu_run
+
+super + shift + w
+        wallpaper
+
+super + shift + d
+        dunstctl set-paused toggle
+
+super + d
+        rofi -show drun
+super + c
+        rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '
+
+super + shift + f
+        alacritty --class 'floating-term' -e bash -c "source /home/pasok/dotfiles/configs/zsh/functions.zsh ; f launcher "
+
+@Print
+        scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+super + @Print 
+         flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
+
+shift + @Print 
+        scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+control + shift + Print 
+        scrot -sf ~/Pictures/screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+        
+super + control + l
+        blur-lock
+
+
+################################### MEDIA KEYS #################################
+
+###### BRIGHTNESS ########
+
+XF86MonBrightness{Up,Down}
+        brightnessctl set 50{+,-}
+
+######### MEDIA ###########
+
+XF86Audio{Raise,Lower}Volume
+        pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
+
+XF86AudioMute
+        pactl set-sink-mute @DEFAULT_SINK@ true
+
+XF86AudioMicMute 
+        pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+XF86WebCam
+        systemctl suspend
+
+XF86Audio{Play,Stop}
+        playerctl {play-pause,stop}
+
+control + alt + {space,Left,Right}
+        playerctl {play-pause,previous,next}
+
+XF86Audio{Prev,Next}
+        playerctl {previous, next}
+
+
+######################################## WM KEYBINDS ###########################
+
+######### MISC ###########
+
+super + shift + q
+        i3-msg kill
+
+super + q
+        kill -9 $(xprop -id `xdotool getwindowfocus` | grep '_NET_WM_PID' | grep -oE '[[:digit:]]*$')
+
+
+super + shift + r
+        i3-msg restart
+
+super + shift + e
+        i3-msg exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+####### MOVE FOCUS #######
+
+super + {1-9,0}
+        i3-msg workspace {1-9,10} 
+
+alt + Tab
+        i3-msg workspace {back_and_forth} 
+
+super + {h,j,k,l,space}
+        i3-msg focus {left,down,up,right,mode_toggle}
+
+##### MOVE CONTAINER #####
+
+super + shift + {1-9,0}
+        i3-msg move container to workspace {1-9,10}
+
+super + shift + {h,j,k,l}
+        i3-msg move {left,down,up,right}
+
+control + super + {h,l}
+        i3-msg move workspace to output {left,right}
+
+#### RESIZE CONTAINER ####
+
+super + alt + {h,j,k,l}
+       i3-msg resize {shrink width,grow height,shrink height,grow width} 10 px or 10 ppt
+
+
+######### LAYOUT #########
+
+super + shift + {space,s}
+        i3-msg floating toggle ; {_,sticky toggle}
+
+super + v
+        i3-msg split toggle
+
+super + f
+        i3-msg fullscreen toggle
+
+super + e
+        i3-msg layout tabbed

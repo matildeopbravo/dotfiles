@@ -1,4 +1,3 @@
-
 function op () {
     xdg-open "$@" & disown 
 }
@@ -24,6 +23,14 @@ extract() {
     echo "$1 is not a valid file"
   fi
 }
+layout(){
+
+    setxkbmap -layout pt -option caps:escape &
+    xmodmap -e "clear lock"
+    xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+    xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+
+}
 
 monitor() {
 
@@ -32,13 +39,8 @@ monitor() {
   else 
     xrandr --output HDMI-1 --auto
     xrandr --output HDMI-1 --left-of eDP-1
-    setxkbmap -layout pt -option caps:escape &
-    xmodmap -e "clear lock"
-    xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
-    xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+    layout
     
-
-
   fi
 
   feh --bg-fill --randomize ~/Pictures/Wallpapers/
@@ -49,14 +51,23 @@ monitor() {
 }
 
 f() {
-  program=$(fzf --preview-window=right:60% --preview='bat --color "always" {}' )
 
-  if [ ! -z $program ]
+  file=$(fzf --preview-window=right:60% --preview='bat --color "always" {}')
+  filetype=$(xdg-mime query filetype "$file")
+  app=$(xdg-mime query default "$filetype")
+
+  if [ "$app" == "nvim.desktop" ]
   then
-      xdg-open $program
+      xdg-open "$file"
+  elif [ "$1" == "launcher" ]
+  then
+      xdg-open "$file" 
+  else
+      xdg-open "$file" & disown ; exit
   fi
 
 }
+
 mkcd() {
   mkdir $@
   cd $@

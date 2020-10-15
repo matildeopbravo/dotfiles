@@ -177,7 +177,7 @@ ws-icon-3 = 4;4
 ws-icon-4 = 5;5
 ws-icon-5 = 6;6
 ws-icon-6 = 7;7
-ws-icon-7 = 8;8
+ws-icon-7 = 8;
 ws-icon-8 = 9;
 ws-icon-9 = 10;
 
@@ -367,5 +367,5 @@ exec = python $DOTFILES/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 type = custom/script
 format-prefix = "􏣹"
 format = <label>
-exec = dnd
+exec = printdnd
 

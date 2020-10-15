@@ -110,7 +110,8 @@ packages(){
 rest(){
 
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
-   sudo echo "blacklist pcspkr" | tee /etc/modprobe.d/nobeep.conf #disable pc speaker
+   sudo rmmod pcspkr
+   echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf #disable pc speaker
    chmod -R +x ~/scripts
    sudo chsh
    source ~/.zprofile

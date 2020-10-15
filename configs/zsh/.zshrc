@@ -31,7 +31,9 @@ bindkey -v # use vi mode
 bindkey '^R' history-incremental-search-backward
 clearing () { clear; echo ; zle redisplay}
 zle -N clearing
-bindkey  "^L" clearing
+bindkey "^L" clearing
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
