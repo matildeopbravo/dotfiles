@@ -16,6 +16,6 @@ else
     file="$walldir/$(randwall)"
 fi
 
-feh --bg-fill "$file"
+feh --bg-fill "$file" --no-fehbg
 ln -sf "$file" "$DOTFILES/current_wallpaper"
 #sed -i "s|feh.*|feh --bg-fill $file|" $i3dir
