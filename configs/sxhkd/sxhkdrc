@@ -44,9 +44,13 @@ shift + @Print
 control + shift + Print 
         scrot -sf ~/Pictures/screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
         
-super + control + l
+control + alt + l
         blur-lock
 
+control + alt + s
+        systemctl suspend
+control + alt + p
+        poweroff
 
 ################################### MEDIA KEYS #################################
 
@@ -91,7 +95,7 @@ super + q
 
 
 super + shift + r
-        i3-msg restart
+        i3-msg restart ; killall sxhkd && sxhkd & disown
 
 super + shift + e
         i3-msg exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"

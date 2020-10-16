@@ -52,18 +52,25 @@ monitor() {
 
 f() {
 
+  if [ "$1" == "a" ]
+  then
+      FZF_DEFAULT_COMMAND='find .' f
+      exit
+  fi
+
   file=$(fzf --preview-window=right:60% --preview='bat --color "always" {}')
   filetype=$(xdg-mime query filetype "$file")
   app=$(xdg-mime query default "$filetype")
 
   if [ "$app" == "nvim.desktop" ]
   then
-      xdg-open "$file"
+      nvim "$file"
   elif [ "$1" == "launcher" ]
   then
-      xdg-open "$file" 
+    setsid /bin/sh -c "xdg-open $file" &>/dev/null </dev/null &
+    sleep 0.01
   else
-      xdg-open "$file" & disown ; exit
+      xdg-open "$file" & disown 
   fi
 
 }
