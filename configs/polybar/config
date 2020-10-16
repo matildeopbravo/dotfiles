@@ -50,7 +50,7 @@ foreground = ${colors.foreground}
 ;   background-[0-9]+ = #aarrggbb
 ;background-0 =
 
-radius = 8Downloads/Cancioneiro_18_19.pdf
+radius = 8
 
 line-size = 2
 line-color = #000000

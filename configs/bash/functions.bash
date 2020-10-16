@@ -48,15 +48,6 @@ monitor() {
 
 }
 
-f() {
-  program=$(fzf --preview-window=right:60% --preview='bat --color "always" {}' )
-
-  if [ ! -z $program ]
-  then
-      xdg-open $program
-  fi
-
-}
 mkcd() {
   mkdir $@
   cd $@

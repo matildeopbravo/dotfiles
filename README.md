@@ -44,3 +44,7 @@ Scripts I use on a daily basis.
 - [alternating_layouts.py](./scripts/alternating_layouts.py) - Opens new windows using the opposite **splith/splitv layout** as the parent.
 - [lyrics](./scripts/lyrics) - Fetches the **lyrics** for the song which is currently being played on **Spotify**.
 - [spotify_status.py](./scripts/spotify_status.py) - Returns information about the song which is currently being played on **Spotify**
+- [change_ip](./scripts/change_ip) - Replaces my raspberry pi's old internal ip address in `.ssh/config`with the new one. (temporary fix for a constantly-changing ip address)
+- [f](./scripts/f) - A file explorer and app launcher based on `fzf` which opens
+    files with their default apps, including vim.
+

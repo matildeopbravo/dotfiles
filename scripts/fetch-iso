@@ -7,5 +7,5 @@ chmod +x /tmp/iso-fetch
 transmission-daemon
 sleep 5
 
-transmission-remote -a $MAGNET --torrent-done-script /tmp/iso-fetch | head -1
+transmission-remote -a "$MAGNET" --torrent-done-script /tmp/iso-fetch | head -1
 

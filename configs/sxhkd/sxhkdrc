@@ -26,6 +26,10 @@ super + shift + d
 
 super + d
         rofi -show drun
+
+XF86WebCam
+        rofi -show ssh 
+
 super + c
         rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '
 
@@ -49,6 +53,7 @@ control + alt + l
 
 control + alt + s
         systemctl suspend
+
 control + alt + p
         poweroff
 
@@ -62,6 +67,7 @@ XF86MonBrightness{Up,Down}
 ######### MEDIA ###########
 
 XF86Audio{Raise,Lower}Volume
+        pactl set-sink-mute @DEFAULT_SINK@ false; \
         pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
 
 XF86AudioMute
@@ -70,8 +76,6 @@ XF86AudioMute
 XF86AudioMicMute 
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-XF86WebCam
-        systemctl suspend
 
 XF86Audio{Play,Stop}
         playerctl {play-pause,stop}

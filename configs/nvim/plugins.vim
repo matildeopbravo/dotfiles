@@ -19,6 +19,7 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
+Plug 'dkarter/bullets.vim'
 
 "themes
 Plug 'joshdick/onedark.vim' 
@@ -56,3 +57,10 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \ 'scratch'
+    \]

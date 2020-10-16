@@ -23,6 +23,7 @@ extract() {
     echo "$1 is not a valid file"
   fi
 }
+
 layout(){
 
     setxkbmap -layout pt -option caps:escape &
@@ -43,35 +44,10 @@ monitor() {
     
   fi
 
-  feh --bg-fill --randomize ~/Pictures/Wallpapers/
   killall picom ; killall polybar
   picom -b --backend glx --experimental-backends & disown
   bash ~/.config/polybar/launch.sh
-
-}
-
-f() {
-
-  if [ "$1" == "a" ]
-  then
-      FZF_DEFAULT_COMMAND='find .' f
-      exit
-  fi
-
-  file=$(fzf --preview-window=right:60% --preview='bat --color "always" {}')
-  filetype=$(xdg-mime query filetype "$file")
-  app=$(xdg-mime query default "$filetype")
-
-  if [ "$app" == "nvim.desktop" ]
-  then
-      nvim "$file"
-  elif [ "$1" == "launcher" ]
-  then
-    setsid /bin/sh -c "xdg-open $file" &>/dev/null </dev/null &
-    sleep 0.01
-  else
-      xdg-open "$file" & disown 
-  fi
+  i3-msg restart
 
 }
 

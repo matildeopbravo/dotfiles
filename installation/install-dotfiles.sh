@@ -105,6 +105,8 @@ packages(){
 
    pip install -r "$installation_dir/python-packages.txt"
    #pynvim package for deoplete and i3 package for alternating layouts
+   vim +PlugInstall +qall
+
 }
 
 rest(){

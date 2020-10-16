@@ -35,6 +35,13 @@ bindkey "^L" clearing
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | xclip -selection clipboard
+}
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
