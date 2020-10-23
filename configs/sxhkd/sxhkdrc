@@ -4,7 +4,13 @@ super + Return
         $TERMINAL
 
 super + i
-        discord & i3-msg workspace number 9
+        discord & disown ; \
+        i3-msg workspace number 9 ; \
+        if [!  -e /tmp/.discord ]; then \
+            sleep 5 ; \
+            bash ~/online ; \
+            touch /tmp/.discord ; \
+        fi
 
 super p
         $BROWSER
@@ -21,13 +27,21 @@ super + y
 super + shift + w
         wallpaper
 
-super + shift + d
-        dunstctl set-paused toggle
+super + shift + d 
+        if [ -e /tmp/.dnd ]; then \
+                bash ~/online ; \
+                rm /tmp/.dnd ; \
+        else \
+                dunstctl close-all ; \
+                bash ~/busy ; \
+                touch /tmp/.dnd ; \
+        fi  
+
 
 super + d
         rofi -show drun
 
-XF86WebCam
+super + s
         rofi -show ssh 
 
 super + c
@@ -45,8 +59,8 @@ super + @Print
 shift + @Print 
         scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
-control + shift + Print 
-        scrot -sf ~/Pictures/screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+control + shift + @Print 
+        scrot -sf ~/Pictures/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
         
 control + alt + l
         blur-lock
@@ -56,6 +70,9 @@ control + alt + s
 
 control + alt + p
         poweroff
+control + shift + r
+        cd ~/Downloads && ls -t | head -n 1 | xargs -0 xdg-open
+
 
 ################################### MEDIA KEYS #################################
 
@@ -76,6 +93,8 @@ XF86AudioMute
 XF86AudioMicMute 
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+F4 
+        pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86Audio{Play,Stop}
         playerctl {play-pause,stop}
@@ -124,14 +143,13 @@ super + shift + {1-9,0}
 super + shift + {h,j,k,l}
         i3-msg move {left,down,up,right}
 
-control + super + {h,l}
-        i3-msg move workspace to output {left,right}
+control + super + {h,j,k,l}
+        i3-msg move workspace to output {left,down,up,right}
 
 #### RESIZE CONTAINER ####
 
 super + alt + {h,j,k,l}
        i3-msg resize {shrink width,grow height,shrink height,grow width} 10 px or 10 ppt
-
 
 ######### LAYOUT #########
 

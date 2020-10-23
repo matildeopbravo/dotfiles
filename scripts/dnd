@@ -1,5 +1,0 @@
-#!/bin/bash
-
-dunstctl set-paused toggle
-index=$(pacmd list-sink-inputs | grep WEBRTC | head -1 | cut -d ':' -f2 | awk '{print $1}')
-pacmd set-sink-input-mute $index true

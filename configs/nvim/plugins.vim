@@ -10,7 +10,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'cohama/lexima.vim'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -20,6 +20,7 @@ Plug 'zchee/deoplete-clang'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'dkarter/bullets.vim'
+Plug 'chrisbra/unicode.vim'
 
 "themes
 Plug 'joshdick/onedark.vim' 

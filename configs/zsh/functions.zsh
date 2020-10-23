@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function op () {
     xdg-open "$@" & disown 
 }
@@ -37,26 +39,27 @@ monitor() {
 
   if [[ "$1" == "single" ]]; then
     xrandr --output HDMI-1 --off 
+  elif [[ "$1" == "cesium" ]]; then
+    xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
   else 
     xrandr --output HDMI-1 --auto
     xrandr --output HDMI-1 --left-of eDP-1
-    layout
-    
   fi
 
   killall picom ; killall polybar
   picom -b --backend glx --experimental-backends & disown
   bash ~/.config/polybar/launch.sh
   i3-msg restart
+  layout
 
 }
 
 mkcd() {
-  mkdir $@
-  cd $@
+  mkdir "$@"
+  cd "$@"
 }
 randfile() {
-    length=`ls $1 | wc -l`
+    length=$(ls $1 | wc -l)
     number=$(($RANDOM%$length))
     name=`ls $1 | head -$number | tail -1`
     echo $name
@@ -64,6 +67,7 @@ randfile() {
 }
 
 send-sms() {
+
   curl -X POST https://textbelt.com/text \
        --data-urlencode phone="$1" \
        --data-urlencode message="$2" \

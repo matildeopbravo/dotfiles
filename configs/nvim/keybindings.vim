@@ -1,6 +1,7 @@
 
 nmap <M-f> :NERDTreeToggle<CR>
 vnoremap <C-c> "+y
+map <F2> :w! <CR>
 vnoremap <C-Shift-c> gg"*yG
 vnoremap <C-J> <C-W><C-J>
 

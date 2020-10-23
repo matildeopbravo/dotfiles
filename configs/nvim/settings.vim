@@ -15,6 +15,7 @@ endif
 syntax on
 colorscheme base16-gruvbox-dark-medium
 set number
+set relativenumber
 set noshowmode
 set expandtab
 set shiftwidth=4

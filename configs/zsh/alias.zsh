@@ -1,8 +1,8 @@
 if hash exa &>/dev/null
 then
     alias ls='exa' 
-    alias l='exa -lsnew -a'
-    alias ll='exa -lsnew'
+    alias l='exa -lsnew'
+    alias ll='exa -lsnew -a'
     alias tree='exa -T'
 else
     alias ls='ls --color=auto'

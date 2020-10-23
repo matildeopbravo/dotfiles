@@ -9,7 +9,6 @@ set pages-per-row 1
 
 #stop at page boundries
 set scroll-page-aware "true"
-set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 
@@ -61,3 +60,4 @@ unmap f
 map f toggle_fullscreen
 map i recolor
 map [fullscreen] f toggle_fullscreen
+set selection-clipboard clipboard

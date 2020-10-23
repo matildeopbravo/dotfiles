@@ -76,7 +76,7 @@ font-4 = Noto Sans Mono:size=10;0
 
 modules-left = i3 spotify
 modules-center = date
-modules-right = dnd volume memory cpu battery
+modules-right = mic dnd volume memory cpu battery
 
 ;dim-value = 1.0
 
@@ -359,7 +359,7 @@ bar-volume-empty-foreground =
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix =" "
+format-prefix = 
 format = <label>
 exec = python $DOTFILES/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 
@@ -367,5 +367,11 @@ exec = python $DOTFILES/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 type = custom/script
 format-prefix = "􏣹"
 format = <label>
-exec = printdnd
+exec = polybarCustom.sh DND
+
+[module/mic]
+type = custom/script
+format-prefix = "􏣹"
+format = <label>
+exec = polybarCustom.sh mic
 
