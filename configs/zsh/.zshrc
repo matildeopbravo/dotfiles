@@ -2,14 +2,14 @@ source $ZSHDIR/alias.zsh
 source $ZSHDIR/functions.zsh
 source ~/.local/share/zplug/init.zsh
 
-autoload -U colors && colors 
+autoload -U colors && colors
 #autoload -Uz compinit
 
 setopt autocd
 unsetopt nomatch #if there is no match using globs, it is not expanded
 
 #zstyle :compinstall filename "~/.zshrc"
-zstyle ':completion:*' menu select # highlights options of completion 
+zstyle ':completion:*' menu select # highlights options of completion
 
 #compinit
 
@@ -20,7 +20,7 @@ export PROMPT=' %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.local/cached/.zsh_history 
+HISTFILE=~/.local/cached/.zsh_history
 setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed

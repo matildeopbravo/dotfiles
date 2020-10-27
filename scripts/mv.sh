@@ -2,21 +2,21 @@
 
 for dest; do true; done
 
-i=1    
+i=1
 
-for file in $*; do
+for file in "$@"; do
 
-    if [[ $i == $# ]]; then
+    if [[ "$i" == "$#" ]]; then
         break
 
     elif [[ -h $file ]]; then
 
-        path=$(readlink -f $file)
-        rm $file
-        ln -sf $path $dest # dest must be an absolute path
+        path=$(readli -f "$file")
+        rm "$file"
+        ln -sf "$path" "$dest" # dest must be an absolute path
 
     else
-        mv -iv $file $dest
+        mv -iv "$file" "$dest"
     fi
 
     (( i++ ))

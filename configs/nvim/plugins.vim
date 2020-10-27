@@ -21,7 +21,10 @@ Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'dkarter/bullets.vim'
 Plug 'chrisbra/unicode.vim'
-
+Plug 'itspriddle/vim-shellcheck'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 "themes
 Plug 'joshdick/onedark.vim' 
 Plug 'arcticicestudio/nord-vim'
@@ -65,3 +68,6 @@ let g:bullets_enabled_file_types = [
     \ 'gitcommit',
     \ 'scratch'
     \]
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '>>'
+let b:ale_enabled = 1

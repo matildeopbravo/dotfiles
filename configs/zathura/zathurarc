@@ -14,11 +14,11 @@ set scroll-step 100
 
 #zoom settings
 set zoom-min 10
-set guioptions ""
+#set guioptions ""
 
 # zathurarc-dark
 
-set font "inconsolata 15"
+set font "NotoSans 12"
 set default-bg "#000000" #00
 set default-fg "#F7F7F6" #01
 
@@ -56,8 +56,7 @@ set recolor-keephue "true"
 
 set render-loading "false"
 set scroll-step 50
-unmap f
-map f toggle_fullscreen
+unmap q
 map i recolor
 map [fullscreen] f toggle_fullscreen
 set selection-clipboard clipboard

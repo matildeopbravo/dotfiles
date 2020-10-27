@@ -1,8 +1,21 @@
 #!/bin/bash
 
 function op () {
-    xdg-open "$@" & disown 
+    xdg-open "$@" & disown
 }
+
+graw () {
+
+  main_link=$(xclip -out -selection clipboard)
+  user=$(echo "$main_link" | cut -d '/' -f 4)
+  repo=$(echo "$main_link" | cut -d '/' -f 5)
+  branch=$(echo "$main_link" | cut -d '/' -f 7)
+  path_to_file=$(echo "$main_link" | cut -d '/' -f 8-)
+  raw_link="https://raw.githubusercontent.com/$user/$repo/$branch/$path_to_file"
+  curl "$raw_link" -s > "$(echo "$path_to_file" | rev | cut -d '/' -f 1 | rev)"
+}
+
+
 
 extract() {
   if [ -f "$1" ] ; then
@@ -38,10 +51,10 @@ layout(){
 monitor() {
 
   if [[ "$1" == "single" ]]; then
-    xrandr --output HDMI-1 --off 
+    xrandr --output HDMI-1 --off
   elif [[ "$1" == "cesium" ]]; then
     xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
-  else 
+  else
     xrandr --output HDMI-1 --auto
     xrandr --output HDMI-1 --left-of eDP-1
   fi

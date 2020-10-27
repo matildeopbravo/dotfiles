@@ -3,14 +3,7 @@ augroup auFileTypes
   autocmd FileType markdown setlocal textwidth=80
 augroup end
 
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+set termguicolors
 
 syntax on
 colorscheme base16-gruvbox-dark-medium
@@ -27,6 +20,7 @@ set splitright
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html
+autocmd! BufWritePre * %s/\s\+$//e "clear trailing whitespace
 
 set nuw=2 "width of the line number column
 

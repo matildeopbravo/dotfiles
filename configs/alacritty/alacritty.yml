@@ -46,13 +46,67 @@ font:
 
 draw_bold_text_with_bright_colors: true
 # ...
+schemes:
+  ayu_dark: &ayu
+    primary:
+       background: '0x282a36'
+       foreground: '0xf8f8f2'
 
-# Colors (Dracula)
-colors:
-  # Default colors
-  primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+
+      # Normal colors
+    normal:
+      black: '0x01060E'
+      red: '0xEA6C73'
+      green: '0x91B362'
+      yellow: '0xF9AF4F'
+      blue: '0x53BDFA'
+      magenta: '0xA37ACC'
+      cyan: '0x90E1C6'
+      white: '0xC7C7C7'
+
+    # Bright colors
+    bright:
+      black: '0x686868'
+      red: '0xF07178'
+      green: '0xC2D94C'
+      yellow: '0xFFB454'
+      blue: '0x59C2FF'
+      magenta: '0xD4BFFF'
+      cyan: '0x95E6CB'
+      white: '0xFFFFFF'
+
+  custom: &custom
+    primary:
+      background: '0x222222'
+      foreground: '0xeaeaea'
+
+    # Normal colors
+    normal:
+      black:   '0x1b1918'
+      red:     '0xf22c40'
+      green:   '0x5ab738'
+      yellow:  '0xd5911a'
+      blue:    '0x407ee7'
+      magenta: '0x6666ea'
+      cyan:    '0x70c0ba'
+      white:   '0xeaeaea'
+
+    # Bright colors
+    bright:
+      black:   '0x766e66'
+      red:     '0xff3334'
+      green:   '0x9ec400'
+      yellow:  '0xe7c547'
+      blue:    '0x7aa6da'
+      magenta: '0xb77ee0'
+      cyan:    '0x00ad9c'
+      white:   '0xffffff'
+
+  base16: &base16
+      background: '0x222222'
+
+
+
 
     # Bright and dim foreground colors
     #
@@ -141,7 +195,7 @@ mouse:
 
 cursor:
   style: Beam
-  unfocused_hollow: false 
+  unfocused_hollow: false
 
 window.dynamic_title: true
 

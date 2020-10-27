@@ -2,10 +2,10 @@
 
 if [ "$1" == "DND" ]; then
 
-    if [ -e /tmp/.dnd ]
+    if [ -e /tmp/.dnd ] && [ "$(pgrep Discord)" ]
     then
         echo "DND"
-    else 
+    else
         echo
     fi
 elif [ "$1" == "mic"  ]; then
@@ -16,7 +16,7 @@ elif [ "$1" == "mic"  ]; then
     then
         echo 
     else
-        echo  
+        echo 
     fi
 
 fi

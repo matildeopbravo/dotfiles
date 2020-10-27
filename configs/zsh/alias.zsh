@@ -1,11 +1,16 @@
 if hash exa &>/dev/null
 then
-    alias ls='exa' 
+    alias ls='exa'
     alias l='exa -lsnew'
     alias ll='exa -lsnew -a'
     alias tree='exa -T'
 else
     alias ls='ls --color=auto'
+fi
+
+if hash bat &>/dev/null
+then
+    alias cat='bat'
 fi
 
 #config files
@@ -17,9 +22,9 @@ alias zalias='v $ZSHDIR/alias.zsh'
 alias zprofile='v $ZSHDIR/.zprofile'
 alias sxhkdrc='v $HOME/.config/sxhkd/sxhkdrc'
 alias p='pacman'
-alias cat='bat'
+alias grep='grep --color'
 
-alias {vim,v}='nvim'; 
+alias {vim,v}='nvim';
 alias cp='cp -iv'
 alias mv=' bash $DOTFILES/scripts/mv.sh' # my script which creates symlinks
 alias rm='rm -Iv'
@@ -40,6 +45,7 @@ alias susp='systemctl suspend'
 alias rbt='reboot'
 alias weather="curl 'wttr.in/~'${1:-Braga}'+'$2'?'${3:-0}"
 alias esc='setxkbmap -layout pt -option escape:caps &'
+alias chat="ssh -vt berrygood 'tmux a -t ssh-chat'"
 
 #git alias
 alias g='git'
