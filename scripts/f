@@ -2,14 +2,19 @@
 
 if [ "$1" == "a" ]
   then
-    find_type='find . -type f ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)'
+   find_type='find . -type f ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)'
 else
     find_type='find . -type f -not -path "*/\.*" ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)'
 fi
 
    file=$(FZF_DEFAULT_COMMAND="$find_type" fzf --preview-window=right:60% --preview='bat --color "always" {}')
+   if [ -z "$file" ]; then
+      exit
+   fi
+
    filetype=$(xdg-mime query filetype "$file")
    app=$(xdg-mime query default "$filetype")
+
 
    if [ "$app" == "nvim.desktop" ]
    then
@@ -19,5 +24,5 @@ fi
      setsid /bin/sh -c "xdg-open $file" &>/dev/null </dev/null &
      sleep 0.01
    else
-       xdg-open "$file" & disown 
+       xdg-open "$file" & disown
    fi

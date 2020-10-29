@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mkdir -p /tmp/vim-anywhere
+file=$(mktemp -p /tmp/vim-anywhere)
+"$TERMINAL" -e nvim "$file"
+cat "$file"
+[ "$(cat "$file")" ] && xclip -selection c < "$file"

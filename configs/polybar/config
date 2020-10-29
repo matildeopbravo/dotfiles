@@ -60,7 +60,7 @@ border-left-size = 4
 border-right-size = 4
 border-top-size = 5
 border-bottom-size = 4
-border-color = 
+border-color =
 
 padding-left = 1
 padding-right = 3
@@ -72,7 +72,7 @@ font-0 = Roboto:size=11:weight=bold;2
 font-1 = FontAwesome5Free:style=Solid:size=11;3
 font-2 = FontAwesome5Free:style=Regular:size=10;4
 font-3 = FontAwesome5Brands:style=Regular:size=12;3
-font-4 = Noto Sans Mono:size=10;0 
+font-4 = Noto Sans Mono:size=10;0
 
 modules-left = i3 spotify
 modules-center = date
@@ -198,7 +198,7 @@ label-mode-background = #FFBB00
 ;   %output%
 ; Default: %icon%  %name%
 ; focused = Active workspace on focused monitor
-label-focused = %icon% 
+label-focused = %icon%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
 label-focused-underline = #5294e2
@@ -217,7 +217,7 @@ label-unfocused-foreground = ${colors.foreground}
 label-unfocused-underline =
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %icon% 
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = 2
@@ -228,7 +228,7 @@ label-visible-padding = 2
 ;   %index%
 ; Default: %icon%  %name%
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon% 
+label-urgent = %icon%
 label-urgent-background = ${self.label-focused-background}
 label-urgent-foreground = #db104e
 label-urgent-padding = 2
@@ -242,7 +242,7 @@ format-background = ${colors.background}
 type = internal/memory
 interval = 2
 format-prefix = "  "
-;format-prefix-foreground = #009bba 
+;format-prefix-foreground = #009bba
 ;format-underline = #4bffdc
 label =  %gb_used%
 [module/battery]
@@ -260,15 +260,15 @@ format-full-prefix-foreground = #D2CB00
 ramp-capacity-0 =" "
 ramp-capacity-0-foreground = #FF0000
 ramp-capacity-1 = " "
-ramp-capacity-1-foreground = #f7ca18   
-ramp-capacity-2 = " " 
+ramp-capacity-1-foreground = #f7ca18
+ramp-capacity-2 = " "
 ramp-capacity-2-foreground = #3FB837
 ramp-capacity-3 = " "
 ramp-capacity-3-foreground = #3FB837
 
-animation-charging-0 =  
-animation-charging-1 =  
-animation-charging-2 =  
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = #D2CB00
 animation-charging-framerate = 750
 
@@ -284,7 +284,7 @@ animation-discharging-framerate = 750
 type = internal/cpu
 interval = 2
 format-prefix = " "
-;format-prefix-foreground = #009bba 
+;format-prefix-foreground = #009bba
 label = %percentage:2%%
 
 [module/date]
@@ -297,8 +297,8 @@ date-alt = "%d-%m-%y"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix =  "  "      
-;format-prefix-foreground = #009bba 
+format-prefix =  "  "
+;format-prefix-foreground = #009bba
 label = %date%   %time%
 #
 
@@ -330,8 +330,8 @@ format-background = ${colors.background}
 [module/volume]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume> 
-label-volume =   
+format-volume = <label-volume> <bar-volume>
+label-volume = 
 
 label-muted =
 user-ui-max = true
@@ -353,7 +353,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 4
 bar-volume-empty = ─
 bar-volume-empty-font = 4
-bar-volume-empty-foreground = 
+bar-volume-empty-foreground =
 #
 
 [module/spotify]
@@ -366,6 +366,7 @@ exec = python $DOTFILES/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 [module/dnd]
 type = custom/script
 format-prefix = "􏣹"
+format-underline = #FF0000
 format = <label>
 exec = polybarCustom.sh DND
 

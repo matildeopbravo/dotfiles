@@ -2,24 +2,24 @@
 
 super + Return
         $TERMINAL
-
 super + i
         discord & disown ; \
         i3-msg workspace number 9 ; \
-        if [!  -e /tmp/.discord ]; then \
+
+        if [ ! -e /tmp/.discord ];then \
             sleep 5 ; \
-            bash ~/online ; \
             touch /tmp/.discord ; \
+            online ; \
         fi
 
-super p
+super + p
         $BROWSER
 
 super + o
-        pgrep spotify 2>/dev/null >/dev/null || spotify ; i3-msg workspace number 10
+        pgrep spotify 2>/dev/null >/dev/null || spotify & disown ; i3-msg workspace number 10
 
 super + u
-        slack ; i3-msg workspace number 8
+        slack & disown ; i3-msg workspace number 8
 
 super + y
         dmenu_run
@@ -27,22 +27,24 @@ super + y
 super + shift + w
         wallpaper
 
-super + shift + d 
-        if [ -e /tmp/.dnd ]; then \
-                bash ~/online ; \
-                rm /tmp/.dnd ; \
-        else \
-                dunstctl close-all ; \
-                bash ~/busy ; \
-                touch /tmp/.dnd ; \
-        fi  
+super + shift + d
+        if pgrep Discord; then \
+           if [ -e /tmp/.dnd ]; then \
+               bash ~/online ; \
+               rm /tmp/.dnd ; \
+           else \
+               dunstctl close-all ; \
+               busy ; \
+               touch /tmp/.dnd ; \
+           fi ; \
+        fi
 
 
 super + d
         rofi -show drun
 
 super + s
-        rofi -show ssh 
+        rofi -show ssh
 
 super + c
         rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '
@@ -51,17 +53,19 @@ super + shift + f
         alacritty --class 'floating-term' -e bash -c "source /home/pasok/dotfiles/configs/zsh/functions.zsh ; f launcher "
 
 @Print
-        scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+       shotgun - | tee /tmp/screenshot-$(date +%F_%T).png | xclip -t 'image/png' -selection clipboard
 
-super + @Print 
+super + @Print
          flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
 
-shift + @Print 
-        scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+shift + @Print
+        selection=$(hacksaw -f "-i %i -g %g") ; \
+        shotgun $selection - | xclip -t 'image/png' -selection clipboard
 
-control + shift + @Print 
-        scrot -sf ~/Pictures/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
-        
+control + shift + @Print
+        selection=$(hacksaw -f "-i %i -g %g") ; \
+        shotgun $selection - | tee screenshot-$(date +%F_%T).png | xclip -t 'image/png' -selection clipboard
+
 control + alt + l
         blur-lock
 
@@ -73,6 +77,8 @@ control + alt + p
 control + shift + r
         cd ~/Downloads && ls -t | head -n 1 | xargs -0 xdg-open
 
+super + alt + v
+        vim-anywhere
 
 ################################### MEDIA KEYS #################################
 
@@ -90,10 +96,10 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
         pactl set-sink-mute @DEFAULT_SINK@ true
 
-XF86AudioMicMute 
+XF86AudioMicMute
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-F4 
+F4
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86Audio{Play,Stop}
@@ -127,10 +133,10 @@ super + shift + e
 ####### MOVE FOCUS #######
 
 super + {1-9,0}
-        i3-msg workspace {1-9,10} 
+        i3-msg workspace {1-9,10}
 
 alt + Tab
-        i3-msg workspace {back_and_forth} 
+        i3-msg workspace {back_and_forth}
 
 super + {h,j,k,l,space}
         i3-msg focus {left,down,up,right,mode_toggle}
@@ -153,8 +159,13 @@ super + alt + {h,j,k,l}
 
 ######### LAYOUT #########
 
-super + shift + {space,s}
+super + shift + space{_,s}
         i3-msg floating toggle ; {_,sticky toggle}
+
+super + shift +  s
+        if [ ! $(i3-msg "scratchpad show" 1>/dev/null ) ];then
+           i3-msg "move scratchpad"
+        fi
 
 super + v
         i3-msg split toggle

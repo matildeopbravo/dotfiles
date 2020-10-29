@@ -7,7 +7,7 @@
 
  - **Window Manager** : i3-gaps;
  - **Terminal** : alacritty
- - **Shell** : zsh 
+ - **Shell** : zsh
  - **Editor** : neovim
  - **Compositor** : picom-tryone-git
  - **Terminal Font** : Hack Nerd Font
@@ -47,4 +47,7 @@ Scripts I use on a daily basis.
 - [change_ip](./scripts/change_ip) - Replaces my raspberry pi's old internal ip address in `.ssh/config`with the new one. (temporary fix for a constantly-changing ip address)
 - [f](./scripts/f) - A file explorer and app launcher based on `fzf` which opens
     files with their default apps, including vim.
+- [vim-anywhere](./scripts/vim-anywhere) - A script which creates a temporary
+    file and opens it with neovim and then copies what was written to it to clipboard. (when you want to type a lot in a website/app and still want to use neovim)
+
 
