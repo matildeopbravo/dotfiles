@@ -1,9 +1,10 @@
 #!/bin/bash
+#Replaces my raspberry pi's old internal ip address in .ssh/configwith the new one. (temporary fix for a constantly-changing ip address)
 
 dir="$HOME/.ssh"
-awk -v new_ip=$1 '
+awk -v new_ip="$1" '
 func subs () {
- gsub("192\\.168\\.1\\.[0-9][0-9]?[0-9]?",new_ip,$0) 
+ gsub("192\\.168\\.1\\.[0-9][0-9]?[0-9]?",new_ip,$0)
 
 }
 

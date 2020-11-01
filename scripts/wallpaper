@@ -1,13 +1,13 @@
 #!/bin/bash
+#Picks a random picture from a given directory and changes the wallpaper using a symlink.
 
-i3dir=$DOTFILES/i3/config
 walldir=$HOME/Pictures/Wallpapers
 
 randwall() {
-    length=`ls $walldir | wc -l`
-    number=$((($RANDOM%$length)+1))
-    name=`ls $walldir | head -$number | tail -1`
-    echo $name
+    length=$(ls "$walldir" | wc -l)
+    number=$(((RANDOM%length)+1))
+    name=$(ls "$walldir" | head -"$number" | tail -1)
+    echo "$name"
 }
 
 if [[ $# -eq 1 ]]; then

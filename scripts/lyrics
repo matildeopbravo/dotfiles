@@ -1,4 +1,5 @@
 #!/bin/bash
+# Fetches the lyrics for the song which is currently being played on Spotify.
 rm -rf /tmp/lyrics/
 if dbus-send --print-reply \
 	--session \
@@ -6,11 +7,11 @@ if dbus-send --print-reply \
 	/org/mpris/MediaPlayer2 \
 	org.freedesktop.DBus.Properties.Get \
 	string:'org.mpris.MediaPlayer2.Player' \
-	string:'Metadata' > /dev/null 2>&1 
+	string:'Metadata' > /dev/null 2>&1
 then
 	mkdir /tmp/lyrics
 	touch /tmp/lyrics/dummy
-	while [[ true ]] 
+	while [[ true ]]
 	do
 		SONG=$(dbus-send --print-reply \
 			--session \
@@ -37,7 +38,7 @@ then
 			-e 's/ /-/g' \
 			-e 's/--*/-/g' \
 			-e 'y/ãāáǎàēẽéěèīíǐìōóõǒòūúǔùǖǘǚǜ/aaaaaeeeeeiiiiooooouuuuuuuu/' \
-			|tr -d '\200-\377')-lyrics 
+			|tr -d '\200-\377')-lyrics
 		if [[ -e /tmp/lyrics/$NAMECLN ]]
 		then
 			sleep 1

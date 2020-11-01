@@ -1,4 +1,5 @@
 #!/bin/bash
+# Opens terminal in the current working directory (currently not in use because Alacritty supports this by default).
 # depends: xorg-xdpyinfo xorg-xprop
 CWD=''
 

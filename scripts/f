@@ -1,10 +1,14 @@
 #!/bin/bash
+#A file explorer and app launcher based on fzf which opens files with their default apps, including vim.
 
 if [ "$1" == "a" ]
   then
    find_type='find . -type f ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)'
-else
+elif [ "$1" == "h" ]
+then
     find_type='find . -type f -not -path "*/\.*" ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)'
+else
+    find_type='find ~ -type f -not -path "*/\.*" ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)'
 fi
 
    file=$(FZF_DEFAULT_COMMAND="$find_type" fzf --preview-window=right:60% --preview='bat --color "always" {}')

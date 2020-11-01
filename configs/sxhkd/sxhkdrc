@@ -28,7 +28,7 @@ super + shift + w
         wallpaper
 
 super + shift + d
-        if pgrep Discord; then \
+        if pgrep lightcord; then \
            if [ -e /tmp/.dnd ]; then \
                bash ~/online ; \
                rm /tmp/.dnd ; \
@@ -59,12 +59,10 @@ super + @Print
          flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
 
 shift + @Print
-        selection=$(hacksaw -f "-i %i -g %g") ; \
-        shotgun $selection - | xclip -t 'image/png' -selection clipboard
+        shotgun $(hacksaw -f '-i %i -g %g')  - | xclip -t 'image/png' -selection clipboard
 
 control + shift + @Print
-        selection=$(hacksaw -f "-i %i -g %g") ; \
-        shotgun $selection - | tee screenshot-$(date +%F_%T).png | xclip -t 'image/png' -selection clipboard
+        shotgun $(hacksaw -f '-i %i -g %g')  - | tee screenshot-$(date +%F_%T).png | xclip -t 'image/png' -selection clipboard
 
 control + alt + l
         blur-lock
@@ -112,7 +110,7 @@ XF86Audio{Prev,Next}
         playerctl {previous, next}
 
 
-######################################## WM KEYBINDS ###########################
+######################################## WM KEYBINDS ##########################################
 
 ######### MISC ###########
 

@@ -6,6 +6,6 @@ if [[ $FLAG -eq 0  && $1 = "suspend" ]]; then
     systemctl suspend
 fi
 
-xset dpms 0 300 0 
-lock-on-suspend & disown 
+xset dpms 0 300 0
+lock-on-suspend & disown
 xautolock -corners ---- -time 15 -locker "my-lock-script suspend" & disown

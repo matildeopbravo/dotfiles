@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#Opens new windows using the opposite splith/splitv layout as the parent.
 import i3
 import re
 import subprocess

@@ -1,4 +1,4 @@
-# i3 config file (v4) 
+# i3 config file (v4)
 font pango:DejaVu Sans Mono 8
 set $mod Mod4
 
@@ -15,24 +15,24 @@ exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec_always --no-startup-id python $DOTFILES/scripts/alternating_layouts.py 
+exec_always --no-startup-id python $DOTFILES/scripts/alternating_layouts.py
 
 gaps inner 10
-gaps outer 1
+gaps outer 6
 smart_borders on
 smart_gaps inverse_outer
-#smart_gaps on
+smart_gaps on
 default_border pixel 4
-new_float pixel 
+new_float pixel
 new_window pixel 4
 hide_edge_borders none
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #AFEEEE #AFEEEE #80FFF9 #ff79c6 
+  client.focused          #AFEEEE #AFEEEE #80FFF9 #ff79c6
   client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948
   client.urgent           #CB4B16 #FDF6E3 #AD69AF #268BD2
-  client.placeholder      #ff79c6 #ff79c6 #ff79c6 #ff79c6 
+  client.placeholder      #ff79c6 #ff79c6 #ff79c6 #ff79c6
 
   client.background       #2B2C2B
 

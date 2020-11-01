@@ -1,4 +1,5 @@
 #!/bin/bash
+#mv on steroids which doesn't cause dead symlinks, instead it recreates them.
 
 for dest; do true; done
 

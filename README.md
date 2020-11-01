@@ -20,6 +20,7 @@
  - **Image Viewer** : sxiv ; feh
  - **Video Player** : mpv
  - **Document Viewer** : zathura
+ - **Hotkey Daemon** : sxhkd
  - **Notification Daemon** : dunst
 
 ## [Scripts](./scripts):
@@ -49,5 +50,4 @@ Scripts I use on a daily basis.
     files with their default apps, including vim.
 - [vim-anywhere](./scripts/vim-anywhere) - A script which creates a temporary
     file and opens it with neovim and then copies what was written to it to clipboard. (when you want to type a lot in a website/app and still want to use neovim)
-
-
+- [updateReadMe](./scripts/updateReadMe) - script which updates my dotfiles readme whenever I create a new script
