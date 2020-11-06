@@ -1,5 +1,4 @@
 #!/bin/bash
-#Replaces my raspberry pi's old internal ip address in .ssh/configwith the new one. (temporary fix for a constantly-changing ip address)
 
 dir="$HOME/.ssh"
 awk -v new_ip="$1" '

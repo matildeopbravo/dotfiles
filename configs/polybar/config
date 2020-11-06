@@ -16,7 +16,7 @@ compositing-underline = over
 compositing-border = over
 
 [colors]
-background = #383c4a
+background =#383c4a
 foreground = #f3f4f5
 alert = #d08770
 volume-min = #a3be8c
@@ -360,7 +360,7 @@ bar-volume-empty-foreground =
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = 
+format-prefix = 
 format = <label>
 exec = python $DOTFILES/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
 

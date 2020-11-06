@@ -1,27 +1,13 @@
 #!/bin/bash
-#script which updates my dotfiles readme whenever I create a new script
 
-append_comment() {
+cd "$DOTFILES" || exit
+new_files=$(git status -s | grep '??' | grep 'scripts' | cut -d '/' -f 2)
 
-        comment=$(head -n2 "$1" | tail -1)
-        trimmed_comment=${comment:1:${#comment}}
-        line="- [$file](./scripts/$file) - $trimmed_comment"
-        echo "$line" >> "$DOTFILES/README.md"
-
-}
-
-
-cd "$DOTFILES"
-new_files=$(git status -s | grep '??' | grep 'scripts' | sed 's/^.*scripts\///')
-
-cd "$DOTFILES/scripts" || exit
 [ -z "$new_files" ] && exit
 
-for file in $new_files
+for script in $new_files
 do
-    first_character=$(head -n2 "$file" | tail -1 | head -c1)
-    if [ "$first_character" == "#" ]
-    then
-        append_comment "$file"
-    fi
+        read -r -p "Please enter description for script $script "
+        line="- [$script](./scripts/$script) - $REPLY"
+        echo "$line" >> "$DOTFILES/README.md"
 done

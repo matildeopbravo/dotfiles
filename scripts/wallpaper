@@ -1,5 +1,4 @@
 #!/bin/bash
-#Picks a random picture from a given directory and changes the wallpaper using a symlink.
 
 walldir=$HOME/Pictures/Wallpapers
 

@@ -14,6 +14,9 @@ super + i
 
 super + p
         $BROWSER
+super + shift + p
+        "$BROWSER" $(xclip -sel c -o)
+
 
 super + o
         pgrep spotify 2>/dev/null >/dev/null || spotify & disown ; i3-msg workspace number 10
@@ -30,7 +33,7 @@ super + shift + w
 super + shift + d
         if pgrep lightcord; then \
            if [ -e /tmp/.dnd ]; then \
-               bash ~/online ; \
+               online ; \
                rm /tmp/.dnd ; \
            else \
                dunstctl close-all ; \

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Fetches the lyrics for the song which is currently being played on Spotify.
+
 rm -rf /tmp/lyrics/
 if dbus-send --print-reply \
 	--session \

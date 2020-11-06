@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# Returns information about the song which is currently being played on Spotify
 
 import sys
 import dbus

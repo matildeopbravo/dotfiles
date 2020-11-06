@@ -75,7 +75,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-   separator_color = frame  
+   separator_color = frame
 
     # Sort messages by urgency.
     sort = yes
@@ -169,7 +169,7 @@
 
     # Paths to default icons.
     icon_folders = /usr/share/icons/hicolor/16x16
-    
+
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
@@ -232,7 +232,7 @@
     # Close all notifications
     close_all = ctrl+shift+space
 
-    # Recall last message(s) 
+    # Recall last message(s)
     history = ctrl+shift+period
 
     # Context menu

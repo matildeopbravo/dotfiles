@@ -1,5 +1,4 @@
 #!/bin/bash
-#A file explorer and app launcher based on fzf which opens files with their default apps, including vim.
 
 if [ "$1" == "a" ]
   then

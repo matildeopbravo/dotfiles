@@ -50,4 +50,7 @@ Scripts I use on a daily basis.
     files with their default apps, including vim.
 - [vim-anywhere](./scripts/vim-anywhere) - A script which creates a temporary
     file and opens it with neovim and then copies what was written to it to clipboard. (when you want to type a lot in a website/app and still want to use neovim)
-- [updateReadMe](./scripts/updateReadMe) - script which updates my dotfiles readme whenever I create a new script
+- [updateReadMe](./scripts/updateReadMe) - Script which updates my dotfile's
+    README.md whenever I create a new script. It prompts me for a description of
+    the newly created script.
+- [matar-camelos](./scripts/matar-camelos) - mata camelos bué bem

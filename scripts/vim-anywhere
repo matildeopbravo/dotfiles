@@ -1,5 +1,4 @@
 #!/bin/bash
-# A script which creates a temporary file and opens it with neovim and then copies what was written to it to clipboard. (when you want to type a lot in a website/app and still want to use neovim)
 
 mkdir -p /tmp/vim-anywhere
 file=$(mktemp -p /tmp/vim-anywhere)
