@@ -1,10 +1,10 @@
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    
+
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" plugins 
+" plugins
 
 call plug#begin(stdpath('data') . '/plugged')
 
@@ -14,6 +14,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'cohama/lexima.vim'
 Plug 'preservim/nerdtree'
 Plug 'sheerun/vim-polyglot'
+Plug 'godlygeek/tabular'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
@@ -25,8 +26,9 @@ Plug 'itspriddle/vim-shellcheck'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ap/vim-css-color'
 "themes
-Plug 'joshdick/onedark.vim' 
+Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ntk148v/vim-horizon'
 Plug 'morhetz/gruvbox'

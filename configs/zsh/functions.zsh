@@ -4,6 +4,10 @@ function op () {
     xdg-open "$@" & disown
 }
 
+md () {
+  vim -c ":MarkdownPreview" "$1"
+}
+
 graw () {
 
   main_link=$(xclip -out -selection clipboard)

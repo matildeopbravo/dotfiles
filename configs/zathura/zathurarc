@@ -60,3 +60,4 @@ unmap q
 map i recolor
 map [fullscreen] f toggle_fullscreen
 set selection-clipboard clipboard
+map b toggle_statusbar

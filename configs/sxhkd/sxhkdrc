@@ -14,9 +14,9 @@ super + i
 
 super + p
         $BROWSER
+
 super + shift + p
         "$BROWSER" $(xclip -sel c -o)
-
 
 super + o
         pgrep spotify 2>/dev/null >/dev/null || spotify & disown ; i3-msg workspace number 10
@@ -55,17 +55,25 @@ super + c
 super + shift + f
         alacritty --class 'floating-term' -e bash -c "source /home/pasok/dotfiles/configs/zsh/functions.zsh ; f launcher "
 
+shift + @Print
+        scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+shift + XF86Eject
+        sleep 1 ; \
+        scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+control + shift + @Print
+       scrot -sf ~/Pictures/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
 @Print
-       shotgun - | tee /tmp/screenshot-$(date +%F_%T).png | xclip -t 'image/png' -selection clipboard
+       scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+XF86Eject
+       sleep 1 ; \
+       scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
 super + @Print
          flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
-
-shift + @Print
-        shotgun $(hacksaw -f '-i %i -g %g')  - | xclip -t 'image/png' -selection clipboard
-
-control + shift + @Print
-        shotgun $(hacksaw -f '-i %i -g %g')  - | tee screenshot-$(date +%F_%T).png | xclip -t 'image/png' -selection clipboard
 
 control + alt + l
         blur-lock
@@ -83,7 +91,7 @@ super + alt + v
 
 ################################### MEDIA KEYS #################################
 
-###### BRIGHTNESS ########
+###### BRIGHTNESS ######################
 
 XF86MonBrightness{Up,Down}
         brightnessctl set 50{+,-}

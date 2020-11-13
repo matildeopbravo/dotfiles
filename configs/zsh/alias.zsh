@@ -16,6 +16,7 @@ fi
 #config files
 alias d='$DOTFILES'
 alias ds='$DOTFILES/scripts'
+alias caos='$HOME/cesium/CAOS'
 alias 3='v $DOTFILES/configs/i3/config'
 alias zshrc='v $ZSHDIR/.zshrc'
 alias zalias='v $ZSHDIR/alias.zsh'

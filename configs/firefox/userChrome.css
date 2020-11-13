@@ -3,8 +3,8 @@
 	--bf-hover-bg: #fefefe20; /* hover over tab */
 	--bf-color: #f2f2f2;
 	--bf-focused-color: #fefefe;
-	
-	--bf-accent-bg:#00000066; 
+
+	--bf-accent-bg:#00000066;
 
 	--bf-icon-color: #f2f2f2;
 	--bf-switch-tab-color: #6498EF;
@@ -20,7 +20,7 @@
 	--bf-tab-soundplaying-bg: #985EFFCC;
 
 	--bf-navbar-padding: 4px;
-  
+
 	--bf-urlbar-bg: var(--bf-bg);
 	--bf-urlbar-active-bg: #000000BB;
 	--bf-urlbar-color: var(--bf-color);
@@ -37,7 +37,7 @@
 
     --bf-menupopup-bg: #000000;
     --bf-menupopup-color: #f2f2f2 ;
-	
+
 	--bf-splitter-bg: #00000090;
 
 	--autocomplete-popup-background: var(--bf-bg) !important;
@@ -204,7 +204,7 @@ toolbarbutton {
 
 ::-moz-selection {
 	/* URL bar hightlight color */
-	background-color: var(--bf-accent-bg) !important;
+	background-color: #34a8eb;
 }
 
 #searchbar {
@@ -254,7 +254,7 @@ toolbarbutton {
 	background: var(--bf-hover-bg) !important;
 }
 
-/* 
+/*
 ░▀█▀░█▀█░█▀▄░█▀▄░█▀█░█▀▄
 ░░█░░█▀█░█▀▄░█▀▄░█▀█░█▀▄
 ░░▀░░▀░▀░▀▀░░▀▀░░▀░▀░▀░▀
@@ -267,7 +267,7 @@ The tabs container
 	-moz-box-ordinal-group: 3 !important;
 }
 
-.toolbar-items {	
+.toolbar-items {
 	background-color: transparent !important;
 }
 
@@ -402,7 +402,7 @@ hbox.tab-content[pinned=true] .tab-text {
 	opacity: 1;
 }
 
-.private-browsing-indicator { 
+.private-browsing-indicator {
 	background: var(--bf-bg);
 }
 
@@ -425,11 +425,11 @@ tab.tabbrowser-tab:hover {
 	--tab-loading-fill: var(--bf-color) !important;
 }
 
-/* 
+/*
 ░█▀▀░▀█▀░█▀█░█▀▄░█▀▄░█▀█░█▀▄
 ░█▀▀░░█░░█░█░█░█░█▀▄░█▀█░█▀▄
 ░▀░░░▀▀▀░▀░▀░▀▀░░▀▀░░▀░▀░▀░▀
- 
+
 The findbar
 */
 
@@ -453,7 +453,7 @@ The findbar
  	background-color: var(--bf-bg) !important;
 }
 
-/* 
+/*
 ░█▀▀░▀█▀░█▀▄░█▀▀░█▀▄░█▀█░█▀▄
 ░▀▀█░░█░░█░█░█▀▀░█▀▄░█▀█░█▀▄
 ░▀▀▀░▀▀▀░▀▀░░▀▀▀░▀▀░░▀░▀░▀░▀
@@ -507,11 +507,11 @@ Contains history, bookmarks, and etc.
 	background-color: var(--bf-splitter-bg) !important;
 }
 
-/* 
+/*
 ░█▀█░█▀▄░█▀▄░█▀█░█░█░█▀█░█▀█░█▀█░█▀▀░█░░
 ░█▀█░█▀▄░█▀▄░█░█░█▄█░█▀▀░█▀█░█░█░█▀▀░█░░
 ░▀░▀░▀░▀░▀░▀░▀▀▀░▀░▀░▀░░░▀░▀░▀░▀░▀▀▀░▀▀▀
- 
+
 The dropdown menus
 */
 
@@ -533,11 +533,11 @@ box.panel-arrowcontent {
  	border: none !important;
 }
 
-/* 
+/*
 ░█▀▀░█▀█░█▀█░▀█▀░█▀▀░█░█░▀█▀░█▄█░█▀▀░█▀█░█░█
 ░█░░░█░█░█░█░░█░░█▀▀░▄▀▄░░█░░█░█░█▀▀░█░█░█░█
 ░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░░▀░░▀░▀░▀▀▀░▀░▀░▀▀▀
- 
+
 Right-click menu
 */
 
@@ -560,11 +560,11 @@ menupopup menuseparator {
 	border-color: transparent !important;
 }
 
-/* 
+/*
 ░█░█░▀█▀░█▀█░█▀▄░█▀█░█░█░█▀▄░█░█░▀█▀░▀█▀░█▀█░█▀█░█▀▀
 ░█▄█░░█░░█░█░█░█░█░█░█▄█░█▀▄░█░█░░█░░░█░░█░█░█░█░▀▀█
 ░▀░▀░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀░▀▀░░▀▀▀░░▀░░░▀░░▀▀▀░▀░▀░▀▀▀
- 
+
 The control buttons. Contains, close, minimize, and maximize buttons
 */
 
@@ -581,11 +581,11 @@ The control buttons. Contains, close, minimize, and maximize buttons
 }
 
 
-/* 
+/*
 ░█▀▀░█░█░█▀▀░▀█▀░█▀█░█▄█░▀█▀░▀▀█░█▀█░▀█▀░▀█▀░█▀█░█▀█░█░█░▀█▀░█▀█░█▀▄░█▀█░█░█
 ░█░░░█░█░▀▀█░░█░░█░█░█░█░░█░░▄▀░░█▀█░░█░░░█░░█░█░█░█░█▄█░░█░░█░█░█░█░█░█░█▄█
 ░▀▀▀░▀▀▀░▀▀▀░░▀░░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀
- 
+
 The customization window
 */
 

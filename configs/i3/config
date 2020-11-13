@@ -29,7 +29,7 @@ hide_edge_borders none
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #AFEEEE #AFEEEE #80FFF9 #ff79c6
+  client.focused          #ff79c6 #ff79c6 #ff79c6 #ff79c6
   client.unfocused        #2F3D44 #2F3D44 #AD69AF #454948
   client.urgent           #CB4B16 #FDF6E3 #AD69AF #268BD2
   client.placeholder      #ff79c6 #ff79c6 #ff79c6 #ff79c6
