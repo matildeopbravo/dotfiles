@@ -53,4 +53,3 @@ Scripts I use on a daily basis.
 - [updateReadMe](./scripts/updateReadMe) - Script which updates my dotfile's
     README.md whenever I create a new script. It prompts me for a description of
     the newly created script.
-- [matar-camelos](./scripts/matar-camelos) - mata camelos bué bem

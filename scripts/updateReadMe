@@ -1,6 +1,8 @@
 #!/bin/bash
 
+[[ "$PWD" == *dotfiles* ||"$PWD" == *scripts* ]] || exit
 cd "$DOTFILES" || exit
+
 new_files=$(git status -s | grep '??' | grep 'scripts' | cut -d '/' -f 2)
 
 [ -z "$new_files" ] && exit
@@ -8,6 +10,10 @@ new_files=$(git status -s | grep '??' | grep 'scripts' | cut -d '/' -f 2)
 for script in $new_files
 do
         read -r -p "Please enter description for script $script "
-        line="- [$script](./scripts/$script) - $REPLY"
-        echo "$line" >> "$DOTFILES/README.md"
+
+        if [ -n "$REPLY" ]
+        then
+             line="- [$script](./scripts/$script) - $REPLY"
+             echo "$line" >> "$DOTFILES/README.md"
+        fi
 done
