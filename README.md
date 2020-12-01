@@ -53,3 +53,6 @@ Scripts I use on a daily basis.
 - [updateReadMe](./scripts/updateReadMe) - Script which updates my dotfile's
     README.md whenever I create a new script. It prompts me for a description of
     the newly created script.
+- [nospace](./scripts/nospace) - Removes spaces from filenames (made by [JFF] (https://github.com/JoseFilipeFerreira/toolbelt))
+- [my_spotify](./scripts/my_spotify) - [D
+- [my_spotify](./scripts/my_spotify) - [D

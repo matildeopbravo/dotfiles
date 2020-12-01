@@ -17,3 +17,4 @@ do
              echo "$line" >> "$DOTFILES/README.md"
         fi
 done
+/usr/bin/git add README.md
