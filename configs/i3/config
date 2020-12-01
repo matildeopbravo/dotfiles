@@ -26,6 +26,7 @@ default_border pixel 4
 new_float pixel
 new_window pixel 4
 hide_edge_borders none
+floating_modifier $mod
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -35,5 +36,3 @@ hide_edge_borders none
   client.placeholder      #ff79c6 #ff79c6 #ff79c6 #ff79c6
 
   client.background       #2B2C2B
-
-

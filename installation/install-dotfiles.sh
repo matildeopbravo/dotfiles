@@ -14,20 +14,20 @@ fi
 dotfiles_dir=$(dirname "$installation_dir")
 
 main() {
-   
+
    echo "$installation_dir"
    echo "$dotfiles_dir"
 
-   if [[ "$#" -eq 0 ]] 
+   if [[ "$#" -eq 0 ]]
    then
         packages ; browser ; symlinks ; rest
    else
       for fun in "$@"
       do
-        eval "$fun" 
+        eval "$fun"
       done
    fi
-   
+
 }
 
 symlinks() {
@@ -35,11 +35,11 @@ symlinks() {
    local dest_dir
 
    if [[ ! -d "$HOME/.config" ]]
-   then 
+   then
       mkdir ~/.config
    fi
 
-   while read -r line ; do   
+   while read -r line ; do
 
      if [[ "$line" = dest_dir* ]] ; then
         eval "$line" #dest_dir= directory where symlink will be created
@@ -47,7 +47,7 @@ symlinks() {
      elif [[ "$line" != "" ]] ; then
      	 link_name="$(basename "$line")"
           rm -rv "${dest_dir:?}/$link_name" 2>/dev/null
-          ln -sfv "$dotfiles_dir/$line" "$dest_dir/$link_name" 
+          ln -sfv "$dotfiles_dir/$line" "$dest_dir/$link_name"
      fi
 
    done < "$installation_dir/$symlink_file"
@@ -59,7 +59,7 @@ symlinks() {
 
 browser() {
 
-   firefox-developer-edition --headless --first-startup & 
+   firefox-developer-edition --headless --first-startup &
    sleep 15;
    profile_name="$(ls ~/.mozilla/firefox/ | grep ".default" | head -1)"
    profile_dir="$HOME/.mozilla/firefox/$profile_name"
@@ -70,11 +70,11 @@ browser() {
 packages(){
 
    ################### install yay ########################################################################
-   
+
    read -p "do you wish to install yay (aur helper) ? (defaults to yes)" -n 1 -r
-   
+
    if [ "$REPLY" != "n" ]
-   then 
+   then
        yay_dir=~/.local/share/yay
        git clone https://aur.archlinux.org/yay.git $yay_dir
        cd $yay_dir || exit
@@ -88,18 +88,13 @@ packages(){
    curl -sS https://download.spotify.com/debian/pubkey.gpg | gpg --import -
    gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 
-   while read -r packageName 
+   while read -r packageName
    do
       sudo pacman -S --noconfirm --needed "$packageName" || pacman -Qi "$packageName" || yay -S "$packageName" </dev/tty
 
    done < "$installation_dir/$package_file"
-   
+
    echo "Installed all the packages"
-   
-   ###################install zplug ######################################################################
-   
-   export ZPLUG_HOME=~/.local/share/zplug
-   git clone https://github.com/zplug/zplug $ZPLUG_HOME
 
    ###################install python packages ###############################################################
 
@@ -122,14 +117,14 @@ rest(){
 }
 
 ssh() {
-   
+
    symlink_file="ssh-symlinks.txt"
    package_file="ssh-packages.txt"
    symlinks
    packages
    chmod -R +x ~/scripts
-   source ~/.bash_profile 
-    
+   source ~/.bash_profile
+
 
 }
 main "$@"

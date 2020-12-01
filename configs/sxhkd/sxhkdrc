@@ -19,7 +19,9 @@ super + shift + p
         "$BROWSER" $(xclip -sel c -o)
 
 super + o
-        pgrep spotify 2>/dev/null >/dev/null || spotify & disown ; i3-msg workspace number 10
+        #my_spotify > ~/file ; \
+        alacritty --class 'floating-term' -e bash -c "spt"
+        #pgrep spotify 2>/dev/null >/dev/null || spotify & disown ; i3-msg workspace number 10
 
 super + u
         slack & disown ; i3-msg workspace number 8
@@ -31,7 +33,7 @@ super + shift + w
         wallpaper
 
 super + shift + d
-        if pgrep lightcord; then \
+        if pgrep Discord ; then \
            if [ -e /tmp/.dnd ]; then \
                online ; \
                rm /tmp/.dnd ; \
@@ -136,7 +138,7 @@ super + shift + r
         i3-msg restart ; killall sxhkd && sxhkd & disown
 
 super + shift + e
-        i3-msg exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+        i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'
 
 
 ####### MOVE FOCUS #######
