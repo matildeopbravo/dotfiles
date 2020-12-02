@@ -4,6 +4,8 @@ augroup auFileTypes
 augroup end
 
 set termguicolors
+filetype on
+filetype plugin on
 
 syntax on
 colorscheme base16-gruvbox-dark-medium
@@ -23,6 +25,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html
 autocmd! BufWritePre * %s/\s\+$//e "clear trailing whitespace
 
 set nuw=2 "width of the line number column
+
+autocmd FileType make set noexpandtab
 
 augroup Mkdir
   autocmd!
