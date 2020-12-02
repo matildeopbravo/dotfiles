@@ -19,6 +19,12 @@ graw () {
   curl "$raw_link" -s > "$(echo "$path_to_file" | rev | cut -d '/' -f 1 | rev)"
 }
 
+sendfile() {
+
+  scp "$1" berrygood:webserver/public/files
+  echo "http://pasok.xyz/files/$1" | xclip -selection c
+}
+
 
 
 extract() {
