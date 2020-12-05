@@ -43,7 +43,6 @@ Scripts I use on a daily basis.
     and installs it with my bitorrent client.
 - [termFromHere](./scripts/termFromHere) - Opens terminal in the **current working directory** (currently not in use because Alacritty supports this by default).
 - [alternating_layouts.py](./scripts/alternating_layouts.py) - Opens new windows using the opposite **splith/splitv layout** as the parent.
-- [lyrics](./scripts/lyrics) - Fetches the **lyrics** for the song which is currently being played on **Spotify**.
 - [spotify_status.py](./scripts/spotify_status.py) - Returns information about the song which is currently being played on **Spotify**
 - [change_ip](./scripts/change_ip) - Replaces my raspberry pi's old internal ip address in `.ssh/config`with the new one. (temporary fix for a constantly-changing ip address)
 - [f](./scripts/f) - A file explorer and app launcher based on `fzf` which opens
@@ -54,3 +53,4 @@ Scripts I use on a daily basis.
     README.md whenever I create a new script. It prompts me for a description of
     the newly created script.
 - [nospace](./scripts/nospace) - Removes spaces from filenames (made by [JFF](https://github.com/JoseFilipeFerreira/toolbelt))
+- [fetch-lyrics](./scripts/fetch-lyrics) - Fetches lyrics for a given song
