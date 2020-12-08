@@ -40,6 +40,16 @@ call plug#end()
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#clang#clang_complete_database = 1
+let g:ale_c_clang_options = '-x c'
+let g:ale_c_clangtidy_options = '-x c'
+let g:ale_echo_msg_format = '%linter%: %s'
+let g:ale_linters = {
+    \ 'rust' : ['analyzer'],
+    \ 'c': ['ccls', 'clangtidy', 'clangcheck'],
+    \ 'cpp': ['ccls','g++','clangtidy','clang++'],
+    \ 'tex': ['alex', 'chktex', 'proselint', 'redpen',
+    \         'texlab', 'textlint', 'vale', 'writegood']
+    \ }
 
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1

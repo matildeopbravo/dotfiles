@@ -21,8 +21,10 @@ set splitbelow
 set splitright
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd! BufNewFile,BufRead,BufReadPre,BufWritePost *.h set filetype=c
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html
 autocmd! BufWritePre * %s/\s\+$//e "clear trailing whitespace
+autocmd Filetype elixir colorscheme dracula
 
 set nuw=2 "width of the line number column
 

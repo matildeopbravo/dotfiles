@@ -2,7 +2,7 @@
 
 if [ "$1" == "DND" ]; then
 
-    if [ -e /tmp/.dnd ] && [ "$(pgrep lightcord)" ]
+    if [ -e /tmp/.dnd ] && [ "$(pgrep Discord)" ]
     then
         echo "DND"
     else
