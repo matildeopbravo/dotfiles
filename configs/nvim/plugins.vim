@@ -27,7 +27,10 @@ Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
+Plug 'tpope/vim-surround'
 "themes
+Plug 'tomasiser/vim-code-dark'
+Plug 'wadackel/vim-dogrun'
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'ntk148v/vim-horizon'
