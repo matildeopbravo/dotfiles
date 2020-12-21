@@ -3,7 +3,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 " plugins
 
 call plug#begin(stdpath('data') . '/plugged')
@@ -28,6 +27,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
+Plug 'Sammyalhashe/random_colorscheme.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 "themes
 Plug 'tomasiser/vim-code-dark'
 Plug 'wadackel/vim-dogrun'
@@ -38,7 +40,17 @@ Plug 'morhetz/gruvbox'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'chriskempson/base16-vim'
-
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'sainnhe/sonokai'
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'arzg/vim-colors-xcode'
+Plug 'rakr/vim-one'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'jacoborus/tender.vim'
+Plug 'srcery-colors/srcery-vim'
+Plug 'wadackel/vim-dogrun'
+Plug 'ajmwagar/vim-deus'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -86,3 +98,62 @@ let g:bullets_enabled_file_types = [
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_error = '>>'
 let b:ale_enabled = 1
+
+
+let g:random_scheme = 1
+let g:clang_format#style_options = {
+        \ "AlignAfterOpenBracket": "AlwaysBreak",
+        \ "AlignConsecutiveAssignments": 'false',
+        \ "AlignConsecutiveDeclarations": 'false',
+        \ "AlignEscapedNewlines": "Left",
+        \ "AlignOperands": 'true',
+        \ "AlignTrailingComments": 'true',
+        \ "AllowAllParametersOfDeclarationOnNextLine": 'true',
+        \ "AllowShortBlocksOnASingleLine": 'false',
+        \ "AllowShortCaseLabelsOnASingleLine": 'false',
+        \ "AllowShortFunctionsOnASingleLine": "Inline",
+        \ "AllowShortIfStatementsOnASingleLine": "WithoutElse",
+        \ "AllowShortLoopsOnASingleLine": 'true',
+        \ "AlwaysBreakAfterReturnType": "None",
+        \ "AlwaysBreakBeforeMultilineStrings": 'false',
+        \ "AlwaysBreakTemplateDeclarations": 'Yes',
+        \ "BinPackArguments": 'false',
+        \ "BinPackParameters": 'false',
+        \ "BreakAfterJavaFieldAnnotations": 'true',
+        \ "ColumnLimit": '80',
+        \ "CompactNamespaces": 'false',
+        \ "ConstructorInitializerAllOnOneLineOrOnePerLine": 'true',
+        \ "Cpp11BracedListStyle": 'true',
+        \ "DerivePointerAlignment": 'false',
+        \ "IncludeBlocks": "Regroup",
+        \ "IndentCaseLabels": 'true',
+        \ "IndentPPDirectives": "AfterHash",
+        \ "IndentWidth": '4',
+        \ "KeepEmptyLinesAtTheStartOfBlocks": 'true',
+        \ "MaxEmptyLinesToKeep": '1',
+        \ "NamespaceIndentation": "Inner",
+        \ "PointerAlignment": "Left",
+        \ "ReflowComments": 'true',
+        \ "SortIncludes": 'true',
+        \ "SpaceAfterCStyleCast": 'true',
+        \ "SpaceAfterTemplateKeyword": 'false',
+        \ "SpaceBeforeAssignmentOperators": 'true',
+        \ "SpaceBeforeCpp11BracedList": 'false',
+        \ "SpaceBeforeCtorInitializerColon": 'false',
+        \ "SpaceBeforeInheritanceColon": 'false',
+        \ "SpaceBeforeParens": "ControlStatements",
+        \ "SpaceBeforeRangeBasedForLoopColon": 'true',
+        \ "SpaceInEmptyParentheses": 'false',
+        \ "SpacesInAngles": 'false',
+        \ "SpacesInCStyleCastParentheses": 'false',
+        \ "SpacesInContainerLiterals": 'false',
+        \ "SpacesInParentheses": 'false',
+        \ "SpacesInSquareBrackets": 'false',
+        \ "TabWidth": '4',
+        \ "UseTab": "Never",
+        \ 'BreakBeforeBraces' : 'Custom',
+        \ 'BraceWrapping' : {
+        \   'AfterFunction' : 'false',
+        \   'BeforeElse' : 'true',
+        \  },
+        \ }

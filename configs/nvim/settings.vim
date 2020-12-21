@@ -8,17 +8,17 @@ filetype on
 filetype plugin on
 
 syntax on
-colorscheme base16-gruvbox-dark-medium
-set number
-set relativenumber
+colorscheme tokyonight
+set number relativenumber
 set noshowmode
 set expandtab
 set shiftwidth=4
 set cindent smarttab autoindent smartindent
 set tabstop=4
+set ignorecase smartcase
 set completeopt-=preview "make clang complete not preview and just complete
-set splitbelow
-set splitright
+set splitbelow splitright
+set autochdir
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd! BufNewFile,BufRead,BufReadPre,BufWritePost *.h set filetype=c
