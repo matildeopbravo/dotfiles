@@ -30,6 +30,7 @@ Plug 'tpope/vim-surround'
 Plug 'Sammyalhashe/random_colorscheme.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'kyazdani42/nvim-web-devicons'
 "themes
 Plug 'tomasiser/vim-code-dark'
 Plug 'wadackel/vim-dogrun'
