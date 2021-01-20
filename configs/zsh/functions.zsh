@@ -8,6 +8,16 @@ md () {
   vim -c ":MarkdownPreview" "$1"
 }
 
+fix_firefox() {
+    cd "$HOME/.mozilla/firefox/$1"
+    mkdir -p chrome
+    ln -sf $DOTFILES/configs/firefox/*.css $PWD/chrome
+    ln -sf $DOTFILES/configs/firefox/*.js $PWD
+    killall firefox
+    firefox-developer-edition & disown
+
+}
+
 graw () {
 
   main_link=$(xclip -out -selection clipboard)
@@ -21,7 +31,7 @@ graw () {
 
 sendfile() {
 
-  scp "$1" berrygood:webserver/public/files
+  scp "$1" berrygood:~/.hdd/webserver/public/files
   echo "http://pasok.xyz/files/$1" | xclip -selection c
 }
 
