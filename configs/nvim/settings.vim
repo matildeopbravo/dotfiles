@@ -9,6 +9,7 @@ filetype plugin on
 
 syntax on
 colorscheme tokyonight
+set colorcolumn=80
 set number relativenumber
 set noshowmode
 set expandtab

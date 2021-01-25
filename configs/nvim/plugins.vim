@@ -99,8 +99,8 @@ let g:bullets_enabled_file_types = [
 let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_error = '>>'
 let b:ale_enabled = 1
-
-
+let g:ale_fixers = { 'elixir': ['mix_format'] }
+let g:ale_fix_on_save = 1
 let g:random_scheme = 1
 let g:clang_format#style_options = {
         \ "AlignAfterOpenBracket": "AlwaysBreak",
