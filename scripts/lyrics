@@ -1,0 +1,51 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+  then
+      artist=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
+      /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+      string:org.mpris.MediaPlayer2.Player string:Metadata | grep artist -A 10 |
+          grep string  | grep -v ':' | cut -d \" -f 2 | cut -d '-' -f 1 |cut -d '(' -f 1 )
+      song=$(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
+      /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+      string:org.mpris.MediaPlayer2.Player string:Metadata | grep title -A 10 |
+          grep string | grep -v ':' | cut -d \" -f 2 | cut -d '-' -f 1 |  cut -d '(' -f 1 )
+else
+    artist="$1"
+    song="$2"
+fi
+
+
+polish() {
+    out=$(echo "$1" | sed 'y/ãāáǎàçēéěèīíǐìōóǒòūúǔùǖǘǚǜÃĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaaceeeeiiiioooouuuuüüüüAAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/' |
+        sed "s/'//g" | tr '[:upper:]' '[:lower:]' | xargs)
+    echo "$out"
+
+}
+
+
+artist=$(polish "$artist")
+artist="$(tr '[:lower:]' '[:upper:]' <<< "${artist:0:1}")${artist:1}" # capitalize artist
+artist_with_dash=${artist// /-}
+song_with_dash=$(polish "$song" | sed 's/ /-/g' )
+link="https://genius.com/$artist_with_dash-$song_with_dash-lyrics"
+link=${link//\'/}
+output=$(curl -siL "$link")
+code=$(echo "$output" | head -1 | cut -d ' ' -f2)
+
+#while [ -z "$output" ]; do
+    if [[ "$code" -ne "200" && "$code" -ne "301" ]];then
+        artist_with_plus=${artist// /+}
+        song_with_plus=$(echo "$song" | tr '[:upper:]' '[:lower:]' | sed 's/ /+/g')
+        output=$(curl -siL
+        "https://genius.com/api/search/multi?q=$artist_with_plus+$song_with_plus" |
+            jq '.response.sections[1] ' | grep  ".*url.*lyrics.*" | sed
+                's/.*https/https/g' | cut -d '"' -f 1 | head -1)
+    fi
+    output=$(echo "$output" | sed -n '/<div class="song_body-lyrics">/,/<\/div>/p' | sed -E 's/>([[a-zA-Z])/>\n\1/g' |
+                sed -E 's/(.)<a/\1\n<a/g' | sed '/<a/,/>/d' | sed 's/<br>//g' | sed 's/<.*>//g' |
+                awk '!NF {if (++n <= 2) print; next}; {n=0;print}' | GREP_COLORS='ms=01;31' grep --color=always -e "^" -e "\[.*]" |
+                GREP_COLORS='ms=01;34' grep --color=always -e "^" -e ".*Lyrics$")
+#done
+
+echo "$output" | less -R

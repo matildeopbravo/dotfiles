@@ -53,4 +53,6 @@ Scripts I use on a daily basis.
     README.md whenever I create a new script. It prompts me for a description of
     the newly created script.
 - [nospace](./scripts/nospace) - Removes spaces from filenames (made by [JFF](https://github.com/JoseFilipeFerreira/toolbelt))
-- [fetch-lyrics](./scripts/fetch-lyrics) - Fetches lyrics for a given song
+- [lyrics](./scripts/lyrics) - Fetches lyrics for a given song or the current
+    playing song on spotify by default
+- [cenas](./scripts/cenas) - l
