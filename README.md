@@ -55,4 +55,4 @@ Scripts I use on a daily basis.
 - [nospace](./scripts/nospace) - Removes spaces from filenames (made by [JFF](https://github.com/JoseFilipeFerreira/toolbelt))
 - [lyrics](./scripts/lyrics) - Fetches lyrics for a given song or the current
     playing song on spotify by default
-- [cenas](./scripts/cenas) - l
+- [dmenu_script.sh](./scripts/dmenu_script.sh) - Dmenu which shows all hosts in config file and starts an ssh connection with the selected one.
