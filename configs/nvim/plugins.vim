@@ -52,6 +52,7 @@ Plug 'jacoborus/tender.vim'
 Plug 'srcery-colors/srcery-vim'
 Plug 'wadackel/vim-dogrun'
 Plug 'ajmwagar/vim-deus'
+Plug 'franbach/miramare'
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1

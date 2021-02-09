@@ -22,14 +22,18 @@ set splitbelow splitright
 set autochdir
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+au BufRead,BufNewFile * setlocal textwidth=80
 autocmd! BufNewFile,BufRead,BufReadPre,BufWritePost *.h set filetype=c
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html
 autocmd! BufWritePre * %s/\s\+$//e "clear trailing whitespace
-""autocmd Filetype elixir colorscheme dracula
+
+autocmd Filetype markdown colorscheme base16-gruvbox-dark-medium
 
 set nuw=2 "width of the line number column
 
 autocmd FileType make set noexpandtab
+
+command Json set syntax=json
 
 augroup Mkdir
   autocmd!
