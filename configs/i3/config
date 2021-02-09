@@ -6,6 +6,7 @@ for_window [class="Spotify"] move to workspace 10
 for_window [class="discord"] move to workspace 9
 for_window [class="Slack"] move to workspace 8
 for_window [class="mpv"] floating enable
+for_window [class="Sxiv"] floating enable
 for_window [class="Alacritty" instance="floating-term"] floating enable
 
 # Start-Up Apps

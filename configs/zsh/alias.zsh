@@ -12,7 +12,7 @@ fi
 
 if hash bat &>/dev/null
 then
-    alias cat='bat'
+    alias cat='bat -p --theme="OneHalfDark"'
 fi
 
 #config files

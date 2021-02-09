@@ -1,6 +1,7 @@
 neofetch
 export PATH=$PATH:$HOME/scripts:$HOME/scripts/lock:$HOME/.local/bin:$HOME/.cargo/bin
 export DOTFILES=$HOME/dotfiles
+export CURRENT_WALL=$DOTFILES/current_wallpaper
 export ZSHDIR=$DOTFILES/configs/zsh
 export TERMINAL=alacritty
 export BROWSER="firefox-developer-edition"
