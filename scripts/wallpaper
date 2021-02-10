@@ -8,13 +8,32 @@ randwall() {
     name=$(ls "$walldir" | head -"$number" | tail -1)
     echo "$name"
 }
+try() {
+    curl "$(xclip -o -selection c)" | feh - --bg-fill ; i3-msg "workspace 7"
+}
 
-if [[ $# -eq 1 ]]; then
-    file=$1
+save() {
+    name=$(echo | dmenu -p "Wallname : ")
+    curl "$(xclip -o -selection c)" > "$HOME/Pictures/Wallpapers/$name"
+}
+
+delete(){
+    rm "$(readlink dotfiles/current_wallpaper)"
+    wallpaper
+}
+
+if [[ "$1" == "prompt" ]]; then
+    option=$(printf "try\nsave\ndelete" | dmenu -l 20)
+    eval "$option"
+
+
+elif [[ $# -eq 1 ]]; then
+    file="$1"
 else
     file="$walldir/$(randwall)"
 fi
 
 feh --bg-fill "$file" --no-fehbg
 ln -sf "$file" "$DOTFILES/current_wallpaper"
+changeMeWall.spell
 #sed -i "s|feh.*|feh --bg-fill $file|" $i3dir

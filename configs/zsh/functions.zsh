@@ -15,7 +15,15 @@ fix_firefox() {
     ln -sf $DOTFILES/configs/firefox/*.js $PWD
     killall firefox
     firefox-developer-edition & disown
+}
 
+testwall() {
+    curl $(xclip -o -selection c) | feh - --bg-fill ; i3-msg "workspace 7"
+}
+
+savewall() {
+    name=$(echo | dmenu -p "Wallname : ")
+    curl $(xclip -o -selection c) > "$HOME/Pictures/Wallpapers/$name"
 }
 
 graw () {
@@ -90,7 +98,6 @@ monitor() {
     xrandr --output HDMI-1 --auto
     xrandr --output HDMI-1 --left-of eDP-1
   fi
-
   killall picom ; killall polybar
   picom -b --backend glx --experimental-backends & disown
   bash ~/.config/polybar/launch.sh
@@ -120,9 +127,7 @@ send-sms() {
 }
 
 torrent(){
-
-  transmission-daemon --download-dir "~/Downloads"
+  transmission-daemon --download-dir "$HOME/Downloads"
   transmission-remote "$1" "$2" 2> /dev/null
-
 }
 

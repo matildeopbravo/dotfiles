@@ -3,25 +3,26 @@
 super + Return
         $TERMINAL
 super + i
-        discord & disown ; \
-        i3-msg workspace number 9 ; \
+       discord & disown ; \
+       i3-msg workspace number 9
 
-        if [ ! -e /tmp/.discord ];then \
-            sleep 5 ; \
-            touch /tmp/.discord ; \
-            online ; \
-        fi
+       if [ ! -e /tmp/.discord ];then \
+           sleep 5 ; \
+           touch /tmp/.discord ; \
+           online ; \
+       fi
 
 super + p
         $BROWSER
 
 super + shift + p
         "$BROWSER" $(xclip -sel c -o)
-
+super + n
+        dmenu_run
 super + o
-        #my_spotify > ~/file ; \
-        alacritty --class 'floating-term' -e bash -c "spt"
-        #pgrep spotify 2>/dev/null >/dev/null || spotify & disown ; i3-msg workspace number 10
+        pgrep spotify || spotify & disown; \
+        i3-msg workspace number 10
+        #alacritty --class 'floating-term' -e bash -c "spt"
 
 super + u
         slack & disown ; i3-msg workspace number 8
@@ -31,6 +32,9 @@ super + y
 
 super + shift + w
         wallpaper
+
+super + alt + w
+        wallpaper prompt
 
 super + shift + d
         if pgrep Discord ; then \
@@ -44,12 +48,11 @@ super + shift + d
            fi ; \
         fi
 
-
 super + d
-        rofi -show drun
+        dmenu_script.sh
 
 super + s
-        rofi -show ssh
+    ssh_menu
 
 super + c
         rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '
@@ -58,7 +61,9 @@ super + shift + f
         alacritty --class 'floating-term' -e bash -c "source /home/pasok/dotfiles/configs/zsh/functions.zsh ; f launcher "
 
 shift + @Print
-        scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+    scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f ; mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
+
+#scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
 shift + XF86Eject
         sleep 1 ; \
@@ -75,10 +80,12 @@ XF86Eject
        scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
 super + @Print
-         flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
+    scrot -sf -e 'mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
+
+#flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
 
 control + alt + l
-        blur-lock
+    blur-lock
 
 control + alt + s
         systemctl suspend
@@ -90,6 +97,13 @@ control + shift + r
 
 super + alt + v
         vim-anywhere
+
+F2
+   monitor dual
+
+F3
+    rotate_monitor.sh
+
 
 ################################### MEDIA KEYS #################################
 

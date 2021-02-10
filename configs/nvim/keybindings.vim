@@ -1,4 +1,3 @@
-
 nmap <M-f> :NERDTreeToggle<CR>
 vnoremap <C-c> "+y
 map <F2> :w! <CR>
@@ -14,8 +13,16 @@ noremap <buffer> <silent> k gk
 noremap <buffer> <silent> 0 g0
 noremap <buffer> <silent> $ g$
 
-" <TAB>: completion.
+" \TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-"inoremap { {}<Esc>i
-"inoremap ( ()<Esc>i
+au FileType c nnoremap <leader>r :call CompileC()<CR>
+fu! CompileC()
+    write
+    if filereadable('makefile') || filereadable('Makefile')
+        make
+    else
+        make %:r
+        !./%:r
+    endif
+endfu
