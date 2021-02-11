@@ -57,3 +57,5 @@ Scripts I use on a daily basis.
     playing song on spotify by default
 - [ssh_menu](./scripts/ssh_menu) - Dmenu which shows all hosts in config file and starts an ssh connection with the selected one.
 - [crypto.sh](./scripts/crypto.sh) - Gets current value of my choice of cryptocurrencies and calculates how much money I have in my crypto wallet in euros
+- [changeMeWall.spell](./scripts/changeMeWall.spell) - Pick colors for current wallpaper to be used in dmenu
+- [rotate_monitor.sh](./scripts/rotate_monitor.sh) - Toggle rotates monitor

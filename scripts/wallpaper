@@ -3,9 +3,10 @@
 walldir=$HOME/Pictures/Wallpapers
 
 randwall() {
-    length=$(ls "$walldir" | wc -l)
+    length=$(find "$walldir" -maxdepth 1 -type f -print | wc -l)
     number=$(((RANDOM%length)+1))
-    name=$(ls "$walldir" | head -"$number" | tail -1)
+    name=$(find "$walldir" -maxdepth 1 -type f -print |
+        head -"$number" | tail -1 | awk -F '/' '{printf $NF}')
     echo "$name"
 }
 try() {

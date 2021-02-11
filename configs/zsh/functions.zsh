@@ -17,15 +17,6 @@ fix_firefox() {
     firefox-developer-edition & disown
 }
 
-testwall() {
-    curl $(xclip -o -selection c) | feh - --bg-fill ; i3-msg "workspace 7"
-}
-
-savewall() {
-    name=$(echo | dmenu -p "Wallname : ")
-    curl $(xclip -o -selection c) > "$HOME/Pictures/Wallpapers/$name"
-}
-
 graw () {
 
   main_link=$(xclip -out -selection clipboard)
