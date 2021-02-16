@@ -1,7 +1,8 @@
 neofetch
 export PATH=$PATH:$HOME/scripts:$HOME/scripts/lock:$HOME/.local/bin:$HOME/.cargo/bin
 export DOTFILES=$HOME/dotfiles
-export CURRENT_WALL=$DOTFILES/current_wallpaper
+export WALLPAPERS=$HOME/Pictures/Wallpapers
+export CURRENT_WALL=$WALLPAPERS/current_wallpaper
 export ZSHDIR=$DOTFILES/configs/zsh
 export TERMINAL=alacritty
 export BROWSER="firefox-developer-edition"
@@ -10,7 +11,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export KEYTIMEOUT=1
 export EDITOR=nvim
 export VISUAL=nvim
-
 export EXA_COLORS="*.mkv=36:*.mp3=36:*.mp4=36:*.aac=36:*.pdf=34:*.png=33:*.jpeg=33:*.jpg=33:*.o=10:*.c=36"
 export MANPAGER="less -isg"
 export LESS_TERMCAP_mb=$'\e[1;35m'

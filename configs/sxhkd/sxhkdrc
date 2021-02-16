@@ -102,7 +102,10 @@ F2
    monitor dual
 
 F3
-    rotate_monitor.sh
+   rotate_monitor.sh
+
+super + alt + l
+    lights prompt
 
 
 ################################### MEDIA KEYS #################################
@@ -124,7 +127,7 @@ XF86AudioMute
 XF86AudioMicMute
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-F4
+F7
         pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86Audio{Play,Stop}

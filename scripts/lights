@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+HOST="berrygood"
+options=("toggle" "bright" "rainbow" "on" "off" )
+colors=("orange" "blue" "green" "red" "yellow" "fuxia" "purple" "aqua")
+
+if [ "$1" == "prompt" ];then
+    arg=$( printf "%s\n" "${options[@]}" "${colors[@]}"| dmenu -l 20 -p "lights")
+    if [[ ${colors[*]} =~ $arg ]]; then
+        lights "$arg"
+    else
+       lights "$arg"
+    fi
+
+elif [ "$1" == "rainbow" ];then
+    ssh "$HOST" "$HOME/rainbow.sh"
+elif [ "$1" == "bright" ];then
+    ssh "$HOST" "lights bright & python $HOME/bulb/let*"
+elif [ "$1" == "toggle" ];then
+    ssh "$HOST" "lights toggle & python $HOME/bulb/toggle.py"
+elif [ "$1" == "on" ];then
+    ssh "$HOST" "lights on & python $HOME/bulb/turn_on.py"
+elif [ "$1" == "off" ];then
+    ssh "$HOST" "lights off & python $HOME/bulb/turn_off.py"
+else
+    ssh "$HOST" "lights $1 & python $HOME/bulb/color.py $1"
+fi

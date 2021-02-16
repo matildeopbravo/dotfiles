@@ -5,9 +5,9 @@ augroup end
 
 set termguicolors
 filetype on
-filetype plugin on
+filetype plugin indent on
 
-syntax on
+syntax enable
 colorscheme tokyonight
 set colorcolumn=80
 set number relativenumber
@@ -20,8 +20,10 @@ set ignorecase smartcase
 set completeopt-=preview "make clang complete not preview and just complete
 set splitbelow splitright
 set autochdir
+set icm=nosplit
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType c ClangFormatAutoEnable
 au BufRead,BufNewFile * setlocal textwidth=80
 autocmd! BufNewFile,BufRead,BufReadPre,BufWritePost *.h set filetype=c
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html

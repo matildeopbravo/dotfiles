@@ -49,6 +49,7 @@ alias weather="curl 'wttr.in/~'${1:-Braga}'+'$2'?'${3:-0}"
 alias esc='setxkbmap -layout pt -option escape:caps &'
 alias chat="ssh -vt berrygood 'tmux a -t ssh-chat'"
 alias walls="cd $HOME/Pictures/Wallpapers ; gaa ; git commit -m 'new walls' ; gp ; ssh -t berrygood 'cd .hdd/Pictures/walls ; git pull'"
+alias tmux='tmux -2'
 
 #git alias
 alias g='git'

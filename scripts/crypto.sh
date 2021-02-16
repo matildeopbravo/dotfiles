@@ -1,7 +1,7 @@
 #!/bin/bash
 
 print_notify(){
-    notify-send "$1" -u critical -t 0 | awk '{ printf("%s\n",$0)}'
+    notify-send "$1" -t 0 | awk '{ printf("%s\n",$0)}'
     echo "$1"
 }
 

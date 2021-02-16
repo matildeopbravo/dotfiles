@@ -1,11 +1,10 @@
 #!/bin/bash
 
-walldir=$HOME/Pictures/Wallpapers
 
 randwall() {
-    length=$(find "$walldir" -maxdepth 1 -type f -print | wc -l)
+    length=$(find "$WALLPAPERS" -maxdepth 1 -type f -print | wc -l)
     number=$(((RANDOM%length)+1))
-    name=$(find "$walldir" -maxdepth 1 -type f -print |
+    name=$(find "$WALLPAPERS" -maxdepth 1 -type f -print |
         head -"$number" | tail -1 | awk -F '/' '{printf $NF}')
     echo "$name"
 }
@@ -15,7 +14,9 @@ try() {
 
 save() {
     name=$(echo | dmenu -p "Wallname : ")
-    curl "$(xclip -o -selection c)" > "$HOME/Pictures/Wallpapers/$name"
+    curl "$(xclip -o -selection c)" > "wall"
+    filetype=$(file wall | cut -d ':' -f2 | cut -d ' ' -f2)
+    mv "wall" "$WALLPAPERS/$name.${filetype,,}"
 }
 
 delete(){
@@ -31,10 +32,9 @@ if [[ "$1" == "prompt" ]]; then
 elif [[ $# -eq 1 ]]; then
     file="$1"
 else
-    file="$walldir/$(randwall)"
+    file="$WALLPAPERS/$(randwall)"
 fi
 
 feh --bg-fill "$file" --no-fehbg
-ln -sf "$file" "$DOTFILES/current_wallpaper"
+ln -sf "$file" "$CURRENT_WALL"
 changeMeWall.spell
-#sed -i "s|feh.*|feh --bg-fill $file|" $i3dir

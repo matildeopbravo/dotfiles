@@ -31,7 +31,12 @@ Plug 'Sammyalhashe/random_colorscheme.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'kyazdani42/nvim-web-devicons'
-"themes
+Plug 'junegunn/goyo.vim'
+Plug 'voldikss/vim-floaterm'
+Plug 'axvr/org.vim'
+
+
+"Themes
 Plug 'tomasiser/vim-code-dark'
 Plug 'wadackel/vim-dogrun'
 Plug 'joshdick/onedark.vim'
@@ -53,6 +58,9 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'wadackel/vim-dogrun'
 Plug 'ajmwagar/vim-deus'
 Plug 'franbach/miramare'
+Plug 'heraldofsolace/nisha-vim'
+
+
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
