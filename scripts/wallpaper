@@ -20,7 +20,7 @@ save() {
 }
 
 delete(){
-    rm "$(readlink dotfiles/current_wallpaper)"
+    rm "$(readlink "$CURRENT_WALL")"
     wallpaper
 }
 

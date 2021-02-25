@@ -4,6 +4,12 @@ function op () {
     xdg-open "$@" & disown
 }
 
+function nospace() {
+    for file in "$@"; do
+        mv -vn "$file" "$(echo "$file" | sed -r "s/['&,()!]//g;s/ - /-/g;s/ _ /_/g;s/ /_/g;s/__/_/g")"
+done;
+
+}
 md () {
   vim -c ":MarkdownPreview" "$1"
 }
@@ -18,7 +24,6 @@ fix_firefox() {
 }
 
 graw () {
-
   main_link=$(xclip -out -selection clipboard)
   user=$(echo "$main_link" | cut -d '/' -f 4)
   repo=$(echo "$main_link" | cut -d '/' -f 5)
@@ -29,9 +34,18 @@ graw () {
 }
 
 sendfile() {
-
   scp "$1" berrygood:~/.hdd/webserver/public/files
   echo "http://pasok.xyz/files/$1" | xclip -selection c
+}
+
+blue() {
+    sudo rfkill unblock all
+    sudo systemctl start bluetooth
+    blueman-applet & disown
+}
+
+u() {
+    cd "$HOME/uni/2ano2sem/$1"
 }
 
 rga-fzf() {
@@ -101,6 +115,7 @@ mkcd() {
   mkdir "$@"
   cd "$@"
 }
+
 randfile() {
     length=$(ls $1 | wc -l)
     number=$(($RANDOM%$length))

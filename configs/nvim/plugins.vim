@@ -34,6 +34,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'axvr/org.vim'
+Plug 'rust-lang/rust.vim'
 
 
 "Themes
@@ -76,12 +77,25 @@ let g:ale_linters = {
     \         'texlab', 'textlint', 'vale', 'writegood']
     \ }
 
+let g:ale_rust_cargo_check_tests = 1
+let g:ale_rust_cargo_default_feature_behavior = 'all'
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
+" this doesn't work
+let g:ale_rust_analyzer_config = {
+              \ 'rust': {
+              \   'clippy_preference': 'on',
+              \   'procMacro': { 'enable': v:true },
+              \ },
+              \ 'procMacro': { 'enable': v:true },
+              \ 'cargo': { 'loadOutDirsFromCheck': v:true },
+              \ }
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
+let g:neoformat_enabled_python = ['yapf']
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 let g:airline#extensions#whitespace#enabled = 0
@@ -95,7 +109,9 @@ let g:airline#extensions#tabline#fnamecollapse = 1
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#extensions#tabline#fnamemod = ':t'
-
+let g:ale_sign_error = '>>'
+let b:ale_enabled = 1
+let g:ale_fixers = { 'elixir': ['mix_format'] ,'rust': ['rustfmt'] }
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 " Bullets.vim
@@ -106,9 +122,6 @@ let g:bullets_enabled_file_types = [
     \ 'scratch'
     \]
 let g:airline#extensions#ale#enabled = 1
-let g:ale_sign_error = '>>'
-let b:ale_enabled = 1
-let g:ale_fixers = { 'elixir': ['mix_format'] }
 let g:ale_fix_on_save = 1
 let g:random_scheme = 1
 let g:clang_format#style_options = {

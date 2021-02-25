@@ -10,6 +10,14 @@ fu! BoilerplateC()
     endif
 endfu
 
+autocmd FileType haskell call BoilerplateHS()
+fu! BoilerplateHS()
+    if line("$") == 1
+        let filename = expand('%:r')
+        call append(0, "module ".toupper(filename[0]).filename[1:]." where")
+    endif
+endfu
+
 autocmd FileType cpp call BoilerplateCPP()
 fu! BoilerplateCPP()
     if line("$") == 1

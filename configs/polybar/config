@@ -74,7 +74,7 @@ font-2 = FontAwesome5Free:style=Regular:size=10;4
 font-3 = FontAwesome5Brands:style=Regular:size=12;3
 font-4 = Noto Sans Mono:size=10;0
 
-modules-left = i3 spotify
+modules-left = i3 stock stock2 spotify
 modules-center = date
 modules-right = mic dnd volume memory cpu battery
 
@@ -236,6 +236,9 @@ label-urgent-padding = 2
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
+[module/custom]
+command = [ "$(( RANDOM % 20 ))" -eq 0 ] && echo "ola"
+
 ##MODULES###
 
 [module/memory]
@@ -356,6 +359,21 @@ bar-volume-empty = ─
 bar-volume-empty-font = 4
 bar-volume-empty-foreground =
 #
+#[module/stock]
+#type = custom/script
+#interval = 60
+#format-prefix-foreground = #FF0000
+#format-prefix = "   "
+#format = <label>
+#exec = bash $DOTFILES/scripts/tracking.sh
+
+[module/stock2]
+type = custom/script
+interval = 60
+format-prefix-foreground = #FF0111
+format-prefix = "  "
+format = <label>
+exec = #bash $DOTFILES/scripts/aquario.sh
 
 [module/spotify]
 type = custom/script
@@ -376,4 +394,3 @@ type = custom/script
 format-prefix = "􏣹"
 format = <label>
 exec = ~/.config/polybar/polybarCustom.sh mic
-
