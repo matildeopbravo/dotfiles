@@ -1,6 +1,6 @@
 #!/bin/bash
-set -x
 # dmenu app launcher with history
+source "$DOTFILES/configs/zsh/functions.zsh"
 cache="$HOME/.cache"
 cache_file="$cache/IQhist"
 
@@ -20,11 +20,14 @@ if ! grep -q "$cmd" "$cache_file";
 then
     echo -e "$cmd\t1" >> "$cache_file"
 else
-    echo
+  tmp_cache="$(mktemp)"
+
     awk -v c="$cmd" \
         -F'\t' \
         '$1 == c {print($1"\t"$2 + 1)} $1 != c {print}' \
-        "$cache_file" >| "$cache_file"
+        "$cache_file" > "$tmp_cache"
+
+    mv "$tmp_cache" "$cache_file"
 fi
 
 case $cmd in
