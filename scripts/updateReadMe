@@ -9,7 +9,7 @@ new_files=$(git status -s | grep '??' | grep 'scripts' | cut -d '/' -f 2)
 
 for script in $new_files
 do
-        read -r -p "Please enter description for script $script "
+        read -e -r -p "Please enter description for script $script "
 
         if [ -n "$REPLY" ]
         then
