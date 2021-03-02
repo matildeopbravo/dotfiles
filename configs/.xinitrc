@@ -8,5 +8,6 @@ while true; do baby_monitor.py ; sleep 30m; done &
 (sleep 1m ; while true; do crypto.sh ; sleep 1h; done) &
 xrdb ~/.Xresources
 my-lock-script
+espanso -v worker & disown
 sxhkd &>/dev/null & disown
 exec i3
