@@ -1,4 +1,4 @@
 #!/bin/bash
 
 host=$(grep -w 'Host' .ssh/config | cut -d ' ' -f2 | dmenu -l 20 -p "ssh")
-alacritty --class 'floating-term' -e bash -c "ssh $host"
+alacritty --hold --class 'floating-term' -e bash -c "ssh $host"
