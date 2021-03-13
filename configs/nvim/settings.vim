@@ -8,7 +8,7 @@ filetype on
 filetype plugin indent on
 
 syntax enable
-colorscheme tokyonight
+colorscheme deus
 set colorcolumn=80
 set number relativenumber
 set noshowmode

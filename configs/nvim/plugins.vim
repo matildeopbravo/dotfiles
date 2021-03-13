@@ -25,6 +25,9 @@ Plug 'itspriddle/vim-shellcheck'
 Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
 Plug 'Sammyalhashe/random_colorscheme.vim'
@@ -35,7 +38,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'axvr/org.vim'
 Plug 'rust-lang/rust.vim'
-
+Plug 'voldikss/vim-translator'
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 
 "Themes
 Plug 'tomasiser/vim-code-dark'
