@@ -7,6 +7,7 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -40,6 +41,7 @@ Plug 'axvr/org.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'voldikss/vim-translator'
 Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
+Plug 'machakann/vim-highlightedyank'
 
 "Themes
 Plug 'tomasiser/vim-code-dark'
@@ -68,8 +70,8 @@ Plug 'heraldofsolace/nisha-vim'
 
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#clang_complete_database = 1
+""let g:deoplete#enable_at_startup = 1
+""let g:deoplete#sources#clang#clang_complete_database = 1
 let g:ale_c_clang_options = '-x c'
 let g:ale_c_clangtidy_options = '-x c'
 let g:ale_echo_msg_format = '%linter%: %s'
@@ -184,3 +186,19 @@ let g:clang_format#style_options = {
         \   'BeforeElse' : 'true',
         \  },
         \ }
+
+let g:coc_global_config="$HOME/.config/coc/coc-settings.json"
+    " Use K to show documentation in preview window.
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+    function! s:show_documentation()
+        if (index(['vim','help'], &filetype) >= 0)
+            execute 'h '.expand('<cword>')
+        elseif (coc#rpc#ready())
+            call CocActionAsync('doHover')
+        else
+            execute '!' . &keywordprg . " " . expand('<cword>')
+        endif
+    endfunction
+
+let g:highlightedyank_highlight_duration = 100

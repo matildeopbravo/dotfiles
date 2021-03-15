@@ -61,4 +61,3 @@ Scripts I use on a daily basis.
 - [rotate_monitor.sh](./scripts/rotate_monitor.sh) - Toggle rotates monitor
 - [dmenu_script.sh](./scripts/dmenu_script.sh) - Launches custom dmenu with history and commonly used programs
 - [test_code.sh](./scripts/test_code.sh) - Tests my program's output files against teacher's
-- [baby_monitor.py](./scripts/baby_monitor.py) - 

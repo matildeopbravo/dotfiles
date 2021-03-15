@@ -2,6 +2,7 @@ augroup auFileTypes
   autocmd!
   autocmd FileType markdown setlocal textwidth=80
 augroup end
+  autocmd FileType json syntax match Comment +\/\/.\+$+
 
 set termguicolors
 filetype on
