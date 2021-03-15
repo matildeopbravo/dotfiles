@@ -1,6 +1,5 @@
 source $ZSHDIR/alias.zsh
 source $ZSHDIR/functions.zsh
-source ~/.local/share/zplug/init.zsh
 
 autoload -U colors && colors
 #autoload -Uz compinit
@@ -21,6 +20,7 @@ export PROMPT=' %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.local/cached/.zsh_history
+unsetopt EXTENDED_HISTORY
 setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
@@ -28,7 +28,22 @@ setopt incappendhistory  #Immediately append to the history file, not just when 
 
 bindkey "^?" backward-delete-char # fixes problem in vi mode when you  want to delete using backspace after leaving normal mode
 bindkey -v # use vi mode
-bindkey '^R' history-incremental-search-backward
+#bindkey '^R' history-incremental-search-backward
+bindkey '^R' fzf-history
+fzf-history() {
+    cenas=$(history 0 | awk '{ $1=""; print}' | fzf --no-sort --tac --exact)
+    echo -n "$cenas"
+    eval $cenas
+}
+function Resume {
+    fg
+    zle push-input
+    BUFFER=""
+    zle accept-line
+}
+zle -N Resume
+bindkey "^Z" Resume
+zle -N fzf-history
 clearing () { clear; echo ; zle redisplay}
 zle -N clearing
 bindkey "^L" clearing
@@ -68,6 +83,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-
-
-echo "Amote muito rebuçadinho"
+[ -f "/home/pasok/.ghcup/env" ] && source "/home/pasok/.ghcup/env" # ghcup-env
