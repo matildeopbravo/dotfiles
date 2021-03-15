@@ -1,7 +1,7 @@
 #!/bin/bash
 #Gets the most recent Arch Linux ISO magnet and installs it with my bitorrent client.
 
-MAGNET=$(curl --silent https://www.archlinux.org/download/ | grep magnet -m 1 | cut -d '"' -f 2)
+MAGNET=$(curl -L --silent https://www.archlinux.org/download/ | grep magnet -m 1 | cut -d '"' -f 2)
 echo "notify-send 'torrent done' -u critical" > /tmp/iso-fetch
 chmod +x /tmp/iso-fetch
 transmission-daemon
