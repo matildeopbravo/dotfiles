@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 randwall() {
     length=$(find "$WALLPAPERS" -maxdepth 1 -type f -print | wc -l)
     number=$(((RANDOM%length)+1))
@@ -8,6 +7,7 @@ randwall() {
         head -"$number" | tail -1 | awk -F '/' '{printf $NF}')
     echo "$name"
 }
+
 try() {
     curl "$(xclip -o -selection c)" | feh - --bg-fill ; i3-msg "workspace 7"
 }
@@ -27,7 +27,6 @@ delete(){
 if [[ "$1" == "prompt" ]]; then
     option=$(printf "try\nsave\ndelete" | dmenu -l 20)
     eval "$option"
-
 
 elif [[ $# -eq 1 ]]; then
     file="$1"
