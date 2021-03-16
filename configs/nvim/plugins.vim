@@ -44,6 +44,7 @@ Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'machakann/vim-highlightedyank'
 
 "Themes
+Plug 'gmoe/vim-eslint-syntax'
 Plug 'tomasiser/vim-code-dark'
 Plug 'wadackel/vim-dogrun'
 Plug 'joshdick/onedark.vim'
@@ -52,7 +53,6 @@ Plug 'ntk148v/vim-horizon'
 Plug 'morhetz/gruvbox'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'chriskempson/base16-vim'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sainnhe/sonokai'
 Plug 'ayu-theme/ayu-vim'

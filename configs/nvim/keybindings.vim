@@ -19,6 +19,7 @@ vnoremap s :%s/\<<C-r><C-w>\>/
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 nnoremap <leader>z :set foldmethod=indent<CR>
+"autocmd Filetype c let b:c=true
 au FileType c nnoremap <leader>r :call CompileC()<CR>
 fu! CompileC()
     write
@@ -29,6 +30,11 @@ fu! CompileC()
         !./%:r
     endif
 endfu
+nnoremap <leader>r :call Run()<CR>
+fu! Run()
+    write
+    exec '!' &filetype '%'
+endfu
 
 command! -bang -nargs=1 Rename call RenameFunc(<q-args>, <bang>0)
 fu! RenameFunc(new_name, bang)
@@ -36,3 +42,13 @@ fu! RenameFunc(new_name, bang)
     execute 'saveas'.(a:bang?'! ':' ').a:new_name
     execute 'silent !rm -f '.l:aux
 endfu
+nnoremap "p :reg <bar> exec 'normal! "'.input('>').'p'<CR>
+
+nnoremap <leader>w :call RandomColorScheme()<CR>
+function RandomColorScheme()
+  let mycolors = split(globpath(&rtp,"**/colors/*.vim"),"\n")
+  exe 'so ' . mycolors[localtime() % len(mycolors)]
+  unlet mycolors
+endfunction
+
+:command NewColor call RandomColorScheme()
