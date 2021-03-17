@@ -2,10 +2,14 @@
 
 dir="."
 exclude_hidden='-not -path "*/\.*"'
-[ "$#" -gt 2 ] && exit
+[ "$#" -gt 2 ] && [ "$1" != "launcher" ] && exit
 for arg in "$@";do
     case "$arg" in
         --hidden|-h) unset exclude_hidden
+            ;;
+        d) dir="$HOME/dotfiles"; unset exclude_hidden
+            ;;
+        launcher) launcher=1
             ;;
         *) dir="$arg"
     esac
@@ -24,7 +28,7 @@ app=$(xdg-mime query default "$filetype")
 if [ "$app" == "nvim.desktop" ]
 then
     nvim "$file"
-elif [ "$1" == "launcher" ]
+elif [ -n "$launcher" ]
 then
     setsid /bin/sh -c "xdg-open $file" &>/dev/null </dev/null &
     sleep 0.01
