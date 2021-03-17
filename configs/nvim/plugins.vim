@@ -42,6 +42,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'voldikss/vim-translator'
 Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'machakann/vim-highlightedyank'
+Plug 'lervag/vimtex'
 
 "Themes
 Plug 'gmoe/vim-eslint-syntax'
@@ -61,11 +62,11 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'rakr/vim-one'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
-Plug 'srcery-colors/srcery-vim'
 Plug 'wadackel/vim-dogrun'
 Plug 'ajmwagar/vim-deus'
 Plug 'franbach/miramare'
 Plug 'heraldofsolace/nisha-vim'
+Plug 'sainnhe/edge'
 
 
 call plug#end()

@@ -52,3 +52,4 @@ function RandomColorScheme()
 endfunction
 
 :command NewColor call RandomColorScheme()
+autocmd VimEnter * NewColor

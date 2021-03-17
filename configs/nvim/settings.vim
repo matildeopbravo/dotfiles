@@ -12,6 +12,8 @@ syntax enable
 colorscheme deus
 set colorcolumn=80
 set number relativenumber
+set list
+set listchars=tab:>-
 set noshowmode
 set expandtab
 set shiftwidth=4
@@ -23,6 +25,7 @@ set splitbelow splitright
 set autochdir
 set icm=nosplit
 
+autocmd Filetype * call RandomColorScheme()
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType c ClangFormatAutoEnable
 au BufRead,BufNewFile * setlocal textwidth=80
