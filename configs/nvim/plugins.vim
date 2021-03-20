@@ -43,6 +43,10 @@ Plug 'voldikss/vim-translator'
 Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'lervag/vimtex'
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+Plug 'luochen1990/rainbow'
 
 "Themes
 Plug 'gmoe/vim-eslint-syntax'
@@ -81,7 +85,8 @@ let g:ale_linters = {
     \ 'c': ['ccls', 'clangtidy', 'clangcheck'],
     \ 'cpp': ['ccls','g++','clangtidy','clang++'],
     \ 'tex': ['alex', 'chktex', 'proselint', 'redpen',
-    \         'texlab', 'textlint', 'vale', 'writegood']
+    \         'texlab', 'textlint', 'vale', 'writegood'],
+    \   'elixir': ['credo', 'dialyxir', 'dogma'],
     \ }
 
 let g:ale_rust_cargo_check_tests = 1

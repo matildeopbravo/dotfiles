@@ -9,12 +9,13 @@ filetype on
 filetype plugin indent on
 
 syntax enable
-colorscheme deus
+colorscheme edge
 set colorcolumn=80
 set number relativenumber
 set list
 set listchars=tab:>-
 set noshowmode
+set fdm=manual
 set expandtab
 set shiftwidth=4
 set cindent smarttab autoindent smartindent
@@ -25,13 +26,18 @@ set splitbelow splitright
 set autochdir
 set icm=nosplit
 
-autocmd Filetype * call RandomColorScheme()
+"autocmd Filetype * call RandomColorScheme()
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType c ClangFormatAutoEnable
 au BufRead,BufNewFile * setlocal textwidth=80
 autocmd! BufNewFile,BufRead,BufReadPre,BufWritePost *.h set filetype=c
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html
 autocmd! BufWritePre * %s/\s\+$//e "clear trailing whitespace
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 autocmd Filetype markdown colorscheme base16-gruvbox-dark-medium
 

@@ -1,3 +1,4 @@
+au Filetype c nnoremap K :Man<CR>
 nmap <M-f> :NERDTreeToggle<CR>
 nmap <M-t> :FloatermNew<CR>
 vnoremap <C-c> "+y
@@ -52,4 +53,4 @@ function RandomColorScheme()
 endfunction
 
 :command NewColor call RandomColorScheme()
-autocmd VimEnter * NewColor
+"autocmd VimEnter * NewColor
