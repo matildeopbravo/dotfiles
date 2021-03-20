@@ -1,5 +1,7 @@
 #!/bin/bash
 
+fzf=${TMUX:+fzf-tmux}
+: "${fzf:=fzf}"
 dir="."
 exclude_hidden='-not -path "*/\.*"'
 [ "$#" -gt 2 ] && [ "$1" != "launcher" ] && exit
@@ -16,7 +18,7 @@ for arg in "$@";do
 done
 find_type='find '$dir' -type f '"$exclude_hidden"' ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)""'
 export FZF_DEFAULT_COMMAND="$find_type"
-file=$(fzf --preview-window=right:60% --preview='bat --color "always" {}')
+file=$("$fzf" --preview-window=right:60% --preview='bat --color "always" {}')
 if [ -z "$file" ]; then
     exit
 fi
