@@ -1,21 +1,23 @@
-augroup auFileTypes
-  autocmd!
-  autocmd FileType markdown setlocal textwidth=80
-augroup end
-  autocmd FileType json syntax match Comment +\/\/.\+$+
+
 
 set termguicolors
 filetype on
 filetype plugin indent on
 
 syntax enable
-colorscheme edge
+
+highlight Normal guibg=none
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight NonText guibg=none
+colorscheme base16-default-dark
 set colorcolumn=80
 set number relativenumber
+" show tabs
 set list
 set listchars=tab:>-
 set noshowmode
-set fdm=manual
+" folding
 set expandtab
 set shiftwidth=4
 set cindent smarttab autoindent smartindent
@@ -30,7 +32,7 @@ set icm=nosplit
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd FileType c ClangFormatAutoEnable
 au BufRead,BufNewFile * setlocal textwidth=80
-autocmd! BufNewFile,BufRead,BufReadPre,BufWritePost *.h set filetype=c
+autocmd! BufNewFile,BufRead,BufReadPost,BufWritePost *.h set filetype=c
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags "autocomplete html
 autocmd! BufWritePre * %s/\s\+$//e "clear trailing whitespace
 augroup remember_folds
@@ -51,3 +53,9 @@ augroup Mkdir
   autocmd!
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
 augroup END
+
+augroup auFileTypes
+  autocmd!
+  autocmd FileType markdown setlocal textwidth=80
+augroup end
+  autocmd FileType json syntax match Comment +\/\/.\+$+
