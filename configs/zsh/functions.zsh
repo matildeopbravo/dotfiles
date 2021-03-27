@@ -1,5 +1,17 @@
 #!/bin/bash
 
+function my_ip() {
+    if [ -z "$1" ]; then
+        echo -n "Public ip: "
+        #curl ifconfig.me
+        dig +short myip.opendns.com @resolver1.opendns.com
+    else
+        echo -n "Local ip: "
+        ip -o -4 addr list | grep -e ".*: $1" | awk '{print $4}'
+    fi
+}
+
+
 function op () {
     for i in "$@"
     do
