@@ -1,6 +1,5 @@
-autocmd FileType c call BoilerplateC()
+autocmd BufNewFile *.c call BoilerplateC()
 fu! BoilerplateC()
-    if line('$') == 1
         if expand("%:e") == "h" || expand("%:e") == "hpp"
             call BoilerplateHeader()
         else
@@ -12,7 +11,6 @@ fu! BoilerplateC()
             call append(5, "}")
             call cursor(5, 1)
         endif
-    endif
 endfu
 
 autocmd FileType cpp call BoilerplateCPP()

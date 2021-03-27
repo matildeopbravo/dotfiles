@@ -11,6 +11,19 @@ function my_ip() {
     fi
 }
 
+alarm() {
+    if [ $# -lt 1 ]; then
+        echo "provide a time string"
+        return 1
+    fi
+    {
+        link="https://www.youtube.com/watch?v=4iC-7aJ6LDY"
+        sleep "$1"
+        mpv --no-video "$link" --input-ipc-server=/tmp/mpvalarm &
+        notify-send -u critical "Alarm" "$2" -a "$(basename "$0")"
+    } &
+    disown
+}
 
 function op () {
     for i in "$@"
@@ -32,8 +45,7 @@ md () {
 fix_firefox() {
     cd "$HOME/.mozilla/firefox/$1"
     mkdir -p chrome
-    ln -sf $DOTFILES/configs/firefox/*.css $PWD/chrome
-    ln -sf $DOTFILES/configs/firefox/*.js $PWD
+    ln -sf $(ls $DOTFILES/configs/firefox/*.{js,css}) $PWD/chrome
     killall firefox
     firefox-developer-edition & disown
 }

@@ -1,6 +1,6 @@
 env:
   TERM: xterm-256color
-  WINIT_X11_SCALE_FACTOR: "1.5"
+  WINIT_X11_SCALE_FACTOR: "1.7"
 
 # Window configurations
 window:
