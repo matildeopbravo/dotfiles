@@ -5,7 +5,7 @@ export WALLPAPERS=$HOME/Pictures/Wallpapers
 export CURRENT_WALL=$WALLPAPERS/current_wallpaper
 export ZSHDIR=$DOTFILES/configs/zsh
 export TERMINAL=alacritty
-export BROWSER="firefox-developer-edition"
+export BROWSER="firefox"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export KEYTIMEOUT=1
@@ -25,6 +25,3 @@ export LESS_TERMCAP_us=$'\e[1;4;32m'
 if [ "$(tty)" = "/dev/tty1" ]; then
     pgrep i3 || startx
 fi
-
-
-
