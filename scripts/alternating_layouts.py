@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-import i3
 import re
 import subprocess
 import getopt
 import sys
 import os
+import i3
 
 
 def find_parent(window_id):
