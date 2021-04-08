@@ -58,7 +58,8 @@ super + c
         rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '
 
 super + shift + f
-        alacritty --class 'floating-term' -e bash -c "source /home/pasok/dotfiles/configs/zsh/functions.zsh ; f launcher "
+    alacritty --class 'floating-term' -e bash -c "source /home/pasok/dotfiles/configs/zsh/functions.zsh ; f launcher"
+
 
 shift + @Print
     scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f ; mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
@@ -83,9 +84,6 @@ super + @Print
     scrot -sf -e 'mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
 
 #flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
-
-control + alt + l
-    blur-lock
 
 control + alt + s
         systemctl suspend
