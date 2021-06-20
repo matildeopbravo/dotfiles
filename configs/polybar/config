@@ -371,9 +371,9 @@ bar-volume-empty-foreground =
 type = custom/script
 interval = 60
 format-prefix-foreground = #FF0111
-format-prefix = "  "
+format-prefix = "   "
 format = <label>
-exec = #bash $DOTFILES/scripts/aquario.sh
+#exec = $DOTFILES/scripts/git_fetch.sh
 
 [module/spotify]
 type = custom/script

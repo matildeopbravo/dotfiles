@@ -25,6 +25,10 @@ alarm() {
     disown
 }
 
+deplebe() {
+    pandoc -o "$2" -f docx "$1"
+}
+
 function op () {
     for i in "$@"
     do

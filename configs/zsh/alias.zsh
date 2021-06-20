@@ -66,4 +66,4 @@ alias gp='git push'
 alias gl='git pull'
 alias gst='git status'
 
-alias li='cd /home/pasok/uni/2ano2sem/li3/grupo54/project_c'
+alias ghci='ghci -XNPlusKPatterns'

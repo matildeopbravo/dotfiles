@@ -111,7 +111,7 @@ super + alt + p
 ###### BRIGHTNESS ######################
 
 XF86MonBrightness{Up,Down}
-        brightnessctl set 50{+,-}
+        brightnessctl set 100{+,-}
 
 ######### MEDIA ###########
 
