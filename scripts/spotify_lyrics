@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "" > /tmp/lyrics
+
+{
+    while :; do
+
+    new_artist=$(spotify_song_info "artist")
+    new_song=$(spotify_song_info "title")
+
+    if [ "$new_artist" != "$artist" ] || [ "$new_song" != "$song" ]; then
+        letra=$(lyrics)
+        while [  -z "$letra" ]; do
+            letra=$(lyrics)
+        done
+        echo "$letra" >> /tmp/lyrics
+        artist="$new_artist"
+        song="$new_song"
+    fi
+    sleep 5s;
+done
+}&
+
+tail -f /tmp/lyrics
