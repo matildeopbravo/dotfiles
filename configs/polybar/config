@@ -1,4 +1,4 @@
-[global/wm]
+[#global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
 margin-bottom = 0
@@ -359,13 +359,13 @@ bar-volume-empty = ─
 bar-volume-empty-font = 4
 bar-volume-empty-foreground =
 #
-#[module/stock]
-#type = custom/script
-#interval = 60
-#format-prefix-foreground = #FF0000
-#format-prefix = "   "
-#format = <label>
-#exec = bash $DOTFILES/scripts/tracking.sh
+[module/stock]
+type = custom/script
+interval = 60
+format-prefix-foreground = #FF0000
+format-prefix = "   "
+format = <label>
+exec = #bash $DOTFILES/scripts/vacina.sh
 
 [module/stock2]
 type = custom/script

@@ -1,11 +1,10 @@
 #!/bin/bash
 
-
 FLAG=`pacmd list-sink-inputs | grep -c 'state: RUNNING'`
 if [[ $FLAG -eq 0  && $1 = "suspend" ]]; then
     systemctl suspend
 fi
 
 xset dpms 0 300 0
-lock-on-suspend & disown
+pgrep lock-on-suspend || lock-on-suspend & disown
 xautolock -corners ---- -time 15 -locker "my-lock-script suspend" & disown

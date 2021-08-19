@@ -61,3 +61,5 @@ Scripts I use on a daily basis.
 - [rotate_monitor.sh](./scripts/rotate_monitor.sh) - Toggle rotates monitor
 - [dmenu_script.sh](./scripts/dmenu_script.sh) - Launches custom dmenu with history and commonly used programs
 - [test_code.sh](./scripts/test_code.sh) - Tests my program's output files against teacher's
+- [spotify_lyrics](./scripts/spotify_lyrics) - Script I made which continuously displays lyrics for current song playing on spotify (updates as song changes).
+- [spotify_song_info](./scripts/spotify_song_info) - Displays information about the current song playing on spotify

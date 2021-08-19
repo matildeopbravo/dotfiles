@@ -25,10 +25,6 @@ alarm() {
     disown
 }
 
-deplebe() {
-    pandoc -o "$2" -f docx "$1"
-}
-
 function op () {
     for i in "$@"
     do
@@ -76,7 +72,7 @@ blue() {
 }
 
 u() {
-    cd "$HOME/uni/2ano2sem/$1"
+    cd "$HOME/uni/2ano2sem/$1" || cd "$HOME/uni/2ano1sem/$1" || cd "$HOME/uni/1ano1sem/$1"
 }
 
 rga-fzf() {
@@ -168,3 +164,8 @@ torrent(){
   transmission-remote "$1" "$2" 2> /dev/null
 }
 
+function connect_bluetooth {
+    sudo systemctl start bluetooth
+    bluetoothctl power on &> /dev/null
+    bluetoothctl devices | grep -i "$1" | cut -d " " -f 2 | xargs bluetoothctl connect
+}
