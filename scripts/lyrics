@@ -1,0 +1,56 @@
+#!/bin/bash
+
+polish() {
+    out=$(echo "$1" |
+        sed 'y/ãāáǎàçēéěèīíǐìōóǒòūúǔùǖǘǚǜÃĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaaceeeeiiiioooouuuuuuuuAAAAAEEEEIIIIOOOOUUUUUUUU/' |
+        sed "s/'//g" | tr '[:upper:]' '[:lower:]' | xargs)
+    echo "$out"
+}
+
+
+if [ -z "$1" ]
+then
+    artist=$(spotify_song_info "artist")
+    song=$(spotify_song_info "title")
+else
+    artist="$1"
+    song="$2"
+fi
+
+artist=$(polish "$artist")
+artist="$(tr '[:lower:]' '[:upper:]' <<< "${artist:0:1}")${artist:1}" # capitalize artist
+artist_with_dash=${artist// /-}
+song_with_dash=$(polish "$song" | sed 's/ /-/g' )
+link="https://genius.com/$artist_with_dash-$song_with_dash-lyrics"
+link=${link//\'/}
+
+#trap "kill 0" EXIT
+{
+    sleep 5s
+    kill $$
+} &
+pid_sleep="$!"
+
+while [ -z "$output" ]; do
+    output=$(curl -siL "$link")
+done
+code=$(echo "$output" | head -1 | cut -d ' ' -f2)
+
+i=0
+while [ -z "$output" ] || [ $i == 0 ]; do
+    i=1
+    if [[ "$code" -ne "200" && "$code" -ne "301" ]];then
+            artist_with_plus=${artist// /+}
+            song_with_plus=$(echo "$song" | tr '[:upper:]' '[:lower:]' | sed 's/ /+/g')
+            link=$(curl -siL "https://genius.com/api/search/multi?q=$artist_with_plus+$song_with_plus" |
+                tail -1 | jq '.response.sections[1] ' | grep  ".*url.*lyrics.*" | sed 's/.*https/https/g' |
+                cut -d '"' -f 1 | head -1)
+            output=$(curl -siL "$link")
+    fi
+    output=$(echo "$output" | sed -n '/<div class="song_body-lyrics">/,/<\/div>/p' | sed -E 's/>([[a-zA-Z])/>\n\1/g' |
+        sed -E 's/(.)<a/\1\n<a/g' | sed '/<a/,/>/d' | sed 's/<br>//g' | sed 's/<.*>//g' |
+        awk '!NF {if (++n <= 2) print; next}; {n=0;print}' | GREP_COLORS='ms=01;31' grep --color=always -e "^" -e "\[.*]" |
+        GREP_COLORS='ms=01;34' grep --color=always -e "^" -e ".*Lyrics$")
+done
+kill "$pid_sleep"
+echo "$output" | less -R
