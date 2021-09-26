@@ -1,11 +1,11 @@
 source $ZSHDIR/alias.zsh
 source $ZSHDIR/functions.zsh
-source "$HOME/.local/share/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
+#source "$HOME/.local/share/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 
 autoload -U colors && colors
 autoload -Uz compinit
 
-setopt autocd
+setopt extended_glob
 unsetopt nomatch #if there is no match using globs, it is not expanded
 
 zstyle :compinstall filename "~/.zshrc"
@@ -15,8 +15,8 @@ compinit
 
 #Prompt
 setopt PROMPT_SUBST
-source /home/pasok/.rvm/scripts/rvm
-source /home/pasok/themes/robbyrussell.zsh-theme
+#source /home/pasok/.rvm/scripts/rvm
+source $HOME/themes/robbyrussell.zsh-theme
 #export PROMPT=' %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$reset_color%}'
 
 # History
@@ -35,6 +35,8 @@ bindkey "^?" backward-delete-char # fixes problem in vi mode when you  want to d
 bindkey -v # use vi mode
 #bindkey '^R' history-incremental-search-backward
 bindkey '^R' fzf-history
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^x' edit-command-line
 MODE_CURSOR_VIINS="#00FFFF bar"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
 fzf-history() {
