@@ -65,7 +65,7 @@ serve() {
   echo "http://pasok.xyz/files/$(basename $1)" | xclip -selection c
 }
 sendfile() {
-    scp "$1" berrygood:~/.hdd/
+    scp -r "$1" berrygood:~/.hdd/
 }
 
 blue() {
