@@ -60,9 +60,12 @@ graw () {
   curl "$raw_link" -s > "$(echo "$path_to_file" | rev | cut -d '/' -f 1 | rev)"
 }
 
-sendfile() {
+serve() {
   scp "$1" berrygood:~/.hdd/webserver/public/files
-  echo "http://pasok.xyz/files/$1" | xclip -selection c
+  echo "http://pasok.xyz/files/$(basename $1)" | xclip -selection c
+}
+sendfile() {
+    scp "$1" berrygood:~/.hdd/
 }
 
 blue() {
