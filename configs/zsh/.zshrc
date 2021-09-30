@@ -16,7 +16,7 @@ compinit
 #Prompt
 setopt PROMPT_SUBST
 #source /home/pasok/.rvm/scripts/rvm
-source $HOME/themes/robbyrussell.zsh-theme
+source $DOTFILES/configs/zsh/themes/robbyrussell.zsh-theme
 #export PROMPT=' %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$reset_color%}'
 
 # History
