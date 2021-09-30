@@ -21,4 +21,4 @@ echo "" > /tmp/lyrics
 done
 }&
 
-tail -f /tmp/lyrics
+less +F -R /tmp/lyrics

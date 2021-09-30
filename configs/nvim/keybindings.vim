@@ -1,3 +1,4 @@
+let mapleader = " "
 au Filetype c nnoremap K :Man<CR>
 nmap <M-f> :NERDTreeToggle<CR>
 nmap <M-t> :FloatermNew<CR>

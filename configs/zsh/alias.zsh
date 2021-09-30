@@ -25,6 +25,7 @@ alias zprofile='v $ZSHDIR/.zprofile'
 alias sxhkdrc='v $HOME/.config/sxhkd/sxhkdrc'
 alias p='pacman'
 alias grep='grep --color'
+alias hexdump='hxd'
 
 alias {vim,v}='nvim';
 alias cp='cp -iv'

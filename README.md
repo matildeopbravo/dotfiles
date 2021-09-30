@@ -37,8 +37,6 @@ Scripts I use on a daily basis.
 
    - [blur-lock](./scripts/lock/blur-lock) - Provides **i3-lock** with a **blurred** screenshot of the computer just before it was locked.
     - [lock-on-supend](./scripts/lock/lock-on-suspend) -  Locks computer **only before** it's suspended (i3-lock can)
-- [mv.sh](./scripts/mv.sh) - mv on steroids which doesn't cause **dead symlinks**,
-    instead it recreates them.
 - [fetch-iso](./scripts/fetch-iso) - Gets the most recent Arch Linux ISO magnet
     and installs it with my bitorrent client.
 - [termFromHere](./scripts/termFromHere) - Opens terminal in the **current working directory** (currently not in use because Alacritty supports this by default).

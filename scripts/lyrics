@@ -53,4 +53,10 @@ while [ -z "$output" ] || [ $i == 0 ]; do
         GREP_COLORS='ms=01;34' grep --color=always -e "^" -e ".*Lyrics$")
 done
 kill "$pid_sleep"
-echo "$output" | less -R
+echo "$output" | { 
+if [ -t 1 ]; then 
+  less -R
+else 
+  cat
+fi
+}

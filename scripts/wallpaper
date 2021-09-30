@@ -10,6 +10,7 @@ randwall() {
 
 try() {
     curl "$(xclip -o -selection c)" | feh - --bg-fill ; i3-msg "workspace 7"
+    exit
 }
 
 save() {

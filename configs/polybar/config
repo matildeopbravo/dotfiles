@@ -1,4 +1,4 @@
-[#global/wm]
+[global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
 margin-bottom = 0
