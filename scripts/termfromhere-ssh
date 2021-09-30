@@ -1,0 +1,40 @@
+#!/bin/bash
+
+CWD=''
+TERMINAL_CAPS="$(tr '[:lower:]' '[:upper:]' <<< "${TERMINAL:0:1}")${TERMINAL:1}"
+ID=$(xdpyinfo | grep focus | cut -f4 -d " ")
+WM_NAME=$(xprop -id "$ID" | tail -1 | cut -d "=" -f 2 | sed 's/"//g')
+
+if [ "$WM_NAME" == " $TERMINAL_CAPS" ]; then
+    PID=$(xprop -id "$ID" | grep -m 1 PID | cut -d " " -f 3)
+    # Get last child process (shell, vim, etc)
+    {
+    if [ -n "$PID" ]; then
+      CPID=$(pstree -lpA "$PID" \
+          | grep -oP '(bash|zsh|vim|nvim)\([0-9]+\)' \
+          | tail -1 \
+          | grep -oP '[0-9]+')
+
+      # If we find the working directory, run the command in that directory
+      if [ -e "/proc/$CPID/cwd" ]; then
+        CWD=$(readlink /proc/"$CPID"/cwd)
+      fi
+    fi
+    if [ -n "$CWD" ]; then
+      cd "$CWD" || exit 1
+      "$TERMINAL" "$@" &
+    else
+      "$TERMINAL" "$@" &
+    fi
+    disown
+    exit
+    } &>> ~/.local/cached/.termFromHereLog &
+
+else
+
+    host=$(echo "$WM_NAME" | cut -d ":" -f1)
+    dir=$(echo "$WM_NAME" | cut -d ":" -f2)
+    "$TERMINAL" --hold -e "ssh -t $host \"cd $dir && bash\""
+fi
+
+

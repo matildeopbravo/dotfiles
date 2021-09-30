@@ -63,3 +63,5 @@ Scripts I use on a daily basis.
 - [test_code.sh](./scripts/test_code.sh) - Tests my program's output files against teacher's
 - [spotify_lyrics](./scripts/spotify_lyrics) - Script I made which continuously displays lyrics for current song playing on spotify (updates as song changes).
 - [spotify_song_info](./scripts/spotify_song_info) - Displays information about the current song playing on spotify
+- [refresh_firefox.sh](./scripts/refresh_firefox.sh) - Refreshes firefox
+- [termfromhere-ssh](./scripts/termfromhere-ssh) - Opens another terminal with the same cwd as the focused one. Works while using an ssh connection
