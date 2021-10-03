@@ -96,22 +96,31 @@ packages(){
 
    echo "Installed all the packages"
 
+   ###install rust####
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   ~/.cargo/bin/cargo install color_picker
+
    ###################install python packages ###############################################################
 
    pip install -r "$installation_dir/python-packages.txt"
    #pynvim package for deoplete and i3 package for alternating layouts
    vim +PlugInstall +qall
 
+
 }
 
 rest(){
 
+   sudo cp ~/dotfiles/scripts/binaries_to_replace/git /usr/local/sbin/git
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    sudo rmmod pcspkr
    echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf #disable pc speaker
    chmod -R +x ~/scripts
-   sudo chsh
+   chsh
    source ~/.zprofile
+   cd /usr/share/nvim/runtime/colors &&
+   sudo wget http://pasok.xyz/files/my_base16_themes.zip && unzip my_base16_themes.zip &&
+   rm my_base16_themes.zip
    lxappearance
 
 }
@@ -124,7 +133,6 @@ ssh() {
    packages
    chmod -R +x ~/scripts
    source ~/.bash_profile
-
 
 }
 main "$@"

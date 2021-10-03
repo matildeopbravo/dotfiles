@@ -29,7 +29,6 @@ alias hexdump='hxd'
 
 alias {vim,v}='nvim';
 alias cp='cp -iv'
-alias mv=' bash $DOTFILES/scripts/mv.sh' # my script which creates symlinks
 alias rm='rm -Iv'
 alias ..='cd ..'
 alias ...='cd ../..'
