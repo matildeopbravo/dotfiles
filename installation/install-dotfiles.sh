@@ -59,7 +59,7 @@ symlinks() {
 
 browser() {
 
-   firefox-developer-edition --headless --first-startup &
+   firefox --headless --first-startup &
    sleep 15;
    profile_name="$(ls ~/.mozilla/firefox/ | grep ".default" | head -1)"
    profile_dir="$HOME/.mozilla/firefox/$profile_name"
@@ -104,7 +104,7 @@ packages(){
 
    pip install -r "$installation_dir/python-packages.txt"
    #pynvim package for deoplete and i3 package for alternating layouts
-   vim +PlugInstall +qall
+   nvim +PlugInstall +qall
 
 
 }
@@ -117,10 +117,14 @@ rest(){
    echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf #disable pc speaker
    chmod -R +x ~/scripts
    chsh
-   source ~/.zprofile
    cd /usr/share/nvim/runtime/colors &&
-   sudo wget http://pasok.xyz/files/my_base16_themes.zip && unzip my_base16_themes.zip &&
-   rm my_base16_themes.zip
+   sudo wget http://pasok.xyz/files/my_base16_themes.zip && sudo unzip my_base16_themes.zip &&
+   sudo rm my_base16_themes.zip
+   cd && wget
+   https://raw.githubusercontent.com/mendess/spell-book/master/scrolls/dmenu.sh &&
+   bash dmenu.sh && rm demenu.sh
+
+   source ~/.zprofile
    lxappearance
 
 }

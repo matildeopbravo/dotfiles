@@ -9,7 +9,6 @@ automake
 base
 bat
 bc
-bear-git
 binutils
 blueman
 bluetooth-autoconnect
@@ -32,6 +31,7 @@ file
 findutils
 firefox
 flameshot
+fzf
 gawk
 gcc
 gdb
