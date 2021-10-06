@@ -19,6 +19,7 @@ chromium
 clang
 code
 dbus-python
+dns-utils
 git-delta
 discord
 docker

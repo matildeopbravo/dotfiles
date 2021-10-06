@@ -3,12 +3,15 @@
 function my_ip() {
     if [ -z "$1" ]; then
         echo -n "Public ip: "
-        #curl ifconfig.me
-        dig +short myip.opendns.com @resolver1.opendns.com
+        curl ifconfig.me
     else
         echo -n "Local ip: "
-        ip -o -4 addr list | grep -e ".*: $1" | awk '{print $4}'
+        ip -o -4 addr list | grep -E "(w|eth|en)".*a | awk '{print $4}'
     fi
+}
+
+scan_hosts() {
+    nmap -sn $(my_ip p | awk '{print $3}') | grep --color=always -E "[^ ]*(lan|home)|^"
 }
 
 alarm() {
