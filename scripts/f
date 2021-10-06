@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -x
 fzf=${TMUX:+fzf-tmux}
 : "${fzf:=fzf}"
 dir="."
@@ -37,7 +38,7 @@ then
     nvim "$file"
 elif [ -n "$launcher" ]
 then
-    setsid /bin/sh -c "xdg-open $file" &>/dev/null </dev/null &
+    setsid /bin/sh -c "xdg-open '$file'" &>/dev/null </dev/null &
     sleep 0.01
 else
     xdg-open "$file" & disown
