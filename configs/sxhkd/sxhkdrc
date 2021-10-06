@@ -16,7 +16,11 @@ super + p
         $BROWSER
 
 super + shift + p
-        "$BROWSER" $(xclip -sel c -o)
+#$BROWSER --private-window $(xclip -sel c -o) check if valid link
+        $BROWSER --private-window
+
+##super + shift + p
+##        "$BROWSER" $(xclip -sel c -o)
 super + n
         dmenu_run
 super + o

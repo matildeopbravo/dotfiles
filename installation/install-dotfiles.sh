@@ -53,7 +53,7 @@ symlinks() {
    done < "$installation_dir/$symlink_file"
 
    sudo ln -sfv "$dotfiles_dir"/configs/zsh/gitprompt /usr/local/sbin # add git prompt to path
-   sudo ln -sfv "$dotfiles_dir/nobodywantsthis/touchpad/* /etc/X11/xorg.conf.d"
+   sudo ln -sfv "$dotfiles_dir"/nobodywantsthis/touchpad /etc/X11/xorg.conf.d
 
 }
 
@@ -120,11 +120,18 @@ rest(){
    cd /usr/share/nvim/runtime/colors &&
    sudo wget http://pasok.xyz/files/my_base16_themes.zip && sudo unzip my_base16_themes.zip &&
    sudo rm my_base16_themes.zip
-   cd && wget
-   https://raw.githubusercontent.com/mendess/spell-book/master/scrolls/dmenu.sh &&
+   cd && wget https://raw.githubusercontent.com/mendess/spell-book/master/scrolls/dmenu.sh &&
    bash dmenu.sh && rm demenu.sh
+   read -p "do you wish to install wallpapers ? (defaults to yes)" -n 1 -r
+   mkdir Pictures
 
-   source ~/.zprofile
+   if [ "$REPLY" != "n" ]
+   then
+       git clone git@github.com:matildeopbravo/walls.git ~/Pictures/Wallpapers
+
+   fi
+
+   cd ; source ~/.zprofile
    lxappearance
 
 }

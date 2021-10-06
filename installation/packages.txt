@@ -19,6 +19,7 @@ chromium
 clang
 code
 dbus-python
+git-delta
 discord
 docker
 dosfstools
@@ -49,13 +50,9 @@ htop
 i3-battery-popup-git
 i3-gaps
 i3lock
-i3status
 imagemagick
 indent
 inotify-tools
-intellij-idea-ultimate-edition
-jdk-openjdk
-jdk11-openjdk
 jq
 libqalculate
 libreoffice-fresh
@@ -78,6 +75,7 @@ nerd-fonts-hack
 network-manager-applet
 networkmanager
 nmap
+nodejs
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji

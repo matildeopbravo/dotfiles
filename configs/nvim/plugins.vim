@@ -7,7 +7,7 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'soywod/himalaya', {'rtp': 'vim'}
+"Plug 'soywod/himalaya', {'rtp': 'vim'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
