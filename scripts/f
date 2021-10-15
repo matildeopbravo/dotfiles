@@ -1,45 +1,56 @@
 #!/bin/bash
 
+function open_file {
+    filetype=$(xdg-mime query filetype "$1")
+    app=$(xdg-mime query default "$filetype")
+
+
+    if [ "$app" == "nvim.desktop" ] && [ "$num_args" -eq 1 ]
+    then
+        nvim "$1"
+    elif [ "$app" == "nvim.desktop" ]
+    then
+        eval "$TERMINAL --class 'floating-term' -e bash -c 'nvim $1'" & disown
+    elif [ -n "$launcher" ]
+    then
+        setsid /bin/sh -c "xdg-open '$1'" &>/dev/null </dev/null &
+        sleep 0.01
+    else
+        xdg-open "$1" & disown
+    fi
+
+}
+
+function open_fzf {
+    dir="${1:-"."}"
+    find_type='find '$dir' -type f '"$exclude_hidden"' ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)""'
+    export FZF_DEFAULT_COMMAND="$find_type"
+    file=$("$fzf" --preview-window=right:60% --preview='bat --color "always" {}')
+    open_file "$file"
+}
+
 set -x
 fzf=${TMUX:+fzf-tmux}
 : "${fzf:=fzf}"
 dir="."
+num_args="$#"
 exclude_hidden='-not -path "*/\.*"'
-[ "$#" -gt 2 ] && [ "$1" != "launcher" ] && exit
+[ "$#" -eq 0 ] && open_fzf
 for arg in "$@";do
     case "$arg" in
         --hidden|-h) unset exclude_hidden
             ;;
         d) dir="$HOME/dotfiles"; unset exclude_hidden
             ;;
-        launcher) launcher=1
+        launcher) launcher=1; open_fzf
             ;;
-        *) dir="$arg"
+        *)
+            if  [ -d "$arg" ]; then
+                    open_fzf "$arg"
+                    break
+            else
+                open_file "$arg"
+            fi
     esac
 done
-if [ -d "$dir" ]
-then
-find_type='find '$dir' -type f '"$exclude_hidden"' ! \( -name "*.aux" -o -name "*.log" -o -name "*dvi" -o -name "*.hi" -o -name "*.o" \)""'
-export FZF_DEFAULT_COMMAND="$find_type"
-file=$("$fzf" --preview-window=right:60% --preview='bat --color "always" {}')
-else
-    file="$dir"
-fi
-if [ -z "$file" ]; then
-    exit
-fi
 
-filetype=$(xdg-mime query filetype "$file")
-app=$(xdg-mime query default "$filetype")
-
-
-if [ "$app" == "nvim.desktop" ]
-then
-    nvim "$file"
-elif [ -n "$launcher" ]
-then
-    setsid /bin/sh -c "xdg-open '$file'" &>/dev/null </dev/null &
-    sleep 0.01
-else
-    xdg-open "$file" & disown
-fi
