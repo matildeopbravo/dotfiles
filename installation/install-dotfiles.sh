@@ -110,7 +110,6 @@ packages(){
 }
 
 rest(){
-
    sudo cp ~/dotfiles/scripts/binaries_to_replace/git /usr/local/sbin/git
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    sudo rmmod pcspkr
@@ -122,6 +121,7 @@ rest(){
    sudo rm my_base16_themes.zip
    cd && wget https://raw.githubusercontent.com/mendess/spell-book/master/scrolls/dmenu.sh &&
    bash dmenu.sh && rm demenu.sh
+   sudo sed -E 's/#(HandleLidSwitch.*)=(.*)/\1=suspend/' /etc/systemd/logind.conf
    read -p "do you wish to install wallpapers ? (defaults to yes)" -n 1 -r
    mkdir Pictures
 
@@ -130,6 +130,10 @@ rest(){
        git clone git@github.com:matildeopbravo/walls.git ~/Pictures/Wallpapers
 
    fi
+
+
+   read -p "What port is your rasp on" -n 5 -r port
+   ssh-copy-id -p "$port" pasok.xyz
 
    cd ; source ~/.zprofile
    lxappearance

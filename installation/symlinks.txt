@@ -15,6 +15,7 @@ dest_dir=~
 scripts
 configs/.inputrc
 configs/.xinitrc
+configs/.Xresources
 configs/zsh/.zshrc
 configs/zsh/.zprofile
 
