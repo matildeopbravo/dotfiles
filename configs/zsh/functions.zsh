@@ -15,7 +15,7 @@ function my_ip() {
 }
 
 scan_hosts() {
-    nmap -sn $(my_ip p | awk '{print $3}') | grep --color=always -E "[^ ]*(lan|home)|^"
+    sudo nmap -snP $(my_ip p | awk '{print $3}') | grep --color=always -E "^|\(.*\)$"
 }
 
 alarm() {
