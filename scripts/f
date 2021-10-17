@@ -29,7 +29,6 @@ function open_fzf {
     open_file "$file"
 }
 
-set -x
 fzf=${TMUX:+fzf-tmux}
 : "${fzf:=fzf}"
 dir="."

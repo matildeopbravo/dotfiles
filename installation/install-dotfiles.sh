@@ -110,6 +110,8 @@ packages(){
 }
 
 rest(){
+   xdg-mime default web-xdg-open.desktop x-scheme-handler/http
+   xdg-mime default web-xdg-open.desktop x-scheme-handler/https
    sudo cp ~/dotfiles/scripts/binaries_to_replace/git /usr/local/sbin/git
    mkdir -p ~/.local/cached # create directory which will be used by zsh to store history
    sudo rmmod pcspkr
