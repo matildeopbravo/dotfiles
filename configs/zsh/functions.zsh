@@ -18,15 +18,16 @@ scan_hosts() {
     sudo nmap -snP $(my_ip p | awk '{print $3}') | grep --color=always -E "^|\(.*\)$"
 }
 
+
+
 alarm() {
     if [ $# -lt 1 ]; then
         echo "provide a time string"
         return 1
     fi
     {
-        link="https://www.youtube.com/watch?v=4iC-7aJ6LDY"
         sleep "$1"
-        mpv --no-video "$link" --input-ipc-server=/tmp/mpvalarm &
+        mpv --no-video /usr/share/sounds/freedesktop/stereo/alarm*
         notify-send -u critical "Alarm" "$2" -a "$(basename "$0")"
     } &
     disown
@@ -179,8 +180,19 @@ torrent(){
   transmission-remote "$1" "$2" 2> /dev/null
 }
 
-function connect_bluetooth {
+connect_bluetooth() {
     sudo systemctl start bluetooth
     bluetoothctl power on &> /dev/null
     bluetoothctl devices | grep -i "$1" | cut -d " " -f 2 | xargs bluetoothctl connect
+}
+
+my_sshfs() {
+    [ -z "$1" ] && echo "Please provide a hostname" && return
+    host="$1"
+    mkdir -p "$host"
+    sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 "$host" "$host":/home/pasok
+}
+
+my_echo() {
+    cat < <(cat <<< "$@")
 }

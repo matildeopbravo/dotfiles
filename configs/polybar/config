@@ -380,7 +380,7 @@ type = custom/script
 interval = 1
 format-prefix = 
 format = <label>
-exec = python $DOTFILES/scripts/spotify_status.py -t 42 -f '  {song} - {artist}'
+exec = bash -c 'printf " %s - %s" "$(spotify_song_info artist)" "$(spotify_song_info title)"'
 
 [module/dnd]
 type = custom/script
