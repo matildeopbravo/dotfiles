@@ -8,7 +8,7 @@ highlight Normal guibg=none
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 highlight NonText guibg=none
-colorscheme base16-default-dark
+colorscheme gruvbox-flat
 set colorcolumn=80
 set number relativenumber
 " show tabs

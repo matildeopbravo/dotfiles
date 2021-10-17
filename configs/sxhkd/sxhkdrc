@@ -31,9 +31,6 @@ super + o
 super + u
         slack & disown ; i3-msg workspace number 8
 
-super + y
-        dmenu_run
-
 super + shift + w
         wallpaper
 
@@ -203,5 +200,3 @@ super + v
 super + f
         i3-msg fullscreen toggle
 
-super + e
-        i3-msg layout tabbed

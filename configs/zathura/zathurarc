@@ -7,9 +7,13 @@ set scroll-page-aware "true"
 set sandbox none
 set statusbar-h-padding 0
 set statusbar-v-padding 0
+set scroll-step 50
+unmap q
 map K zoom in
 map R rotate
 map r reload
 map J zoom out
 map i recolor
+map b toggle_statusbar
+map [fullscreen] f toggle_fullscreen
 set selection-clipboard clipboard

@@ -9,7 +9,9 @@ call plug#begin(stdpath('data') . '/plugged')
 
 "Plug 'soywod/himalaya', {'rtp': 'vim'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'vim-airline/vim-airline'
+Plug 'vimsence/vimsence'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'cohama/lexima.vim'
@@ -217,3 +219,8 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:UltiSnipsExpandTrigger="<S-Tab>"
+let g:vimsence_client_id = '439476230543245312'
+let g:vimsence_small_text = 'NeoVim'
+let g:vimsence_small_image = 'neovim'
+let g:vimsence_editing_details = 'Editing: {}'
+let g:vimsence_editing_state = 'Working on: {}'
