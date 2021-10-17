@@ -1,5 +1,5 @@
-source $ZSHDIR/alias.zsh
 source $ZSHDIR/functions.zsh
+source $ZSHDIR/alias.zsh
 #source "$HOME/.local/share/zsh-vim-mode/zsh-vim-mode.plugin.zsh"
 
 autoload -U colors && colors

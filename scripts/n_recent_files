@@ -1,0 +1,4 @@
+#!/bin/bash
+
+files=( $(ls -t | head -"$1") )
+echo "${files[@]}"

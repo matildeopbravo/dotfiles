@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function last_n() {
+    nospace * && ls -t | head -"$1" | tr '\n' ' '
+}
+
 function my_ip() {
     if [ -z "$1" ]; then
         echo -n "Public ip: "
@@ -35,11 +39,16 @@ function op () {
 done
 }
 
-function nospace() {
-    for file in "$@"; do
-        /usr/bin/mv -vn "$file" "$(echo "$file" | sed -r "s/['&,()!]//g;s/ - /-/g;s/ _ /_/g;s/ /_/g;s/__/_/g")"
-done;
-
+nospace() {
+    for file in *; do
+        grep ' ' <<<"$file" || continue
+        new_name=$(sed -r "s/['&,()!]//g;s/ ([-_]) /\\1/g;s/ /_/g;s/_+/_/g" <<<"$file")
+        if [ -e "$new_name" ]; then
+            echo "can't rename $file to $new_name. A file with that name already exists"
+        else
+            mv -vn "$file" "$new_name"
+        fi
+    done
 }
 md () {
   vim -c ":MarkdownPreview" "$1"
