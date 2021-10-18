@@ -189,8 +189,12 @@ connect_bluetooth() {
 my_sshfs() {
     [ -z "$1" ] && echo "Please provide a hostname" && return
     host="$1"
+    to_mount="$host:/home/pasok"
     mkdir -p "$host"
-    sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 "$host" "$host":/home/pasok
+    if [ "$host" = "architect" ]; then
+        ssh berrygood "mkdir -p architect && { mount | grep architect; } || sshfs architect:/home/pasok architect" ; to_mount="berrygood:/home/pasok/architect"
+    fi
+    { mount | grep "$host"; } || sshfs -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3 "$to_mount" "$host"
 }
 
 my_echo() {
