@@ -53,6 +53,7 @@ i3-gaps
 i3lock
 imagemagick
 indent
+inetutils
 inotify-tools
 jq
 libqalculate
