@@ -380,7 +380,7 @@ type = custom/script
 interval = 1
 format-prefix = 
 format = <label>
-exec = bash -c 'printf " %s - %s" "$(spotify_song_info artist)" "$(spotify_song_info title)"'
+exec = bash -c 'pgrep spotify &>/dev/null && printf " %s - %s" "$(spotify_song_info artist)" "$(spotify_song_info title)"'
 
 [module/dnd]
 type = custom/script

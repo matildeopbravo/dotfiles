@@ -22,3 +22,4 @@ done
 }&
 
 less +F -R /tmp/lyrics
+pkill -P $$
