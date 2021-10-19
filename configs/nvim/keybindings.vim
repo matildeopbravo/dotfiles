@@ -32,6 +32,12 @@ fu! CompileC()
         !./%:r
     endif
 endfu
+au FileType typescript nnoremap <leader>r :call CompileTypeScript()<CR>
+fu! CompileTypeScript()
+        !tsc %
+        !node %:r.js
+endfu
+
 nnoremap <leader>r :call Run()<CR>
 fu! Run()
     write
