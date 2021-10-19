@@ -33,7 +33,7 @@ main() {
 symlinks() {
 
    local dest_dir
-
+   browser && sleep 5s && pkill -f firefox
    if [[ ! -d "$HOME/.config" ]]
    then
       mkdir ~/.config

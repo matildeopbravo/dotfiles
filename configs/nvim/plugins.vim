@@ -8,7 +8,7 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 
 "Plug 'soywod/himalaya', {'rtp': 'vim'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vimsence/vimsence'
@@ -47,9 +47,9 @@ Plug 'voldikss/vim-translator'
 Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 Plug 'machakann/vim-highlightedyank'
 Plug 'lervag/vimtex'
-Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+"Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+"Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+"Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'luochen1990/rainbow'
 Plug 'sirver/ultisnips'
 
