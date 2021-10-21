@@ -1,10 +1,10 @@
 #!/bin/bash
 
-function last_n() {
+last_n() {
     nospace * && ls -t | head -"$1" | tr '\n' ' '
 }
 
-function my_ip() {
+my_ip() {
     if [ -z "$1" ]; then
         echo -n "Public ip: "
         curl ifconfig.me
@@ -33,7 +33,7 @@ alarm() {
     disown
 }
 
-function op () {
+op () {
     for i in "$@"
     do
       xdg-open "$i" & disown

@@ -1,6 +1,6 @@
 if [[ $(hostname) != "archive"   ]];then
     source ~/.bash_aliases
-    source ~/functions.bash
+    source ~/functions.zsh
 fi
 
 if [ "$EUID" -ne 0 ]

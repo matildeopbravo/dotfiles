@@ -17,6 +17,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec_always --no-startup-id python $DOTFILES/scripts/alternating_layouts.py
+exec_always bash -c "kill -SIGUSR1 $(pgrep sxhkd)"
 
 #gaps inner 10
 #gaps outer 6
