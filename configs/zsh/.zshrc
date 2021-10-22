@@ -98,6 +98,7 @@ ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 [ -f "/home/pasok/.ghcup/env" ] && source "/home/pasok/.ghcup/env" # ghcup-env
 
+source /opt/asdf-vm/asdf.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
