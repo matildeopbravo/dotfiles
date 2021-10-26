@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+gcp() {
+    git commit -m "$@" && git push
+}
+
+
 last_n() {
     nospace * && ls -t | head -"$1" | tr '\n' ' '
 }
