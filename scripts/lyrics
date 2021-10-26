@@ -1,5 +1,11 @@
 #!/bin/bash
 
+cleanup() {
+    kill "$pid_sleep";
+}
+
+trap cleanup EXIT
+
 polish() {
     out=$(echo "$1" |
         sed 'y/ãāáǎàçēéěèīíǐìōóǒòūúǔùǖǘǚǜÃĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaaceeeeiiiioooouuuuuuuuAAAAAEEEEIIIIOOOOUUUUUUUU/' |
@@ -24,7 +30,6 @@ song_with_dash=$(polish "$song" | sed 's/ /-/g' )
 link="https://genius.com/$artist_with_dash-$song_with_dash-lyrics"
 link=${link//\'/}
 
-#trap "kill 0" EXIT
 {
     sleep 5s
     kill $$
@@ -34,6 +39,9 @@ pid_sleep="$!"
 while [ -z "$output" ]; do
     output=$(curl -siL "$link")
 done
+ if  echo "$output" | head | grep "404" ; then
+     exit
+ fi
 code=$(echo "$output" | head -1 | cut -d ' ' -f2)
 
 i=0
@@ -52,11 +60,10 @@ while [ -z "$output" ] || [ $i == 0 ]; do
         awk '!NF {if (++n <= 2) print; next}; {n=0;print}' | GREP_COLORS='ms=01;31' grep --color=always -e "^" -e "\[.*]" |
         GREP_COLORS='ms=01;34' grep --color=always -e "^" -e ".*Lyrics$")
 done
-kill "$pid_sleep"
-echo "$output" | { 
-if [ -t 1 ]; then 
+echo "$output" | {
+if [ -t 1 ]; then
   less -R
-else 
+else
   cat
 fi
 }
