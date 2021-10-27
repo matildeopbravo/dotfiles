@@ -69,3 +69,4 @@ alias gst='git status'
 alias glog='git log --pretty=format:'\''%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s'\'' --date=short --graph'
 
 alias ghci='ghci -XNPlusKPatterns'
+alias visual='~/.local/Visual_Paradigm_16.3/bin/Visual_Paradigm'
