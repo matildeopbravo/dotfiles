@@ -7,7 +7,8 @@ gcp() {
 
 
 last_n() {
-    nospace * && ls -t | head -"$1" | tr '\n' ' '
+    n=${1:-1}
+    nospace * && ls -t | head -"$n" | tr '\n' ' '
 }
 
 my_ip() {
