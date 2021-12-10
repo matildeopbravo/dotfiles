@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+recompile_serve() {
+    latexmk -f -pdf -silent -pdflatex="xelatex --shell-escape --interaction=nonstopmode --file-line-error %O %S" "$1"
+    serve "${1%.*}".pdf
+
+}
+
+
 gcp() {
     git commit -m "$@" && git push
 }

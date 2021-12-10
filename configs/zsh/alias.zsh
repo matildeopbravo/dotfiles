@@ -65,6 +65,7 @@ alias grhh='git reset --hard'
 alias grc='git rm -rf --cached'
 alias gp='git push'
 alias gl='git pull'
+alias glf='git reset --hard HEAD; git pull'
 alias gst='git status'
 alias glog='git log --pretty=format:'\''%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s'\'' --date=short --graph'
 
