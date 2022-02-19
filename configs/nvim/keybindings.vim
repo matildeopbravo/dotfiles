@@ -23,6 +23,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap <leader>z :set foldmethod=indent<CR>
 "autocmd Filetype c let b:c=true
 au FileType c nnoremap <leader>r :call CompileC()<CR>
+au FileType cpp nnoremap <leader>r :call CompileC()<CR>
 fu! CompileC()
     write
     if filereadable('makefile') || filereadable('Makefile')
