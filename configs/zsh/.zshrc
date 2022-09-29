@@ -34,16 +34,16 @@ setopt incappendhistory  #Immediately append to the history file, not just when 
 bindkey "^?" backward-delete-char # fixes problem in vi mode when you  want to delete using backspace after leaving normal mode
 bindkey -v # use vi mode
 #bindkey '^R' history-incremental-search-backward
-bindkey '^R' fzf-history
+#bindkey '^R' fzf-history
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^x' edit-command-line
 MODE_CURSOR_VIINS="#00FFFF bar"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
-fzf-history() {
-    cenas=$(history 0 | awk '{ $1=""; print}' | fzf --no-sort --tac --exact)
-    echo -n "$cenas"
-    eval $cenas
-}
+#fzf-history() {
+#    history 0 | awk '{ $1=""; print}' | fzf --no-sort --tac --exact
+#    ##echo -n "$cenas"
+#    ##eval $cenas
+#}
 function Resume {
     fg
     zle push-input
@@ -52,7 +52,7 @@ function Resume {
 }
 zle -N Resume
 bindkey "^Z" Resume
-zle -N fzf-history
+#zle -N fzf-history
 clearing () { clear; echo ; zle redisplay}
 zle -N clearing
 bindkey "^L" clearing
@@ -103,3 +103,7 @@ source /opt/asdf-vm/asdf.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
