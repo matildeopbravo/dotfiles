@@ -1,5 +1,7 @@
+set nocompatible
 set termguicolors
 filetype on
+syntax on
 filetype plugin indent on
 
 syntax enable
