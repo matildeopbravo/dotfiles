@@ -3,30 +3,33 @@
 super + Return
         $TERMINAL
 super + i
-       discord & disown ; \
-       i3-msg workspace number 9
-
-       if [ ! -e /tmp/.discord ];then \
-           sleep 5 ; \
-           touch /tmp/.discord ; \
-           online ; \
-       fi
+          pgrep discord || discord & disown ; \
+          i3-msg workspace number 9 ; \
+          if [ ! -e /tmp/.discord ];then \
+                        sleep 5 ; \
+                        touch /tmp/.discord ; \
+                        online ; \
+          fi
 
 super + p
         $BROWSER
 
 super + shift + p
-#$BROWSER --private-window $(xclip -sel c -o) check if valid link
         $BROWSER --private-window
 
-##super + shift + p
-##        "$BROWSER" $(xclip -sel c -o)
+super + shift + k
+        if pgrep picom ; then \
+            killall picom ;  \
+        else \
+            picom -b --backend glx --experimental-backends ; \
+        fi
+
 super + n
         dmenu_run
+
 super + o
         pgrep spotify || spotify & disown; \
         i3-msg workspace number 10
-        #alacritty --class 'floating-term' -e bash -c "spt"
 
 super + u
         slack & disown ; i3-msg workspace number 8
@@ -66,18 +69,11 @@ super + c
 super + shift + f
     alacritty --class 'floating-term' -e bash -c "f launcher"
 
-
 shift + @Print
-    scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f ; mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
-
-#scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
-
-shift + XF86Eject
-        sleep 1 ; \
-        scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+        scrot -s -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
 control + shift + @Print
-       scrot -sf ~/Pictures/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+       scrot -s -f ~/Pictures/Screenshots/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
 @Print
        scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
@@ -87,7 +83,7 @@ XF86Eject
        scrot -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
 super + @Print
-    scrot -sf -e 'mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
+    scrot -s -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f ; sxiv -b -g $wx$h -p $f && rm $f'
 
 #flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
 
