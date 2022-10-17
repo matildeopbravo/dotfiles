@@ -18,6 +18,7 @@ configs/.xinitrc
 configs/.Xresources
 configs/zsh/.zshrc
 configs/zsh/.zprofile
+configs/git/.gitconfig
 
 dest_dir="$profile_dir/chrome"
 configs/firefox/userChrome.css
