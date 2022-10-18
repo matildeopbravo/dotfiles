@@ -64,3 +64,4 @@ Scripts I use on a daily basis.
 - [refresh_firefox.sh](./scripts/refresh_firefox.sh) - Refreshes firefox
 - [termfromhere-ssh](./scripts/termfromhere-ssh) - Opens another terminal with the same cwd as the focused one. Works while using an ssh connection
 - [binaries_to_replace](./scripts/binaries_to_replace) - gst
+- [dmenu](./scripts/dmenu) - gst

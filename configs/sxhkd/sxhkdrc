@@ -70,6 +70,12 @@ super + shift + f
     alacritty --class 'floating-term' -e bash -c "f launcher"
 
 shift + @Print
+    scrot -s -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f ; mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
+
+#scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
+
+shift + XF86Eject
+        sleep 1 ; \
         scrot -s -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
 
 control + shift + @Print
