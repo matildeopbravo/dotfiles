@@ -121,6 +121,9 @@ super + alt + p
 XF86MonBrightness{Up,Down}
         brightnessctl set 100{+,-}
 
+super + F{6,5}
+        brightnessctl set 500{+,-}
+
 ######### MEDIA ###########
 
 XF86Audio{Raise,Lower}Volume
