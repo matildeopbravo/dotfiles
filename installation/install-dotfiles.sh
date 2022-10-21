@@ -1,5 +1,9 @@
 #!/bin/bash
 
+sudo() { echo "$PASSWORD" | command sudo -S true && command sudo "$@"; }
+
+read -r -s -p "[sudo] password for $LOGNAME: " PASSWORD
+
 path="$0"
 symlink_file="symlinks.txt"
 package_file="packages.txt"
@@ -33,7 +37,7 @@ main() {
 symlinks() {
 
    local dest_dir
-   browser && sleep 5s && pkill -f firefox
+   #browser && sleep 5s && pkill -f firefox
    if [[ ! -d "$HOME/.config" ]]
    then
       mkdir ~/.config
@@ -79,6 +83,7 @@ packages(){
        git clone https://aur.archlinux.org/yay.git $yay_dir
        cd $yay_dir || exit
        makepkg -si
+       yay --save --answerdiff None --answerclean None --removemake
    fi
    echo
 
