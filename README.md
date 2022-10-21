@@ -22,6 +22,7 @@
  - **Document Viewer** : zathura
  - **Hotkey Daemon** : sxhkd
  - **Notification Daemon** : dunst
+ -  **Hotkey Daemon** : sxhkd
 
 ## [Scripts](./scripts):
 
