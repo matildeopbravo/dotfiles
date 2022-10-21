@@ -11,7 +11,7 @@ for_window [class="Sxiv"] floating enable
 for_window [class="Alacritty" instance="floating-term"] floating enable
 
 # Start-Up Apps
-exec_always --no-startup-id picom -b --backend glx --experimental-backends
+exec_always --no-startup-id picom -b --backend glx
 exec_always --no-startup-id feh --bg-fill $DOTFILES/current_wallpaper
 exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -25,7 +25,7 @@ gaps outer 6
 smart_gaps inverse_outer
 smart_gaps on
 smart_borders on
-default_border pixel 4
+for_window [class="^.*"] border pixel 3
 new_float pixel
 new_window pixel 4
 hide_edge_borders none
