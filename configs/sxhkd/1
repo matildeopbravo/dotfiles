@@ -21,11 +21,11 @@ super + shift + k
         if pgrep picom ; then \
             killall picom ;  \
         else \
-            picom -b --backend glx ; \
+            picom -b --backend glx --experimental-backends ; \
         fi
 
 super + n
-        dmenu_run
+        rofi -show drun  -show-icons
 
 super + o
         pgrep spotify || spotify & disown; \
