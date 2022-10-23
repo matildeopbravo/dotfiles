@@ -3,6 +3,7 @@ au Filetype c nnoremap K :Man<CR>
 nmap <M-f> :NERDTreeToggle<CR>
 nmap <M-t> :FloatermNew<CR>
 vnoremap <C-c> "+y
+vnoremap <C-x> "+dd"
 map <F2> :w! <CR>
 vnoremap <C-Shift-c> gg"*yG
 vnoremap <C-J> <C-W><C-J>
