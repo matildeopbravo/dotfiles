@@ -2,6 +2,11 @@
 font pango:DejaVu Sans Mono 8
 set $mod Mod4
 
+default_orientation vertical #start in opposite orientation from your monitor
+for_window [class=".*"] split toggle #toggles split at each new window
+bindsym $mod+shift+q split toggle kill #kill command resets the split
+bindsym $mod+e layout toggle split # should already exist but use if split orientation  messes up
+
 for_window [class="Spotify"] move to workspace 10
 for_window [class="discord"] move to workspace 9
 for_window [class="Franz"] move to workspace 9
@@ -17,7 +22,6 @@ exec --no-startup-id i3-battery-popup -n
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec_always --no-startup-id python $DOTFILES/scripts/alternating_layouts.py
 exec_always bash -c "kill -SIGUSR1 $(pgrep sxhkd) ; sxhkd & disown"
 
 gaps inner 10
