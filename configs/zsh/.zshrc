@@ -18,7 +18,7 @@ setopt PROMPT_SUBST
 #source /home/pasok/.rvm/scripts/rvm
 source $DOTFILES/configs/zsh/themes/robbyrussell.zsh-theme
 #export PROMPT=' %{$fg[green]%}%~%{$reset_color%}$(gitprompt)%{$fg[blue]%} λ %{$reset_color%}'
-
+HOSTNAME=$(hostname)
 # History
 HISTSIZE=10000
 SAVEHIST=10000
@@ -98,7 +98,7 @@ ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 [ -f "/home/pasok/.ghcup/env" ] && source "/home/pasok/.ghcup/env" # ghcup-env
 
-source /opt/asdf-vm/asdf.sh
+#source /opt/asdf-vm/asdf.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
