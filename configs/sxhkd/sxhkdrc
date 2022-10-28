@@ -17,6 +17,9 @@ super + p
 super + shift + p
         $BROWSER --private-window
 
+super + space
+    rofi -modi emoji -show emoji
+
 super + shift + k
         if pgrep picom ; then \
             killall picom ;  \
@@ -53,7 +56,7 @@ super + shift + d
         fi
 
 super + d
-        dmenu_script.sh
+        rofi -show drun
 
 super + s
     ssh_menu
@@ -64,7 +67,7 @@ super + l + y
 
 
 super + c
-        rofi -show calc -modi calc -no-show-match -no-sort -calc-command 'echo -n '{result}' | xclip '
+        rofi -modi calc -show calc -calc-command "xdotool type --clearmodifiers '\{result\}'"
 
 super + shift + f
     alacritty --class 'floating-term' -e bash -c "f launcher"
@@ -112,6 +115,9 @@ F3
 
 super + alt + p
     lights prompt
+
+control + space
+    dunstctl close-all
 
 
 ################################### MEDIA KEYS #################################
