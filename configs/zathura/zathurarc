@@ -17,3 +17,5 @@ map i recolor
 map b toggle_statusbar
 map [fullscreen] f toggle_fullscreen
 set selection-clipboard clipboard
+map f follow
+set sandbox none
