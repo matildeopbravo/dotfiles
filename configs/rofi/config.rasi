@@ -88,3 +88,4 @@ element {
 element selected {
       background-color: #2e343f;
 }
+@theme "/home/pasok/.local/share/rofi/themes/nord.rasi"
