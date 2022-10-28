@@ -9,6 +9,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 "Plug 'soywod/himalaya', {'rtp': 'vim'}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'runoshun/vim-alloy'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vimsence/vimsence'
@@ -16,9 +17,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'cohama/lexima.vim'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
+Plug 'psliwka/vim-smoothie'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-clang'
