@@ -10,6 +10,8 @@ super + i
                         touch /tmp/.discord ; \
                         online ; \
           fi
+#list_tabs.py | grep -E (messenger.com|whatsapp) || firefox -new-window -url "web.whatsapp.com" -url "messenger.com" & disown ; \
+
 
 super + p
         $BROWSER
@@ -75,8 +77,6 @@ super + shift + f
 shift + @Print
     scrot -s -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f ; mv $f /tmp/ && sxiv -b -g $wx$h -p /tmp/$f && rm /tmp/$f'
 
-#scrot -sf /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
-
 shift + XF86Eject
         sleep 1 ; \
         scrot -s -f /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'
@@ -96,11 +96,6 @@ super + @Print
 
 #flameshot & disown && flameshot gui ; sleep 5m ; killall flameshot
 
-control + alt + s
-        systemctl suspend
-
-control + alt + p
-        poweroff
 control + shift + r
         cd ~/Downloads && ls -t | head -n 1 | xargs -0 xdg-open
 
