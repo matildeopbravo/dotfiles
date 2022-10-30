@@ -1,7 +1,7 @@
 #!/bin/bash
 
 extension=$(dmenu -p "Enter extension")
-extension=${extension:="cenas"}
+extension=${extension:="txt"}
 mkdir -p /tmp/vim-anywhere
 file=$(mktemp "/tmp/vim-anywhere/cenasXXXXXX.$extension")
 "$TERMINAL" -e nvim "$file"
