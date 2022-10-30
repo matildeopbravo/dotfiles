@@ -87,9 +87,9 @@ zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
- if [ -z "$TMUX" ]; then
-    tmux -2 attach 2> /dev/null
-  fi
+# if [ -z "$TMUX" ]; then
+#    tmux -2 attach 2> /dev/null
+#  fi
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

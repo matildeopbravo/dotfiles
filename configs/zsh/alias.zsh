@@ -71,7 +71,7 @@ alias glf='git reset --hard HEAD; git pull'
 alias gst='git status'
 alias glog='git log --pretty=format:'\''%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s'\'' --date=short --graph'
 alias tx='latexmk -f -pvc -silent -pdflatex="xelatex --shell-escape --interaction=nonstopmode --file-line-error %O %S"'
-
-
+alias gspu='git stash push'
+alias gspo='git stash pop'
 alias ghci='ghci -XNPlusKPatterns'
 alias visual='~/.local/Visual_Paradigm_16.3/bin/Visual_Paradigm'
