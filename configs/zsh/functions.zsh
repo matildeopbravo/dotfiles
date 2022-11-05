@@ -33,8 +33,19 @@ scan_hosts() {
 }
 
 
-
 alarm() {
+    if [ $# -lt 1 ]; then
+        echo "provide a time for the alarm"
+        return 1
+    fi
+    current_epoch=$(date +%s)
+    current_date=$(date +'%m/%d/%Y')
+    target_epoch=$(date -d "$current_date $1" +%s)
+    sleep_seconds=$(( $target_epoch - $current_epoch ))
+    timer "$sleep_seconds"
+}
+
+timer() {
     if [ $# -lt 1 ]; then
         echo "provide a time string"
         return 1
