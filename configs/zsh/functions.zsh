@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# start_time end_time input_file_name
+cut_video() {
+    output_file=${4:-output.mp4}
+    ffmpeg -ss "$1" -to "$2" -i "$3" -c copy "$output_file"
+
+}
 
 recompile_serve() {
     latexmk -f -pdf -silent -pdflatex="xelatex --shell-escape --interaction=nonstopmode --file-line-error %O %S" "$1"
@@ -224,4 +230,8 @@ my_sshfs() {
 
 my_echo() {
     cat < <(cat <<< "$@")
+}
+
+rg() {
+    /usr/bin/rg -p "$@" | less  -RFX
 }
