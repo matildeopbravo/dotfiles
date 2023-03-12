@@ -83,7 +83,8 @@ nospace() {
     done
 }
 md () {
-  vim -c ":MarkdownPreview" "$1"
+  #nvim -c ":MarkdownPreview" "$1"
+  pandoc "$1" -o ${1%.*}.html && chromium ${1%.*}.html
 }
 
 fix_firefox() {
