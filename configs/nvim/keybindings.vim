@@ -20,6 +20,8 @@ nnoremap s :%s/\<<C-r><C-w>\>/
 nnoremap S :%s//g<Left><Left>
 vnoremap s :%s/\<<C-r><C-w>\>/
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+nnoremap gF <C-W>gf
+vnoremap gF <C-W>gf
 
 nnoremap <leader>z :set foldmethod=indent<CR>
 "autocmd Filetype c let b:c=true
@@ -34,9 +36,13 @@ fu! CompileC()
         !./%:r
     endif
 endfu
-au FileType typescript nnoremap <leader>r :call CompileTypeScript()<CR>
-fu! CompileTypeScript()
+au FileType typescript nnoremap <leader>r :call CompileTypescript()<CR>
+fu! CompileTypescript()
         !tsc %
+        !node %:r.js
+endfu
+au FileType javascript nnoremap <leader>r :call CompileJavascript()<CR>
+fu! CompileJavascript()
         !node %:r.js
 endfu
 
@@ -73,4 +79,4 @@ function! Toggle_transparent()
         let t:is_tranparent = 0
     endif
 endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
