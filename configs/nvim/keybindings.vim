@@ -45,6 +45,10 @@ au FileType javascript nnoremap <leader>r :call CompileJavascript()<CR>
 fu! CompileJavascript()
         !node %:r.js
 endfu
+au FileType go nnoremap <leader>r :call CompileGo()<CR>
+fu! CompileGo()
+        !go run %:r.go
+endfu
 
 nnoremap <leader>r :call Run()<CR>
 fu! Run()
