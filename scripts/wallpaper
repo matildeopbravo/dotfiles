@@ -1,5 +1,12 @@
 #!/bin/bash
 
+tmp_walls="$(dirname "$WALLPAPERS")/tmp_walls"
+
+if [ -d "$tmp_walls" ]; then
+    WALLPAPERS=$tmp_walls
+fi
+
+set -x
 randwall() {
     length=$(find "$WALLPAPERS" -maxdepth 1 -type f -print | wc -l)
     number=$(((RANDOM%length)+1))
@@ -10,7 +17,6 @@ randwall() {
 
 try() {
     curl "$(xclip -o -selection c)" | feh - --bg-fill ; i3-msg "workspace 7"
-    exit
 }
 
 save() {
