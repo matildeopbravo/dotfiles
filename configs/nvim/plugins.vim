@@ -5,24 +5,29 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 " plugins
 
+let g:python3_host_prog = $HOME . '/.local/venv/nvim/bin/python'
+
 call plug#begin(stdpath('data') . '/plugged')
 
 "Plug 'soywod/himalaya', {'rtp': 'vim'}
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'runoshun/vim-alloy'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'cohama/lexima.vim'
+"Plug 'windwp/nvim-autopairs'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
 Plug 'psliwka/vim-smoothie'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-clang'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'zchee/deoplete-clang'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'dkarter/bullets.vim'
@@ -37,6 +42,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-surround'
 Plug 'Sammyalhashe/random_colorscheme.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'rhysd/vim-clang-format'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'kyazdani42/nvim-web-devicons'
@@ -46,16 +52,22 @@ Plug 'axvr/org.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'voldikss/vim-translator'
 Plug 'machakann/vim-highlightedyank'
+Plug 'elixir-editors/vim-elixir'
 Plug 'lervag/vimtex'
 "Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
+"Plug 'GrzegorzKozub/vim-elixirls', { 'do': ':ElixirLsCompileSync' }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'psf/black', { 'branch': 'stable' }
 "Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'luochen1990/rainbow'
 Plug 'leafgarland/typescript-vim'
 Plug 'sirver/ultisnips'
+Plug 'gmoe/vim-eslint-syntax'
+Plug 'folke/todo-comments.nvim'
 
 "Themes
-Plug 'gmoe/vim-eslint-syntax'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
 Plug 'tomasiser/vim-code-dark'
 Plug 'wadackel/vim-dogrun'
 Plug 'joshdick/onedark.vim'
@@ -64,7 +76,7 @@ Plug 'ntk148v/vim-horizon'
 Plug 'morhetz/gruvbox'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'folke/tokyonight.nvim'
 Plug 'sainnhe/sonokai'
 Plug 'ayu-theme/ayu-vim'
 Plug 'drewtempelmeyer/palenight.vim'
@@ -92,8 +104,18 @@ let g:ale_linters = {
     \ 'cpp': ['ccls','g++','clangtidy','clang++'],
     \ 'tex': ['alex', 'chktex', 'proselint', 'redpen',
     \         'texlab', 'textlint', 'vale', 'writegood'],
-    \   'elixir': ['credo', 'dialyxir', 'dogma'],
+    \   'elixir': ['credo', 'elixir-ls', 'dialyxir', 'dogma' ],
+    \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint']
     \ }
+
+
+
+
+" https://github.com/JakeBecker/elixir-ls/issues/54
+let g:ale_elixir_elixir_ls_config = { 'elixirLS': { 'dialyzerEnabled': v:false } }
+
+let g:ale_linters.elixir = [ 'credo', 'elixir-ls' ]
 
 let g:ale_rust_cargo_check_tests = 1
 let g:ale_rust_cargo_default_feature_behavior = 'all'
@@ -129,7 +151,10 @@ let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:ale_sign_error = '>>'
 let b:ale_enabled = 1
-let g:ale_fixers = { 'elixir': ['mix_format'] ,'rust': ['rustfmt'] }
+let g:ale_fixers = { 'elixir': ['mix_format'] ,'rust': ['rustfmt'] ,
+                    \'javascript': ['prettier','eslint'],
+                    \'typescript': ['prettier','eslint'] }
+
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 " Bullets.vim
@@ -217,6 +242,6 @@ let g:highlightedyank_highlight_duration = 100
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
+set conceallevel=0
 let g:tex_conceal='abdmg'
 let g:UltiSnipsExpandTrigger="<S-Tab>"

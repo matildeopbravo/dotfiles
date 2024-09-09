@@ -23,6 +23,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap gF <C-W>gf
 vnoremap gF <C-W>gf
 
+
 nnoremap <leader>z :set foldmethod=indent<CR>
 "autocmd Filetype c let b:c=true
 au FileType c nnoremap <leader>r :call CompileC()<CR>
@@ -84,3 +85,9 @@ function! Toggle_transparent()
     endif
 endfunction
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
