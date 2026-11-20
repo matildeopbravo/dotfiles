@@ -18,3 +18,13 @@
 [user]
 	email = matildeopbravo@gmail.com
 	name = matildeopbravo
+
+[alias]
+	a = add
+	aa = add --all
+	d = diff
+	st = status
+	cm = commit
+	cma = commit --amend
+	pf = push --force-with-lease
+	cmapf = commit --amend && push --force-with-lease
